@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Modal Profil Saya - Warkop TSKUY</title>
+<style>
+  /* --- BASE STYLES --- */
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  body {
+    background-color: #f3f4f6; /* Latar abu-abu untuk demo overlay */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+  }
+
+  /* --- MODAL CONTAINER --- */
+  .profile-modal {
+    background-color: #ffffff;
+    width: 100%;
+    max-width: 600px; /* Ukuran pas untuk form profil */
+    border: 2px solid #f4b400; /* Border kuning mengelilingi modal */
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Biar ujung atas header ngikutin border-radius */
+  }
+
+  /* --- HEADER --- */
+  .modal-header {
+    background-color: #f4b400; /* Kuning Warkop */
+    padding: 16px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .modal-header h2 {
+    font-size: 20px;
+    color: #ffffff;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+
+  .close-btn {
+    background: none;
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.2s;
+  }
+
+  .close-btn:hover {
+    opacity: 0.8;
+  }
+
+  /* --- MODAL BODY --- */
+  .modal-body {
+    padding: 30px 24px 24px 24px;
+  }
+
+  /* --- USER INFO (AVATAR & NAMA) --- */
+  .user-info {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 30px;
+  }
+
+  .avatar {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid #e5e7eb;
+  }
+
+  .user-details h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 4px;
+  }
+
+  .user-details p {
+    font-size: 14px;
+    color: #64748b; /* Warna biru-abu untuk role */
+    font-weight: 500;
+  }
+
+  /* --- FORM AREA --- */
+  .form-area {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 30px;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .form-group label {
+    font-size: 14px;
+    font-weight: 700;
+    color: #374151; /* Abu-abu gelap */
+  }
+
+  .form-group input {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid #9ca3af; /* Border abu-abu netral */
+    border-radius: 8px;
+    font-size: 15px;
+    color: #6b7280; /* Teks abu-abu (tanda readonly) */
+    background-color: #ffffff;
+    outline: none;
+    font-weight: 500;
+  }
+
+  /* --- FOOTER / ACTION BUTTON --- */
+  .modal-footer {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .btn-edit {
+    background-color: #f4b400; /* Kuning tombol */
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    padding: 14px 40px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+
+  .btn-edit:hover {
+    background-color: #d97706; /* Kuning lebih gelap pas di-hover */
+  }
+
+  /* --- RESPONSIVE --- */
+  @media (max-width: 480px) {
+    .btn-edit {
+      width: 100%; /* Tombol jadi full width di layar HP kecil */
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="profile-modal">
+  <div class="modal-header">
+    <h2>Profil Saya</h2>
+    <button class="close-btn" title="Tutup">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="10"></circle>
+        <line x1="15" y1="9" x2="9" y2="15"></line>
+        <line x1="9" y1="9" x2="15" y2="15"></line>
+      </svg>
+    </button>
+  </div>
+
+  <div class="modal-body">
+    
+    <div class="user-info">
+      <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=150&q=80" alt="Avatar Dzaky Fauzi" class="avatar">
+      <div class="user-details">
+        <h3>Dzaky Fauzi</h3>
+        <p>Cashier</p>
+      </div>
+    </div>
+
+    <div class="form-area">
+      <div class="form-group">
+        <label>Nama lengkap</label>
+        <input type="text" value="Dzaky Fauzi" readonly>
+      </div>
+      
+      <div class="form-group">
+        <label>Username</label>
+        <input type="text" value="Dzaky Fauzi" readonly>
+      </div>
+      
+      <div class="form-group">
+        <label>Email</label>
+        <input type="text" value="Dzaky Fauzi" readonly>
+      </div>
+      
+      <div class="form-group">
+        <label>Peran / Role</label>
+        <input type="text" value="Dzaky Fauzi" readonly>
+      </div>
+    </div>
+
+    <div class="modal-footer">
+      <button class="btn-edit">Edit Profil</button>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pop-up Unduh Data Menu</title>
+<link rel="stylesheet" href="../css/export_data-css.css">
+</head>
+<body>
+
+<div class="export-modal">
+  <div class="export-header">
+    <h2>Unduh Data Menu</h2>
+    <button class="close-btn">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="10"></circle>
+        <line x1="15" y1="9" x2="9" y2="15"></line>
+        <line x1="9" y1="9" x2="15" y2="15"></line>
+      </svg>
+    </button>
+  </div>
+
+  <div class="format-section">
+    <h3>Pilih Format Data</h3>
+    <div class="format-options">
+      <label class="format-label">
+        <input type="radio" name="format" value="excel" checked>
+        <div class="format-card">
+          <svg width="32" height="40" viewBox="0 0 24 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4 2C4 0.89543 4.89543 0 6 0H14.5L20 5.5V28C20 29.1046 19.1046 30 18 30H6C4.89543 30 4 29.1046 4 28V2Z" fill="white" stroke="#cbd5e1" stroke-width="1.5"/>
+            <path d="M14.5 0V5.5H20" stroke="#cbd5e1" stroke-width="1.5" stroke-linejoin="round"/>
+            <rect x="2" y="16" width="20" height="9" rx="2" fill="#16a34a"/>
+            <text x="12" y="22" font-family="Arial" font-size="6" font-weight="bold" fill="white" text-anchor="middle" dominant-baseline="middle">XLSX</text>
+          </svg>
+          <span>Excel</span>
+        </div>
+      </label>
+
+      <label class="format-label">
+        <input type="radio" name="format" value="pdf">
+        <div class="format-card">
+          <svg width="32" height="40" viewBox="0 0 24 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4 2C4 0.89543 4.89543 0 6 0H14.5L20 5.5V28C20 29.1046 19.1046 30 18 30H6C4.89543 30 4 29.1046 4 28V2Z" fill="white" stroke="#cbd5e1" stroke-width="1.5"/>
+            <path d="M14.5 0V5.5H20" stroke="#cbd5e1" stroke-width="1.5" stroke-linejoin="round"/>
+            <rect x="2" y="16" width="20" height="9" rx="2" fill="#dc2626"/>
+            <text x="12" y="22" font-family="Arial" font-size="6.5" font-weight="bold" fill="white" text-anchor="middle" dominant-baseline="middle">PDF</text>
+          </svg>
+          <span>PDF</span>
+        </div>
+      </label>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="range-section">
+    <h4>Rentang Data</h4>
+    <div class="radio-group">
+      <label class="radio-label">
+        <input type="radio" name="range" value="semua">
+        <span class="custom-radio"></span>
+        <span>Semua Data Menu <span class="count">(50 Item)</span></span>
+      </label>
+      <label class="radio-label">
+        <input type="radio" name="range" value="tampil" checked>
+        <span class="custom-radio"></span>
+        <span>Hanya Menu Yang Sedang Sditampilkan <span class="count">(3 Menu)</span></span>
+      </label>
+      <label class="radio-label">
+        <input type="radio" name="range" value="kosong">
+        <span class="custom-radio"></span>
+        <span>Tidak Tersedia</span>
+      </label>
+    </div>
+  </div>
+
+  <div class="export-footer">
+    <button class="btn-download">Unduh Data</button>
+  </div>
+</div>
+
+</body>
+</html>
