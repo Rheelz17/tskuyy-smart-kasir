@@ -2192,7 +2192,7 @@ label.antrian-card:hover { filter:brightness(0.96); transform:translateY(-1px); 
 .popup-btn-selesai { margin-top:0; }
 
 
-/* ==================== TABLET RESPONSIVE (768px - 1024px) ==================== */
+/* ==================== TABLET (≤ 1024px) ==================== */
 @media (max-width: 1024px) {
 
   /* ---- HEADER ---- */
@@ -2217,203 +2217,28 @@ label.antrian-card:hover { filter:brightness(0.96); transform:translateY(-1px); 
     padding: 6px 8px;
   }
 
-  /* ---- QUEUE SECTION ---- */
-  .queue-container {
-    gap: 8px;
-  }
-
-  /* ---- POPUP MENU DETAIL ---- */
-  .popup-menu-detail {
-    width: 90vw;
-  }
-
-  .menu-detail-img-wrap {
-    width: 200px;
-  }
-
-  /* ---- POPUP ANTRIAN FULL ---- */
-  .popup-antrian-full {
-    width: 90vw;
-  }
-
-  .antrian-full-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 820px) {
-
-  /* ---- HEADER ---- */
-  .main-header {
-    padding: 0 12px;
-    height: 58px;
-  }
-
-  .header-left {
-    gap: 12px;
-  }
-
-  .search-container {
-    width: 30%;
-  }
-
-  /* ---- SIDEBAR: tetap muncul ---- */
-  .sidebar {
-    width: 54px;
-  }
-
-  /* ---- MAIN LAYOUT ---- */
-  .main-layout {
-    position: relative;
-  }
-
-  /* ---- CONTENT AREA ---- */
-  .content-area {
-    padding: 10px;
-    gap: 10px;
-  }
-
-  /* ---- CART SIDEBAR: full-width overlay toggle ---- */
-  /* Sembunyikan cart di layar kecil, tampilkan sebagai overlay */
-  .cart-sidebar {
-    position: fixed;
-    right: -100%;
-    top: 58px;
-    bottom: 0;
-    width: 320px;
-    max-width: 90vw;
-    z-index: 200;
-    transition: right 0.3s ease;
-    box-shadow: -4px 0 24px rgba(0,0,0,0.12);
-    border-left: none;
-  }
-
-  /* Tombol toggle cart untuk tablet portrait */
-  .cart-toggle-btn {
-    display: flex !important;
-  }
-
-  /* ---- POPUP MENU DETAIL: stack vertikal ---- */
-  .menu-detail-inner {
-    flex-direction: column;
-  }
-
-  .menu-detail-img-wrap {
-    width: 100%;
-    height: 200px;
-  }
-
-  .menu-detail-img {
-    min-height: 200px;
-  }
-
-  .menu-detail-info {
-    max-height: none;
-  }
-
-  .popup-menu-detail {
-    width: 92vw;
-    max-height: 85vh;
-    overflow-y: auto;
-  }
-
-  /* ---- POPUP ANTRIAN FULL ---- */
-  .antrian-full-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-    padding: 0 16px 20px;
-  }
-
-  .antrian-tabs {
-    gap: 8px;
-    padding: 0 16px 12px;
-    flex-wrap: wrap;
-  }
-
-  /* ---- QUEUE CARDS ---- */
-  .queue-card {
-    padding: 12px;
-  }
-}
-
-/* Cart Toggle Button — hanya muncul di tablet portrait ke bawah */
-.cart-toggle-btn {
-  display: none;
-  position: fixed;
-  bottom: 24px;
-  right: 20px;
-  z-index: 201;
-  background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
-  color: #fff;
-  border: none;
-  border-radius: 50px;
-  padding: 12px 20px;
-  font-size: 13px;
-  font-weight: 700;
-  cursor: pointer;
-  gap: 8px;
-  align-items: center;
-  box-shadow: 0 4px 16px rgba(251,191,36,0.5);
-  transition: all 0.2s;
-}
-
-.cart-toggle-btn:hover {
-  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
-  transform: translateY(-2px);
-}
-
-/* State saat cart terbuka */
-.cart-open .cart-sidebar {
-  right: 0;
-}
-
-.cart-open .cart-overlay {
-  display: block;
-}
-
-.cart-overlay {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.35);
-  z-index: 199;
-}
-
-/* ==================== QUEUE CARD: 2 KARTU DI TABLET ==================== */
-@media (max-width: 1024px) {
+  /* ---- QUEUE ---- */
   .queue-container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-  }
-
-  /* Sembunyikan kartu ke-3 dan seterusnya */
-  .queue-container .queue-card:nth-child(n+3) {
-    display: none;
-  }
-}
-
-@media (max-width: 820px) {
-  .queue-container {
-    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
   }
 
   .queue-container .queue-card:nth-child(n+3) {
     display: none;
   }
-}
 
+  .queue-card {
+    padding: 12px;
+  }
 
-/* ==================== POPUP TABLET RESPONSIVE ==================== */
-@media (max-width: 1024px) {
-
-  /* ---- Base popup: lebih lebar, pakai vw ---- */
+  /* ---- POPUP GENERAL ---- */
   .popup {
     width: 88vw;
     max-width: 460px;
     border-radius: 18px;
   }
 
-  /* ---- Popup Warning (Hapus / Batal Pesanan) ---- */
   .popup-warning {
     width: 88vw;
     max-width: 420px;
@@ -2433,90 +2258,7 @@ label.antrian-card:hover { filter:brightness(0.96); transform:translateY(-1px); 
     font-size: 16px;
   }
 
-  /* ---- Popup Pembayaran ---- */
-  .popup-total-amount {
-    font-size: 26px;
-  }
-
-  .payment-option {
-    padding: 12px 14px;
-    gap: 12px;
-  }
-
-  .payment-option-icon {
-    width: 40px;
-    height: 40px;
-  }
-
-  .payment-option-text {
-    font-size: 14px;
-  }
-
-  /* ---- Popup Konfirmasi QRIS ---- */
-  .confirm-illustration {
-    width: 160px;
-  }
-
-  .confirm-title {
-    font-size: 16px;
-  }
-
-  .popup-body-confirm {
-    padding-top: 28px;
-  }
-
-  /* ---- Popup QR Code ---- */
-  .qr-img {
-    width: 160px;
-    height: 160px;
-  }
-
-  /* ---- Popup Tunai ---- */
-  .tunai-input {
-    font-size: 14px;
-    padding: 12px 14px;
-  }
-
-  .preset-btn {
-    padding: 10px;
-    font-size: 12px;
-  }
-
-  .tunai-kembalian {
-    font-size: 14px;
-    padding: 12px 14px;
-  }
-
-  /* ---- Popup Berhasil ---- */
-  .success-title {
-    font-size: 18px;
-  }
-
-  .success-icon {
-    width: 70px;
-    height: 70px;
-  }
-
-  /* ---- Popup Alasan Batalkan ---- */
-  .alasan-option {
-    padding: 11px 14px;
-    gap: 10px;
-  }
-
-  .alasan-text {
-    font-size: 12px;
-  }
-
-  /* ---- Popup Detail Antrian ---- */
-  .detail-antrian-title {
-    font-size: 16px;
-  }
-
-  .detail-item {
-    padding: 12px 14px;
-  }
-
-  /* ---- Popup Detail Menu ---- */
+  /* ---- POPUP MENU DETAIL ---- */
   .popup-menu-detail {
     width: 86vw;
     max-width: 640px;
@@ -2539,7 +2281,7 @@ label.antrian-card:hover { filter:brightness(0.96); transform:translateY(-1px); 
     padding: 20px 16px 14px;
   }
 
-  /* ---- Popup Antrian Full ---- */
+  /* ---- POPUP ANTRIAN FULL ---- */
   .popup-antrian-full {
     width: 86vw;
     max-width: 680px;
@@ -2565,11 +2307,136 @@ label.antrian-card:hover { filter:brightness(0.96); transform:translateY(-1px); 
     padding: 7px 13px;
     font-size: 12px;
   }
+
+  /* ---- POPUP PEMBAYARAN ---- */
+  .popup-total-amount {
+    font-size: 26px;
+  }
+
+  .payment-option {
+    padding: 12px 14px;
+    gap: 12px;
+  }
+
+  .payment-option-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .payment-option-text {
+    font-size: 14px;
+  }
+
+  /* ---- QR & CONFIRM ---- */
+  .confirm-illustration {
+    width: 160px;
+  }
+
+  .confirm-title {
+    font-size: 16px;
+  }
+
+  .popup-body-confirm {
+    padding-top: 28px;
+  }
+
+  .qr-img {
+    width: 160px;
+    height: 160px;
+  }
+
+  /* ---- TUNAI ---- */
+  .tunai-input {
+    font-size: 14px;
+    padding: 12px 14px;
+  }
+
+  .preset-btn {
+    padding: 10px;
+    font-size: 12px;
+  }
+
+  .tunai-kembalian {
+    font-size: 14px;
+    padding: 12px 14px;
+  }
+
+  /* ---- SUCCESS ---- */
+  .success-title {
+    font-size: 18px;
+  }
+
+  .success-icon {
+    width: 70px;
+    height: 70px;
+  }
+
+  /* ---- ALASAN ---- */
+  .alasan-option {
+    padding: 11px 14px;
+    gap: 10px;
+  }
+
+  .alasan-text {
+    font-size: 12px;
+  }
+
+  /* ---- DETAIL ANTRIAN ---- */
+  .detail-antrian-title {
+    font-size: 16px;
+  }
+
+  .detail-item {
+    padding: 12px 14px;
+  }
 }
 
-/* ---- Portrait tablet (≤ 820px): popup lebih ramping ---- */
+
+/* ==================== TABLET KECIL / MOBILE (≤ 820px) ==================== */
 @media (max-width: 820px) {
 
+  /* ---- HEADER ---- */
+  .main-header {
+    padding: 0 12px;
+    height: 58px;
+  }
+
+  .header-left {
+    gap: 12px;
+  }
+
+  .search-container {
+    width: 30%;
+  }
+
+  /* ---- SIDEBAR ---- */
+  .sidebar {
+    width: 54px;
+  }
+
+  /* ---- CONTENT ---- */
+  .content-area {
+    padding: 10px;
+    gap: 10px;
+  }
+
+  .cart-sidebar {
+    height: calc(100vh - 62px); /* sesuaikan tinggi header */
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* matikan tombol toggle */
+  .cart-toggle-btn {
+    display: none !important;
+  }
+
+  /* overlay juga dimatikan */
+  .cart-overlay {
+    display: none !important;
+  }
+}
+  /* ---- POPUP ---- */
   .popup {
     width: 92vw;
     max-width: 400px;
@@ -2580,15 +2447,7 @@ label.antrian-card:hover { filter:brightness(0.96); transform:translateY(-1px); 
     max-width: 380px;
   }
 
-  /* Popup Detail Menu: stack vertikal sudah diatur sebelumnya,
-     tambahan penyesuaian ukuran */
-  .popup-menu-detail {
-    width: 94vw;
-    max-width: 420px;
-    max-height: 88vh;
-    overflow-y: auto;
-  }
-
+  /* ---- MENU DETAIL (STACK) ---- */
   .menu-detail-inner {
     flex-direction: column;
   }
@@ -2596,7 +2455,6 @@ label.antrian-card:hover { filter:brightness(0.96); transform:translateY(-1px); 
   .menu-detail-img-wrap {
     width: 100%;
     height: 180px;
-    flex-shrink: 0;
   }
 
   .menu-detail-img {
@@ -2605,21 +2463,26 @@ label.antrian-card:hover { filter:brightness(0.96); transform:translateY(-1px); 
 
   .menu-detail-info {
     max-height: none;
-    overflow-y: visible;
-    padding: 16px 16px 12px;
+    padding: 16px;
     gap: 10px;
   }
 
   .menu-detail-name {
     font-size: 16px;
-    margin-top: 4px;
   }
 
   .menu-detail-price {
     font-size: 15px;
   }
 
-  /* Popup Antrian Full: 2 kolom, scroll */
+  .popup-menu-detail {
+    width: 94vw;
+    max-width: 420px;
+    max-height: 88vh;
+    overflow-y: auto;
+  }
+
+  /* ---- ANTRIAN FULL ---- */
   .popup-antrian-full {
     width: 94vw;
     max-height: 88vh;
@@ -2650,7 +2513,7 @@ label.antrian-card:hover { filter:brightness(0.96); transform:translateY(-1px); 
     padding: 6px 11px;
   }
 
-  /* Konfirmasi QRIS — lebih compact */
+  /* ---- QR ---- */
   .confirm-illustration {
     width: 130px;
   }
@@ -2660,7 +2523,7 @@ label.antrian-card:hover { filter:brightness(0.96); transform:translateY(-1px); 
     height: 140px;
   }
 
-  /* Popup body padding lebih kecil */
+  /* ---- GLOBAL POPUP SPACING ---- */
   .popup-body {
     padding: 16px;
     gap: 12px;
@@ -2676,5 +2539,49 @@ label.antrian-card:hover { filter:brightness(0.96); transform:translateY(-1px); 
   }
 }
 
+
+/* ==================== CART BUTTON ==================== */
+.cart-toggle-btn {
+  display: none;
+  position: fixed;
+  bottom: 24px;
+  right: 20px;
+  z-index: 201;
+  background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  padding: 12px 20px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  gap: 8px;
+  align-items: center;
+  box-shadow: 0 4px 16px rgba(251,191,36,0.5);
+  transition: all 0.2s;
+}
+
+.cart-toggle-btn:hover {
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  transform: translateY(-2px);
+}
+
+
+/* ==================== CART STATE ==================== */
+.cart-open .cart-sidebar {
+  right: 0;
+}
+
+.cart-open .cart-overlay {
+  display: block;
+}
+
+.cart-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  z-index: 199;
+}
 
 
