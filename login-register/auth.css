@@ -58,8 +58,6 @@ body {
 }
 
 .brand-logo {
-  width: 44px;
-  height: 44px;
   background: #fefce8;
   border: 2px solid #fbbf24;
   border-radius: 50%;
@@ -67,6 +65,8 @@ body {
   align-items: center;
   justify-content: center;
 }
+
+.logo-login-img { width: 40px; height: 40px; object-fit: cover; border-radius: 50%; display: block; }
 
 .brand-text {
   display: flex;
