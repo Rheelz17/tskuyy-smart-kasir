@@ -288,12 +288,20 @@ body {
   display: flex;
   gap: 12px;
   flex: 1;
-  overflow-x: hidden;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;   /* ← snap antar kartu */
+  scroll-behavior: smooth;
+}
+
+/* scrollbar style */
+.queue-container::-webkit-scrollbar {
+  display: none;
 }
 
 .queue-card {
-  flex: 1;
-  min-width: 0;
+  flex-shrink: 0;
+  min-width: calc(33.333% - 8px);
+  scroll-snap-align: start;
   background: #e8f5e9;
   border-radius: 12px;
   padding: 14px;
@@ -2022,8 +2030,6 @@ label.queue-card {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  flex: 1;
-  min-width: 0;
   border-radius: 12px;
   padding: 14px;
   transition: filter 0.15s, transform 0.15s;
