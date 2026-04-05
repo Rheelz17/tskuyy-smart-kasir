@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Modal Edit Menu</title>
+<link rel="stylesheet" href="../css/pop-up_editMenu.css">
+</head>
+<body>
+
+<div class="modal">
+  <div class="modal-header">
+    <div class="header-text">
+      <h2>Edit Menu</h2>
+      <p>Silakan sesuaikan perubahan yang Anda inginkan.</p>
+    </div>
+    <button class="close-btn">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="10"></circle>
+        <line x1="15" y1="9" x2="9" y2="15"></line>
+        <line x1="9" y1="9" x2="15" y2="15"></line>
+      </svg>
+    </button>
+  </div>
+
+  <div class="modal-body">
+    <div class="image-preview">
+      <img src="https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&w=400&q=80" alt="Preview Nasi Goreng">
+    </div>
+
+    <div class="form-area">
+      <div class="form-group">
+        <label>Nama Menu</label>
+        <input type="text" value="Nasi Goreng">
+      </div>
+      <div class="form-group">
+        <label>Kode Menu</label>
+        <input type="text" value="NG">
+      </div>
+      <div class="form-group">
+        <label>Kategori</label>
+        <select>
+          <option value="makanan" selected>Makanan</option>
+          <option value="minuman">Minuman</option>
+          <option value="snack">Snack</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Stok</label>
+        <input type="number" value="100">
+      </div>
+      <div class="form-group">
+        <label>Harga Jual</label>
+        <input type="text" value="Rp. 15.000"> 
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-footer">
+    <div class="status-toggle">
+      <span>Status awal</span>
+      <label class="switch">
+        <input type="checkbox" checked> <span class="slider"></span>
+      </label>
+    </div>
+    <div class="action-buttons">
+      <button class="btn btn-batal">Batal</button>
+      <button class="btn btn-simpan">Simpan</button>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

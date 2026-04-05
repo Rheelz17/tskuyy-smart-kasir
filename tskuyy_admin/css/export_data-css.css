@@ -1,0 +1,211 @@
+ /* --- BASE STYLES --- */
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  body {
+    background-color: #f3f4f6; /* Latar abu-abu untuk demo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+  }
+
+  /* --- MODAL CONTAINER --- */
+  .export-modal {
+    background-color: #ffffff;
+    width: 100%;
+    max-width: 360px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* --- HEADER --- */
+  .export-header {
+    background-color: #eab308; /* Kuning Warkop TSKUY */
+    padding: 16px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+
+  .export-header h2 {
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  .close-btn {
+    position: absolute;
+    right: 20px;
+    background: none;
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.2s;
+  }
+
+  .close-btn:hover {
+    opacity: 0.8;
+  }
+
+  /* --- FORMAT SELECTION (TOP BODY) --- */
+  .format-section {
+    padding: 24px 24px 20px 24px;
+  }
+
+  .format-section h3 {
+    text-align: center;
+    color: #78350f; /* Cokelat tua */
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 16px;
+  }
+
+  .format-options {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  /* Format Card (Styled as hidden Radio Buttons) */
+  .format-label {
+    cursor: pointer;
+  }
+
+  .format-label input[type="radio"] {
+    display: none;
+  }
+
+  .format-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 14px;
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+    transition: all 0.2s;
+  }
+
+  .format-card span {
+    font-size: 16px;
+    font-weight: 700;
+    color: #000000;
+  }
+
+  /* Efek saat format dipilih */
+  .format-label input[type="radio"]:checked + .format-card {
+    border-color: #eab308;
+    background-color: #fefce8;
+    box-shadow: 0 0 0 1px #eab308;
+  }
+
+  /* --- DIVIDER --- */
+  .divider {
+    border: none;
+    border-top: 1px solid #e5e7eb;
+    margin: 0;
+  }
+
+  /* --- RANGE SELECTION (BOTTOM BODY) --- */
+  .range-section {
+    padding: 20px 24px;
+  }
+
+  .range-section h4 {
+    color: #6b7280;
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 12px;
+  }
+
+  .radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .radio-label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    font-size: 13px;
+    color: #374151;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+
+  .radio-label .count {
+    color: #9ca3af;
+    font-weight: 400;
+  }
+
+  /* Custom Radio (Sama kayak komponen filter) */
+  .radio-label input[type="radio"] {
+    display: none;
+  }
+
+  .custom-radio {
+    width: 20px;
+    height: 20px;
+    border: 1.5px solid #d1d5db;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s ease-in-out;
+    flex-shrink: 0;
+  }
+
+  .custom-radio::after {
+    content: "";
+    width: 10px;
+    height: 10px;
+    background-color: #facc15;
+    border-radius: 50%;
+    transform: scale(0);
+    transition: transform 0.2s ease-in-out;
+  }
+
+  .radio-label input[type="radio"]:checked + .custom-radio {
+    border-color: #facc15;
+  }
+
+  .radio-label input[type="radio"]:checked + .custom-radio::after {
+    transform: scale(1);
+  }
+
+  /* --- FOOTER ACTION --- */
+  .export-footer {
+    padding: 0 24px 24px 24px;
+  }
+
+  .btn-download {
+    width: 100%;
+    background-color: #eab308; /* Kuning solid */
+    color: #ffffff;
+    border: none;
+    border-radius: 20px; /* Bentuk pill/kapsul */
+    padding: 12px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+
+  .btn-download:hover {
+    background-color: #ca8a04;
+  }
