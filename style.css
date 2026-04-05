@@ -414,9 +414,11 @@ img    { display: block; }
 .success-btn:hover { background: #d9a000; }
 
 /* ===== RESPONSIVE ===== */
-@media (max-width: 1200px) { .menu-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 200px)); } }
+@media (max-width: 1200px) { .menu-grid { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); } }
 @media (max-width: 1000px) {
   .page-wrapper { flex-direction: column; }
   .cart-sidebar { width: 100%; min-width: unset; position: static; height: auto; border-left: none; border-top: 2px solid var(--border); }
 }
 @media (max-width: 720px) { .menu-grid { grid-template-columns: repeat(2, 1fr); } }
+
+pilihan menu(kategori tab) perlu disesuaikan dengan media nya, jadi masuk aturan, 
