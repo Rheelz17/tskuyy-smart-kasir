@@ -1,411 +1,833 @@
-    /* ===== SEMUA CSS TETAP SAMA DARI style.css ===== */
-    :root {
-      --primary:       #EFB100;
-      --primary-dark:  #894B00;
-      --price-color:   #DD9776;
-      --desc-color:    #979797;
-      --white:         #FFFFFF;
-      --bg-page:       #F9FAFB;
-      --bg-card:       #FFFFFF;
-      --border:        #E8E8E8;
-      --text-dark:     #1A1A1A;
-      --text-light:    #888888;
-      --shadow-sm:     0 2px 8px rgba(0,0,0,0.07);
-      --shadow-md:     0 6px 24px rgba(0,0,0,0.13);
-      --radius-card:   20px;
-      --radius-full:   999px;
-    }
+/* =============================================
+   WARKOP TSKUY — style.css
+   Pure HTML + CSS | :target popup | Mobile-first
+   Font: Poppins
+   ============================================= */
 
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: 'Poppins', sans-serif;
-      background-color: var(--bg-page);
-      color: var(--text-dark);
-      font-size: 14px;
-      line-height: 1.5;
-      min-height: 100vh;
-    }
-    button { font-family: 'Poppins', sans-serif; cursor: pointer; border: none; background: none; }
-    input  { font-family: 'Poppins', sans-serif; }
-    img    { display: block; }
-    a      { text-decoration: none; color: inherit; }
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
 
-    /* ===== NAVBAR ===== */
-    .navbar {
-      position: sticky; top: 0; z-index: 200;
-      background: var(--white);
-      box-shadow: var(--shadow-sm);
-      padding: 12px 32px;
-      display: flex; align-items: center; gap: 20px;
-    }
-    .navbar__brand { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
-    .logo-circle {
-      width: 52px; height: 52px; border-radius: 50%;
-      background: linear-gradient(135deg, var(--primary-dark), var(--primary));
-      display: flex; align-items: center; justify-content: center;
-      box-shadow: 0 2px 8px rgba(137,75,0,0.28);
-    }
-    .navbar__title { display: flex; flex-direction: column; line-height: 1.1; }
-    .brand-top  { font-size: 13px; font-weight: 600; color: var(--primary-dark); }
-    .brand-bottom { font-size: 26px; font-weight: 800; color: var(--primary-dark); letter-spacing: -0.5px; }
-    .navbar__search { flex: 1; max-width: 540px; position: relative; margin: 0 auto; }
-    .search-input {
-      width: 100%; padding: 11px 46px 11px 18px;
-      border: 1.5px solid var(--border); border-radius: var(--radius-full);
-      font-size: 14px; color: var(--text-dark); background: var(--white);
-      outline: none; transition: border-color .2s;
-    }
-    .search-input::placeholder { color: var(--text-light); }
-    .search-input:focus { border-color: var(--primary); }
-    .search-btn { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); color: var(--primary); display: flex; align-items: center; }
-    .table-badge {
-      padding: 8px 20px; border: 2px solid var(--primary); border-radius: var(--radius-full);
-      font-size: 13px; font-weight: 600; color: var(--primary-dark); white-space: nowrap;
-    }
+/* ===== VARIABEL ===== */
+:root {
+  --kuning:        #EFB100;
+  --kuning-gelap:  #894B00;
+  --harga:         #DD9776;
+  --keterangan:    #979797;
+  --putih:         #FFFFFF;
+  --bg:            #F5F5F5;
+  --border:        #E8E8E8;
+  --teks:          #1A1A1A;
+  --teks-abu:      #888888;
+  --merah:         #E53935;
+  --bayangan:      0 2px 12px rgba(0,0,0,0.10);
+  --bayangan-besar:0 8px 32px rgba(0,0,0,0.18);
+  --radius:        20px;
+  --radius-penuh:  999px;
+  --tinggi-nav:    68px;
+  --tinggi-bar-hp: 72px;
+}
 
-    /* ===== PAGE WRAPPER ===== */
-    .page-wrapper { display: flex; align-items: flex-start; min-height: calc(100vh - 76px); }
+/* ===== RESET ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Poppins', sans-serif;
+  background: var(--bg);
+  color: var(--teks);
+  font-size: 14px;
+  line-height: 1.5;
+  min-height: 100vh;
+}
+a      { text-decoration: none; color: inherit; }
+img    { display: block; max-width: 100%; }
+button { font-family: 'Poppins', sans-serif; cursor: pointer; border: none; background: none; }
+input  { font-family: 'Poppins', sans-serif; }
 
-    /* ===== MAIN CONTENT ===== */
-    .main-content { flex: 1; padding: 24px 28px 60px; min-width: 0; }
+/* =============================================
+   NAVBAR
+   ============================================= */
+.navbar {
+  position: sticky; top: 0; z-index: 100;
+  background: var(--putih);
+  box-shadow: 0 1px 8px rgba(0,0,0,0.08);
+  height: var(--tinggi-nav);
+  padding: 0 24px;
+  display: flex; align-items: center;
+  justify-content: space-between; gap: 12px;
+}
+.navbar__merek { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+.logo-bulat {
+  width: 48px; height: 48px; border-radius: 50%;
+  overflow: hidden; flex-shrink: 0;
+}
+.logo-bulat img { width: 100%; height: 100%; object-fit: cover; }
+.judul-merek { display: flex; flex-direction: column; line-height: 1.1; }
+.merek-atas   { font-size: 12px; font-weight: 600; color: var(--kuning-gelap); }
+.merek-bawah  { font-size: 22px; font-weight: 800; color: var(--kuning-gelap); letter-spacing: -0.5px; }
 
-    /* ===== MOOD SECTION ===== */
-    .mood-outer {
-      background: #F3F4F6; border-radius: 28px;
-      padding: 14px; margin-bottom: 28px;
-    }
-    .mood-inner {
-      background: #ECEEF1; border-radius: 20px;
-      padding: 16px 20px; display: flex; align-items: center; gap: 24px; flex-wrap: wrap;
-    }
-    .mood-header { flex-shrink: 0; }
-    .mood-title { font-size: 18px; font-weight: 700; line-height: 1.4; }
-    .mood-subtitle { font-size: 11px; font-weight: 400; line-height: 1.4; color: var(--text-light); }
-    .mood-list { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
-    .mood-btn {
-      display: flex; align-items: center; gap: 8px; padding: 10px 20px;
-      border-radius: var(--radius-full); border: 1.5px solid transparent;
-      background: var(--white); font-size: 16px; font-weight: 500; line-height: 1.1;
-      color: #555; box-shadow: 0 1px 4px rgba(0,0,0,.06); transition: all .2s;
-    }
-    .mood-icon { display: flex; align-items: center; width: 22px; height: 22px; flex-shrink: 0; }
-    .mood-btn:hover { border-color: var(--primary); color: var(--primary-dark); }
-    .mood-btn.active { border-color: var(--primary); font-weight: 600; }
+.kotak-cari { flex: 1; max-width: 480px; position: relative; }
+.input-cari {
+  width: 100%; padding: 10px 42px 10px 16px;
+  border: 1.5px solid var(--border); border-radius: var(--radius-penuh);
+  font-size: 13px; color: var(--teks); background: #f3f4f6;
+  outline: none; transition: border-color .2s;
+}
+.input-cari::placeholder { color: #bbb; }
+.input-cari:focus { border-color: var(--kuning); background: var(--putih); }
+.ikon-cari {
+  position: absolute; right: 14px; top: 50%; transform: translateY(-50%);
+  color: var(--kuning); display: flex; align-items: center; pointer-events: none;
+}
+.lencana-meja {
+  padding: 7px 18px; border: 2px solid var(--kuning);
+  border-radius: var(--radius-penuh);
+  font-size: 13px; font-weight: 700; color: var(--kuning);
+  white-space: nowrap; flex-shrink: 0;
+  background: var(--putih);
+}
 
-    /* ===== MENU SECTION ===== */
-    .menu-section__title { font-size: 22px; font-weight: 700; margin-bottom: 16px; }
+/* =============================================
+   LAYOUT UTAMA — Desktop: konten + sidebar
+   ============================================= */
+.bungkus-halaman {
+  display: flex; align-items: flex-start;
+  /* Padding bawah hanya di mobile untuk floating bar */
+}
+.konten-utama {
+  flex: 1; min-width: 0;
+  padding: 20px 24px 40px;
+}
 
-    /* Category Tabs */
-    .category-tabs { display: flex; gap: 12px; margin-bottom: 20px; flex-wrap: wrap; }
-    .category-tab {
-      display: flex; align-items: center; gap: 10px;
-      width: 175px; height: 61px; padding: 0 16px;
-      border-radius: var(--radius-full); border: 1.5px solid var(--border);
-      background: var(--white); transition: all .2s; flex-shrink: 0;
-    }
-    .tab-svg { flex-shrink: 0; }
-    .tab-info { display: flex; flex-direction: column; line-height: 1.3; }
-    .tab-name { font-size: 14px; font-weight: 600; color: var(--text-dark); }
-    .tab-count { font-size: 12px; color: var(--text-light); }
-    .category-tab:hover { border-color: var(--primary); }
-    .category-tab.active { border-color: var(--primary); background: #FFF8E7; }
-    .category-tab.active .tab-name { color: var(--primary-dark); }
+/* =============================================
+  MOOD SECTION
+   ============================================= */
+/* ==================== MOOD SECTION ==================== */
+.mood-section {
+  background: #fff;
+  padding: 14px 16px;
+  border-radius: 16px;
+}
 
-    /* Menu Grid */
-    .menu-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(180px, 221px));
-      gap: 12px;
-    }
+.section-label {
+  font-size: 14px;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 4px;
+}
 
-    /* Menu Card */
-    .menu-card {
-      width: 100%; max-width: 221px; background: var(--bg-card); border-radius: var(--radius-card);
-      box-shadow: var(--shadow-sm); display: flex; flex-direction: column;
-      padding: 10px 10px 15px; cursor: pointer; transition: box-shadow .2s, transform .2s;
-    }
-    .menu-card:hover { box-shadow: var(--shadow-md); transform: translateY(-3px); }
-    .card-img-wrap { width: 100%; aspect-ratio: 1; border-radius: 12px; overflow: hidden; flex-shrink: 0; margin-bottom: 12px; }
-    .card-img { width: 100%; height: 100%; object-fit: cover; }
-    .card-body { display: flex; flex-direction: column; flex: 1; }
-    .card-name { font-size: 12px; font-weight: 600; line-height: 1.4; margin-bottom: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-    .card-desc { font-size: 10px; font-weight: 400; line-height: 1.4; color: var(--desc-color); margin-bottom: 6px; }
-    .card-footer { display: flex; align-items: center; justify-content: space-between; margin-top: auto; }
-    .card-price { font-size: 11px; font-weight: 700; color: var(--price-color); }
-    .add-btn {
-      display: flex; align-items: center; gap: 4px; padding: 0;
-      border: none; background: transparent; cursor: pointer;
-      /* Bungkus dengan <a> agar bisa :target */
-    }
-    .add-btn svg { width: 25px; height: 23.71px; flex-shrink: 0; display: block; }
-    .add-label { font-size: 10px; font-weight: 600; color: var(--primary); white-space: nowrap; }
-    .menu-card.hidden { display: none; }
+.section-labelmini {
+  font-size: 11px;
+  color: #aaa;
+  font-weight: 400;
+  margin-bottom: 10px;
+}
 
-    /* ===== CART SIDEBAR ===== */
-    .cart-sidebar {
-      width: 405px; min-width: 405px;
-      height: calc(100vh - 76px); position: sticky; top: 76px;
-      display: flex; flex-direction: column;
-      background: var(--white); border-left: 1px solid var(--border);
-      overflow: hidden;
-    }
-    .cart-header {
-      height: 47px; background: var(--primary);
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 0 18px; flex-shrink: 0;
-    }
-    .cart-header__left { display: flex; align-items: center; gap: 10px; }
-    .cart-header__title { font-size: 16px; font-weight: 600; color: white; }
-    .cart-clear-btn { background: transparent; border: none; cursor: pointer; display: flex; align-items: center; opacity: .85; }
-    .cart-clear-btn:hover { opacity: 1; }
-    .cart-body { flex: 1; overflow-y: auto; padding: 16px 14px 20px; display: flex; flex-direction: column; gap: 14px; }
+/* ==================== MOOD SECTION (FIX WRAP) ==================== */
+.kategori-menu-btn {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  background: #f3f4f6;
+  border-radius: 30px;
+  padding: 10px;
+  align-items: flex-start;
+}
 
-    .cart-section { display: flex; flex-direction: column; gap: 8px; }
-    .cart-section__title { font-size: 19px; font-weight: 600; line-height: 1.4; }
-    .cart-name-input {
-      width: 100%; height: 48px; padding: 0 14px;
-      border: 1.5px solid var(--border); border-radius: 10px;
-      font-size: 13px; outline: none; transition: border-color .2s;
-    }
-    .cart-name-input:focus { border-color: var(--primary); }
+.menu-tab {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 0 0 auto;
+  min-width: 175px;
+  min-height: 54px;
+  padding: 10px 16px;
+  background: #fff;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 18px;
+  cursor: pointer;
+}
 
-    .cart-empty {
-      display: flex; flex-direction: column; align-items: center; gap: 10px;
-      padding: 30px 20px; color: #ccc;
-    }
-    .cart-empty p { font-size: 13px; color: #bbb; text-align: center; line-height: 1.6; }
+.menu-tab.active-tab {
+  border-color: #fbbf24;
+}
 
-    .cart-items { display: flex; flex-direction: column; gap: 10px; }
+.menu-tab span {
+  font-size: 13px;
+  font-weight: 600;
+  color: #222;
+}
 
-    .cart-summary {
-      background: #F1F5F9; border-radius: 12px;
-      padding: 15px 20px; display: flex; flex-direction: column; gap: 10px;
-    }
-    .cart-summary__row { display: flex; justify-content: space-between; align-items: center; }
-    .cart-summary__row--total { padding-top: 8px; border-top: 1.5px dashed #DDE3ED; }
-    .cart-summary__label { font-size: 13px; color: #555; }
-    .cart-summary__val { font-size: 13px; font-weight: 600; }
-    .cart-summary__val--total { font-size: 15px; font-weight: 700; color: var(--primary-dark); }
+.menu-tab small {
+  font-size: 11px;
+  color: #999;
+}
 
-    /* Order Now Button — bungkus <a> */
-    .order-now-btn {
-      display: flex; align-items: center; justify-content: center;
-      width: 100%; height: 46px; background: var(--primary);
-      border-radius: 10px; font-size: 15px; font-weight: 700; color: white;
-      border: none; cursor: pointer; transition: background .2s, transform .1s;
-      letter-spacing: .3px;
-    }
-    .order-now-btn:hover { background: #d9a000; transform: translateY(-1px); }
+.kategori-menu {
+  margin-bottom: 14px;
+}
 
-    /* ===================================================
-       MODAL OVERLAY — CSS-ONLY dengan :target
-    =================================================== */
-    .modal-overlay {
-      position: fixed; inset: 0; z-index: 500;
-      background: rgba(0,0,0,.55); backdrop-filter: blur(2px);
-      /* Defaultnya tersembunyi */
-      display: none;
-      align-items: center; justify-content: center;
-    }
-    /* Tampil saat id-nya jadi :target */
-    .modal-overlay:target {
-      display: flex;
-    }
-    /* Tombol close adalah <a href="#"> atau <a href="#!"> */
-    .modal-close-link {
-      position: absolute; top: 14px; right: 18px;
-      background: none; border: none; cursor: pointer; z-index: 10; padding: 0;
-      display: flex; align-items: center;
-    }
-    /* Backdrop click = close → <a> yang menutupi seluruh overlay, z-index rendah */
-    .modal-backdrop-close {
-      position: absolute; inset: 0; z-index: 0;
-    }
-    /* Card content harus z-index di atas backdrop-close */
-    .detail-card,
-    .pay-card,
-    .qris-confirm-card,
-    .qris-pay-card,
-    .success-card {
-      position: relative; z-index: 1;
-    }
+.menu-choice {
+  background: #fff;
+  border-radius: 16px;
+  padding: 16px;
+}
+.kategori-mood {
+  display: flex;
+  flex-wrap: wrap;      
+  gap: 8px;
+  background: #f3f4f6;
+  border-radius: 30px;
+  padding: 6px 10px;
+}
 
-    /* ===== DETAIL CARD ===== */
-    .detail-card {
-      width: 800px; max-height: 90vh; overflow-y: auto;
-      background: white; border-radius: 20px;
-      padding: 16px 30px 30px;
-    }
-    .detail-card__layout {
-      display: flex; gap: 32px; align-items: flex-start;
-    }
-    .detail-card__img-wrap {
-      width: 310px; min-width: 310px; height: 400px;
-      border-radius: 14px; overflow: hidden; flex-shrink: 0;
-    }
-    .detail-card__img { width: 310px; height: 400px; object-fit: cover; }
-    .detail-card__form { flex: 1; display: flex; flex-direction: column; gap: 14px; padding-top: 8px; }
+.mood {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  flex: 0 0 auto;        
+  white-space: nowrap;   
+  padding: 6px 16px;
+  border-radius: 20px;
+  border: 1.5px solid #e5e7eb;
+  font-size: 13px;
+  background: #fff;
+  cursor: pointer;
+  color: #555;
+  font-weight: 500;
+  transition: all 0.2s;
+}
 
-    .detail-name { font-size: 28px; font-weight: 600; color: #1A1A1A; line-height: 1.2; }
-    .detail-price { font-size: 24px; font-weight: 700; color: #A65F00; }
-    .detail-desc { font-size: 14px; color: #676767; line-height: 1.6; }
+.mood:hover {
+  border-color: #fbbf24;
+  color: #92400e;
+}
 
-    .detail-porsi {
-      display: flex; align-items: center; justify-content: space-between;
-      border-top: 1px solid var(--border); padding-top: 12px;
-    }
-    .detail-porsi__label { font-size: 16px; font-weight: 600; }
-    .detail-porsi__control { display: flex; align-items: center; gap: 12px; }
-    .porsi-btn { display: flex; align-items: center; background: none; border: none; cursor: pointer; padding: 0; }
-    .porsi-num { font-size: 16px; font-weight: 600; min-width: 24px; text-align: center; }
+.mood.active-mood {
+  border-color: #fbbf24;
+  color: #92400e;
+  font-weight: 600;
+}
 
-    .detail-level { border-top: 1px solid var(--border); padding-top: 12px; }
-    .detail-level__header { display: flex; flex-direction: column; gap: 2px; margin-bottom: 10px; }
-    .detail-level__label { font-size: 16px; font-weight: 600; }
-    .detail-level__required { font-size: 14px; font-weight: 400; color: #DD9776; }
-    .detail-level__list { display: flex; flex-direction: column; gap: 0; }
-    .level-row {
-      display: flex; align-items: center; justify-content: space-between;
-      width: 375px; height: 25px; padding: 0 4px; cursor: pointer;
-    }
-    .level-text { font-size: 14px; font-weight: 400; color: var(--desc-color); letter-spacing: .5px; }
-    .level-radio {
-      width: 18px; height: 18px; border-radius: 3px;
-      border: 1.5px solid #CBD5E1; cursor: pointer;
-      appearance: none; -webkit-appearance: none;
-      background: #F8FAFC; transition: all .15s;
-      flex-shrink: 0;
-    }
-    .level-radio:checked {
-      background: var(--primary); border-color: var(--primary);
-      background-image: url("data:image/svg+xml,%3Csvg width='10' height='8' viewBox='0 0 10 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 4l3 3 5-6' stroke='white' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-      background-repeat: no-repeat; background-position: center;
-    }
+/* ==================== MENU SECTION ==================== */
+.menu-choice {
+  background: #fff;
+  border-radius: 16px;
+  padding: 16px;
+  flex: 1;
+}
 
-    .detail-note { display: flex; flex-direction: column; gap: 8px; margin-top: 6px; }
-    .detail-note__label { font-size: 14px; font-weight: 500; }
-    .detail-note__input {
-      width: 100%; height: 40px; padding: 0 14px;
-      border: 1.5px solid #FD9A00; border-radius: 8px;
-      background: #F8FAFC; font-size: 10px; line-height: 1.4; outline: none;
-    }
-    .detail-note__input::placeholder { color: #AAAAAA; }
+.kategori-menu {
+  margin-bottom: 14px;
+}
 
-    .detail-cta {
-      display: flex; align-items: center; justify-content: center;
-      width: 100%; height: 52px; margin-top: 14px;
-      background: var(--primary); border-radius: 14px;
-      font-size: 16px; font-weight: 700; color: white;
-      border: none; cursor: pointer; transition: background .2s;
-      text-decoration: none;
-    }
-    .detail-cta:hover { background: #d9a000; }
+.kategori-menu-btn {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  background: #f3f4f6;
+  border-radius: 30px;
+  padding: 6px 10px;
+  margin-top: 8px;
+}
+.tombol-suasana.aktif { border-color: var(--kuning); font-weight: 600; }
 
-    /* ===== PAY MODAL ===== */
-    .pay-overlay { z-index: 600; }
-    .pay-card {
-      width: 418px; background: white; border-radius: 20px;
-      overflow: hidden; box-shadow: var(--shadow-md);
-    }
-    .pay-card__header {
-      background: var(--primary); padding: 16px 20px;
-      display: flex; align-items: center; justify-content: space-between;
-      font-size: 16px; font-weight: 600; color: white;
-    }
-    .pay-close { background: none; border: none; cursor: pointer; display: flex; }
-    .pay-card__body { padding: 28px 24px 32px; display: flex; flex-direction: column; align-items: center; gap: 8px; }
-    .pay-card__total-label { font-size: 15px; font-weight: 500; color: var(--text-dark); }
-    .pay-card__total-amount { font-size: 32px; font-weight: 700; color: var(--primary-dark); margin-bottom: 12px; }
-    .pay-methods { display: flex; flex-direction: column; gap: 12px; width: 100%; }
-    .pay-method-btn {
-      display: flex; align-items: center; gap: 16px;
-      width: 100%; padding: 14px 20px;
-      border: 2px solid var(--primary); border-radius: 12px;
-      background: white; font-size: 16px; font-weight: 600;
-      color: var(--text-dark); cursor: pointer; transition: background .15s;
-      text-decoration: none;
-    }
-    .pay-method-btn:hover { background: #FFF8E7; }
 
-    /* ===== QRIS CONFIRM ===== */
-    .qris-confirm-card {
-      width: 418px; background: white; border-radius: 20px;
-      padding: 24px 28px 32px; position: relative;
-      display: flex; flex-direction: column; align-items: center; gap: 10px;
-      box-shadow: var(--shadow-md);
-    }
-    .qris-confirm-close {
-      position: absolute; top: 16px; right: 16px;
-      background: none; border: none; cursor: pointer; display: flex;
-    }
-    .qris-confirm-illus { margin: 4px 0; }
-    .qris-confirm-title { font-size: 18px; font-weight: 700; text-align: center; }
-    .qris-confirm-sub { font-size: 13px; color: var(--text-light); text-align: center; line-height: 1.6; }
-    .qris-confirm-btn {
-      display: flex; align-items: center; justify-content: center;
-      width: 100%; height: 46px; margin-top: 8px;
-      background: var(--primary); border-radius: 12px;
-      font-size: 15px; font-weight: 700; color: white;
-      border: none; cursor: pointer; transition: background .2s;
-      text-decoration: none;
-    }
-    .qris-confirm-btn:hover { background: #d9a000; }
 
-    /* ===== QRIS PAY ===== */
-    .qris-pay-card {
-      width: 418px; background: white; border-radius: 20px;
-      overflow: hidden; box-shadow: var(--shadow-md);
-    }
-    .qris-pay-card__header {
-      background: var(--primary); padding: 16px 20px;
-      display: flex; align-items: center; justify-content: space-between;
-      font-size: 16px; font-weight: 600; color: white;
-    }
-    .qris-pay-card__body {
-      padding: 24px 24px 32px; display: flex;
-      flex-direction: column; align-items: center; gap: 8px;
-    }
-    .qris-total-label { font-size: 15px; font-weight: 500; }
-    .qris-total-amount { font-size: 32px; font-weight: 700; color: var(--primary-dark); }
-    .qris-logo-wrap { margin: 4px 0; }
-    .qr-placeholder {
-      background: white; border: 1px solid var(--border);
-      border-radius: 10px; padding: 10px;
-      display: flex; align-items: center; justify-content: center;
-    }
-    .qris-finish-btn {
-      display: flex; align-items: center; justify-content: center;
-      width: 100%; height: 46px; margin-top: 12px;
-      background: transparent; border: 2px solid var(--primary); border-radius: 12px;
-      font-size: 15px; font-weight: 600; color: var(--primary-dark);
-      cursor: pointer; transition: all .2s; text-decoration: none;
-    }
-    .qris-finish-btn:hover { background: var(--primary); color: white; }
+/* =============================================
+   BAGIAN MENU
+   ============================================= */
+.judul-pilihan-menu { font-size: 20px; font-weight: 700; margin-bottom: 14px; }
 
-    /* ===== SUCCESS ===== */
-    .success-card {
-      width: 418px; background: white; border-radius: 20px;
-      padding: 40px 32px; display: flex; flex-direction: column;
-      align-items: center; gap: 12px; box-shadow: var(--shadow-md);
-    }
-    .success-icon { margin-bottom: 8px; }
-    .success-title { font-size: 22px; font-weight: 700; text-align: center; }
-    .success-sub { font-size: 14px; color: var(--text-light); text-align: center; line-height: 1.6; }
-    .success-btn {
-      display: flex; align-items: center; justify-content: center;
-      width: 100%; height: 46px; margin-top: 12px;
-      background: var(--primary); border-radius: 12px;
-      font-size: 15px; font-weight: 700; color: white;
-      border: none; cursor: pointer; transition: background .2s;
-      text-decoration: none;
-    }
-    .success-btn:hover { background: #d9a000; }
+/* Tab Kategori */
+.daftar-tab { display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
+.tab-kategori {
+  display: flex; align-items: center; gap: 8px;
+  width: 175px; height: 61px; padding: 0 14px;
+  border-radius: var(--radius-penuh); border: 1.5px solid var(--border);
+  background: var(--putih); cursor: pointer; transition: all .2s; flex-shrink: 0;
+}
+.ikon-tab { flex-shrink: 0; }
+.info-tab { display: flex; flex-direction: column; line-height: 1.3; }
+.nama-tab   { font-size: 13px; font-weight: 600; color: var(--teks); }
+.jumlah-tab { font-size: 11px; color: var(--teks-abu); }
+.tab-kategori:hover            { border-color: var(--kuning); }
+.tab-kategori.aktif            { border-color: var(--kuning); background: #FFF8E7; }
+.tab-kategori.aktif .nama-tab { color: var(--kuning-gelap); }
 
-    /* ===== RESPONSIVE ===== */
-    @media (max-width: 1200px) { .menu-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 200px)); } }
-    @media (max-width: 1000px) {
-      .page-wrapper { flex-direction: column; }
-      .cart-sidebar { width: 100%; min-width: unset; position: static; height: auto; border-left: none; border-top: 2px solid var(--border); }
-    }
-    @media (max-width: 720px) { .menu-grid { grid-template-columns: repeat(2, 1fr); } }
+/* Grid Menu — 6 kolom desktop */
+.grid-menu {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 12px;
+}
+
+/* =============================================
+   KARTU MENU
+   Klik kartu = <a href="#popup-xxx"> → :target
+   ============================================= */
+/* =============================================
+   GRID MENU
+   ============================================= */
+.grid-menu {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 16px;
+  align-items: stretch;
+}
+
+/* =============================================
+   KARTU MENU
+   ============================================= */
+.kartu-menu {
+  background: var(--putih);
+  border-radius: var(--radius);
+  box-shadow: 0 1px 6px rgba(0,0,0,0.07);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 100%;
+  padding: 10px 10px 14px;
+  cursor: pointer;
+  transition: box-shadow .2s, transform .2s;
+  text-decoration: none;
+  color: inherit;
+}
+
+.kartu-menu:hover {
+  box-shadow: var(--bayangan);
+  transform: translateY(-3px);
+}
+
+.gambar-kartu-bungkus {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 12px;
+  overflow: hidden;
+  flex-shrink: 0;
+  margin-bottom: 10px;
+}
+
+.gambar-kartu {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.isi-kartu {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.nama-kartu {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--teks);
+  margin-bottom: 4px;
+  line-height: 1.35;
+  min-height: 32px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.ket-kartu {
+  font-size: 10px;
+  color: var(--keterangan);
+  margin-bottom: 10px;
+  line-height: 1.45;
+  min-height: 30px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.kaki-kartu {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+  gap: 10px;
+}
+
+.harga-kartu {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--harga);
+  white-space: nowrap;
+}
+/* =============================================
+   POPUP DETAIL PRODUK
+   Teknik: CSS :target
+   .hamparan-popup tersembunyi default → display:none
+   .hamparan-popup:target → display:flex (muncul di depan)
+   Background gelap 25%
+   ============================================= */
+.hamparan-popup {
+  /* TERSEMBUNYI default */
+  display: none;
+  /* Saat :target aktif, tampil sebagai overlay fixed fullscreen */
+  position: fixed;
+  inset: 0;
+  z-index: 900;
+  background: rgba(0, 0, 0, 0.25);
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  overflow-y: auto;
+}
+/* Muncul saat URL berubah ke #popup-xxx */
+.hamparan-popup:target {
+  display: flex;
+}
+
+/* Kartu detail di dalam popup */
+.kartu-popup-detail {
+  width: 780px; max-width: 100%;
+  background: var(--putih); border-radius: 20px;
+  padding: 24px 28px 28px; position: relative;
+  box-shadow: var(--bayangan-besar);
+  max-height: 90vh; overflow-y: auto;
+}
+
+/* Tombol tutup X — href="#" hapus :target */
+.tombol-tutup {
+  position: absolute; top: 16px; right: 16px;
+  display: flex; align-items: center; text-decoration: none; z-index: 10;
+  transition: opacity .2s;
+}
+.tombol-tutup:hover { opacity: .7; }
+
+/* Layout dalam popup: gambar kiri + form kanan */
+.tata-letak-popup {
+  display: flex; gap: 28px; align-items: flex-start; margin-top: 8px;
+}
+.bungkus-gambar-popup {
+  width: 300px; min-width: 300px; height: 380px;
+  border-radius: 14px; overflow: hidden; flex-shrink: 0;
+}
+.gambar-popup { width: 100%; height: 100%; object-fit: cover; }
+
+.formulir-popup { flex: 1; display: flex; flex-direction: column; gap: 12px; }
+.nama-popup      { font-size: 26px; font-weight: 700; color: var(--teks); }
+.harga-popup     { font-size: 22px; font-weight: 700; color: var(--kuning-gelap); }
+.deskripsi-popup { font-size: 13px; color: #676767; line-height: 1.6; }
+
+/* Jumlah Porsi */
+.baris-porsi {
+  display: flex; align-items: center; justify-content: space-between;
+  border-top: 1px solid var(--border); padding-top: 12px;
+}
+.label-porsi   { font-size: 15px; font-weight: 600; }
+.kontrol-porsi { display: flex; align-items: center; gap: 10px; }
+.tombol-porsi  { display: flex; align-items: center; cursor: pointer; }
+.angka-porsi   { font-size: 16px; font-weight: 600; min-width: 24px; text-align: center; }
+
+/* Level Pedas */
+.bagian-level { border-top: 1px solid var(--border); padding-top: 12px; }
+.kepala-level { display: flex; flex-direction: column; gap: 2px; margin-bottom: 8px; }
+.label-level  { font-size: 15px; font-weight: 600; }
+.wajib-level  { font-size: 13px; color: #DD9776; }
+.daftar-level { display: flex; flex-direction: column; }
+.baris-level  { display: flex; align-items: center; justify-content: space-between; height: 28px; padding: 0 2px; cursor: pointer; }
+.teks-level   { font-size: 13px; color: var(--keterangan); letter-spacing: .5px; }
+.radio-level  { width: 17px; height: 17px; accent-color: var(--kuning); cursor: pointer; flex-shrink: 0; }
+
+/* Catatan Khusus */
+.bagian-catatan { display: flex; flex-direction: column; gap: 6px; margin-top: 4px; }
+.label-catatan  { font-size: 13px; font-weight: 500; }
+.input-catatan  {
+  width: 100%; height: 40px; padding: 0 14px;
+  border: 1.5px solid var(--kuning); border-radius: 8px;
+  background: #F8FAFC; font-size: 12px; outline: none;
+}
+.input-catatan::placeholder { color: #bbb; }
+
+/* Tombol ke keranjang / ke halaman */
+.tombol-cta-popup {
+  display: flex; align-items: center; justify-content: center;
+  width: 100%; height: 50px; margin-top: 16px;
+  background: var(--kuning); border-radius: 14px;
+  font-size: 15px; font-weight: 700; color: white;
+  text-decoration: none; border: none; cursor: pointer;
+  transition: background .2s;
+}
+.tombol-cta-popup:hover { background: #d9a000; }
+
+/* =============================================
+   POPUP PEMBAYARAN (Order Now)
+   Sama pakai :target, z-index lebih tinggi
+   ============================================= */
+.hamparan-bayar {
+  display: none;
+  position: fixed; inset: 0; z-index: 950;
+  background: rgba(0, 0, 0, 0.5);
+  align-items: center; justify-content: center;
+  padding: 20px;
+}
+.hamparan-bayar:target { display: flex; }
+
+/* Kartu metode bayar */
+.kartu-bayar {
+  width: 400px; max-width: 100%;
+  background: var(--putih); border-radius: 20px;
+  overflow: hidden; box-shadow: var(--bayangan-besar);
+}
+.kepala-kartu-bayar {
+  background: var(--kuning); padding: 16px 20px;
+  display: flex; align-items: center; justify-content: space-between;
+  font-size: 15px; font-weight: 700; color: white;
+}
+.tombol-tutup-putih {
+  display: flex; align-items: center; color: white;
+  text-decoration: none; opacity: .85; transition: opacity .2s;
+}
+.tombol-tutup-putih:hover { opacity: 1; }
+.isi-kartu-bayar {
+  padding: 24px 22px 28px;
+  display: flex; flex-direction: column; align-items: center; gap: 6px;
+}
+.label-total-bayar  { font-size: 14px; font-weight: 500; color: var(--teks); }
+.jumlah-total-bayar { font-size: 30px; font-weight: 800; color: var(--kuning-gelap); margin-bottom: 10px; }
+.daftar-metode { display: flex; flex-direction: column; gap: 10px; width: 100%; }
+.tombol-metode-bayar {
+  display: flex; align-items: center; gap: 14px;
+  width: 100%; padding: 13px 18px;
+  border: 2px solid var(--kuning); border-radius: 12px;
+  background: white; font-size: 15px; font-weight: 600;
+  color: var(--teks); text-decoration: none; transition: background .15s;
+}
+.tombol-metode-bayar:hover { background: #FFF8E7; }
+
+/* Kartu Konfirmasi QRIS */
+
+
+.kartu-konfirmasi {
+  width: 400px; max-width: 100%;
+  background: var(--putih); border-radius: 20px;
+  padding: 28px 24px 30px; position: relative;
+  display: flex; flex-direction: column; align-items: center; gap: 10px;
+  box-shadow: var(--bayangan-besar);
+}
+.tombol-tutup-konfirmasi {
+  position: absolute; top: 14px; right: 14px;
+  display: flex; text-decoration: none;
+}
+.judul-konfirmasi { font-size: 17px; font-weight: 700; text-align: center; }
+.sub-konfirmasi   { font-size: 12px; color: var(--teks-abu); text-align: center; line-height: 1.6; }
+.tombol-lanjut-konfirmasi {
+  display: flex; align-items: center; justify-content: center;
+  width: 100%; height: 44px; margin-top: 6px;
+  background: var(--kuning); border-radius: 12px;
+  font-size: 14px; font-weight: 700; color: white;
+  text-decoration: none; transition: background .2s;
+}
+.tombol-lanjut-konfirmasi:hover { background: #d9a000; }
+.tombol-balik { font-size: 12px; color: var(--teks-abu); text-decoration: none; margin-top: 4px; }
+.tombol-balik:hover { color: var(--teks); }
+
+/* Kartu Scan QRIS */
+/* =============================================
+   POPUP SCAN QRIS
+   ============================================= */
+/* =============================================
+   CARD QRIS
+   ============================================= */
+.card-scan-qris {
+  width: 400px;
+  max-width: 100%;
+  background: var(--putih);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: var(--bayangan-besar);
+  display: flex;
+  flex-direction: column;
+}
+
+/* HEADER */
+.kepala-scan-qris {
+  background: var(--kuning);
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 15px;
+  font-weight: 700;
+  color: white;
+}
+
+/* ISI */
+.isi-scan-qris {
+  padding: 24px 22px 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  flex: 1; /* 🔥 penting */
+}
+
+/* TOTAL */
+.blok-total {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.label-total-scan {
+  font-size: 14px;
+  color: var(--teks);
+}
+
+.jumlah-total-scan {
+  font-size: 30px;
+  font-weight: 800;
+  color: var(--kuning-gelap);
+}
+
+/* LOGO */
+.blok-logo {
+  display: flex;
+  justify-content: center;
+}
+
+.qris-logo img {
+  height: 28px;
+}
+
+/* QR */
+.kotak-qr {
+  display: flex;
+  justify-content: center;
+}
+
+.qr-code-box {
+  background: #fff;
+  border-radius: 12px;
+  padding: 10px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+}
+
+.qr-img {
+  width: 220px;
+  height: 220px;
+}
+
+/* TEXT */
+.qris-waiting {
+  font-size: 12px;
+  color: var(--teks-abu);
+  text-align: center;
+}
+
+/* =============================================
+   TOMBOL (INI YANG LO CARI 🔥)
+   ============================================= */
+.tombol-selesai-bayar {
+  width: 100%;
+  height: 44px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-top: auto; /* 🔥 BIAR KE BAWAH */
+  
+  background: var(--kuning);
+  border-radius: 12px;
+
+  font-size: 14px;
+  font-weight: 700;
+  color: white;
+  text-decoration: none;
+
+  transition: 0.2s;
+}
+
+.tombol-selesai-bayar:hover {
+  background: #d9a000;
+}
+/* Kartu Sukses */
+.kartu-sukses {
+  width: 400px; max-width: 100%;
+  background: var(--putih); border-radius: 20px;
+  padding: 36px 28px;
+  display: flex; flex-direction: column; align-items: center; gap: 10px;
+  box-shadow: var(--bayangan-besar);
+}
+.ikon-sukses   { margin-bottom: 6px; }
+.judul-sukses  { font-size: 20px; font-weight: 700; text-align: center; }
+.sub-sukses    { font-size: 13px; color: var(--teks-abu); text-align: center; line-height: 1.6; }
+.tombol-kembali-sukses {
+  display: flex; align-items: center; justify-content: center;
+  width: 100%; height: 44px; margin-top: 10px;
+  background: var(--kuning); border-radius: 12px;
+  font-size: 14px; font-weight: 700; color: white;
+  text-decoration: none; transition: background .2s;
+}
+.tombol-kembali-sukses:hover { background: #d9a000; }
+
+/* =============================================
+   SIDEBAR KERANJANG — Desktop
+   ============================================= */
+.sidebar-keranjang {
+  width: 360px; min-width: 360px;
+  height: calc(100vh - var(--tinggi-nav));
+  position: sticky; top: var(--tinggi-nav);
+  display: flex; flex-direction: column;
+  background: var(--putih); border-left: 1px solid var(--border);
+  overflow: hidden;
+}
+.kepala-keranjang {
+  height: 47px; background: var(--kuning);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 16px; flex-shrink: 0;
+}
+.kiri-kepala-keranjang { display: flex; align-items: center; gap: 8px; }
+.judul-keranjang { font-size: 15px; font-weight: 700; color: white; }
+.tombol-hapus-semua { display: flex; align-items: center; opacity: .85; text-decoration: none; }
+.tombol-hapus-semua:hover { opacity: 1; }
+
+.isi-keranjang {
+  flex: 1; overflow-y: auto; padding: 14px 12px 16px;
+  display: flex; flex-direction: column; gap: 12px;
+}
+.bagian-keranjang     { display: flex; flex-direction: column; gap: 6px; }
+.judul-bagian-keranjang { font-size: 16px; font-weight: 600; }
+
+.input-nama {
+  width: 100%; height: 42px; padding: 0 12px;
+  border: 1.5px solid var(--border); border-radius: 10px;
+  font-size: 13px; outline: none; transition: border-color .2s;
+}
+.input-nama:focus { border-color: var(--kuning); }
+
+/* Item dalam keranjang */
+.daftar-item-keranjang { display: flex; flex-direction: column; gap: 8px; }
+.item-keranjang {
+  display: flex; gap: 10px; align-items: flex-start;
+  border: 1px solid var(--border); border-radius: 12px;
+  padding: 10px 12px; position: relative; background: var(--putih);
+}
+.gambar-item { width: 72px; height: 72px; border-radius: 8px; object-fit: cover; flex-shrink: 0; }
+.info-item { flex: 1; display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+.nama-item  { font-size: 12px; font-weight: 600; padding-right: 16px; }
+.ket-item   { font-size: 10px; color: var(--keterangan); }
+.label-level-item {
+  display: inline-flex; align-items: center; gap: 3px;
+  padding: 2px 7px; border: 1px solid var(--border); border-radius: 4px;
+  font-size: 9px; color: var(--teks-abu); background: #FAFAFA; width: fit-content;
+}
+.bawah-item { display: flex; align-items: center; justify-content: space-between; margin-top: 4px; }
+.harga-item { font-size: 11px; font-weight: 700; color: var(--harga); }
+.qty-item   { display: flex; align-items: center; gap: 4px; }
+.angka-qty  { font-size: 11px; font-weight: 600; min-width: 14px; text-align: center; }
+.tombol-hapus-item {
+  position: absolute; top: 6px; right: 8px;
+  opacity: .4; transition: opacity .2s; display: flex; text-decoration: none;
+}
+.tombol-hapus-item:hover { opacity: 1; }
+
+/* Ringkasan */
+.ringkasan-keranjang {
+  background: #F1F5F9; border-radius: 12px;
+  padding: 12px 16px; display: flex; flex-direction: column; gap: 8px;
+}
+.baris-ringkasan { display: flex; justify-content: space-between; align-items: center; }
+.baris-total     { padding-top: 8px; border-top: 1.5px dashed #DDE3ED; }
+.label-ringkasan { font-size: 12px; color: #555; }
+.nilai-ringkasan { font-size: 12px; font-weight: 600; }
+.nilai-total     { font-size: 14px; font-weight: 700; color: var(--kuning-gelap); }
+
+/* Tombol Order Now */
+.tombol-order-now {
+  display: flex; align-items: center; justify-content: center;
+  width: 100%; height: 44px;
+  background: var(--kuning); border-radius: 10px;
+  font-size: 14px; font-weight: 700; color: white;
+  text-decoration: none; transition: background .2s;
+}
+.tombol-order-now:hover { background: #d9a000; }
+
+/* Kosong */
+.keranjang-kosong {
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  padding: 28px 16px; color: #ccc;
+}
+.keranjang-kosong p { font-size: 12px; color: #bbb; text-align: center; line-height: 1.6; }
+
+/* =============================================
+   MOBILE — Floating Cart Bar (seperti Gacoan)
+   Sidebar disembunyikan, diganti bar bawah
+   ============================================= */
+@media (max-width: 900px) {
+
+  /* Sembunyikan sidebar desktop */
+  .sidebar-keranjang { display: none; }
+
+  /* Grid jadi 2 kolom di HP */
+  .grid-menu { grid-template-columns: repeat(2, 1fr); }
+
+  /* Tambah padding bawah agar konten tidak ketutup floating bar */
+  .bungkus-halaman { padding-bottom: var(--tinggi-bar-hp); }
+
+  /* ===== FLOATING CART BAR ===== */
+  .bar-keranjang-hp {
+    position: fixed; bottom: 0; left: 0; right: 0;
+    z-index: 200;
+    background: var(--kuning);
+    height: var(--tinggi-bar-hp);
+    display: flex; align-items: center;
+    padding: 0 20px; gap: 12px;
+    box-shadow: 0 -4px 20px rgba(0,0,0,0.18);
+    text-decoration: none; color: white;
+  }
+
+  .ikon-keranjang-hp {
+    width: 40px; height: 40px; background: rgba(0,0,0,0.15);
+    border-radius: 10px; display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .info-keranjang-hp { flex: 1; display: flex; flex-direction: column; }
+  .label-total-hp  { font-size: 11px; font-weight: 500; opacity: .85; }
+  .jumlah-total-hp { font-size: 17px; font-weight: 800; }
+
+  .teks-checkout-hp {
+    font-size: 14px; font-weight: 700;
+    display: flex; align-items: center; gap: 4px; flex-shrink: 0;
+  }
+}
+
+/* Sembunyikan floating bar di desktop */
+@media (min-width: 901px) {
+  .bar-keranjang-hp { display: none; }
+}
+
+/* =============================================
+   RESPONSIF LANJUTAN
+   ============================================= */
+@media (max-width: 1400px) { .grid-menu { grid-template-columns: repeat(5, 1fr); } }
+@media (max-width: 1200px) { .grid-menu { grid-template-columns: repeat(4, 1fr); } }
+@media (max-width: 1000px) { .grid-menu { grid-template-columns: repeat(3, 1fr); } }
+
+/* Popup detail — mobile: stack vertikal */
+@media (max-width: 700px) {
+  .kartu-popup-detail { padding: 16px 16px 20px; }
+  .tata-letak-popup   { flex-direction: column; gap: 16px; }
+  .bungkus-gambar-popup {
+    width: 100%; min-width: unset; height: 200px;
+  }
+}
+
+/* Navbar mobile */
+@media (max-width: 600px) {
+  .navbar { padding: 0 14px; gap: 8px; }
+  .merek-bawah { font-size: 18px; }
+  .kotak-cari { max-width: 100%; }
+  .lencana-meja { padding: 6px 12px; font-size: 12px; }
+  .konten-utama { padding: 14px 14px 40px; }
+  .daftar-tab { gap: 8px; }
+  .tab-kategori { width: 145px; height: 52px; }
+}
