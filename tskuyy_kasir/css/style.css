@@ -263,6 +263,11 @@ body {
   scroll-behavior: smooth;
 }
 
+/* scrollbar style */
+.queue-container::-webkit-scrollbar {
+  display: none;
+}
+
 .queue-card {
   flex-shrink: 0;
   min-width: calc(33.333% - 8px);  /* tampil 2 kartu sekaligus */
