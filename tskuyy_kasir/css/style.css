@@ -258,12 +258,15 @@ body {
   display: flex;
   gap: 12px;
   flex: 1;
-  overflow-x: hidden;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;  
+  scroll-behavior: smooth;
 }
 
 .queue-card {
-  flex: 1;
-  min-width: 0;
+  flex-shrink: 0;
+  min-width: calc(33.333% - 8px);  /* tampil 2 kartu sekaligus */
+  scroll-snap-align: start;     /* ← titik snap tiap kartu */
   background: #e8f5e9;
   border-radius: 12px;
   padding: 14px;
@@ -1992,8 +1995,6 @@ label.queue-card {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  flex: 1;
-  min-width: 0;
   border-radius: 12px;
   padding: 14px;
   transition: filter 0.15s, transform 0.15s;
