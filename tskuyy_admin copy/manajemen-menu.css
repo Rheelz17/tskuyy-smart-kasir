@@ -88,6 +88,10 @@
   gap: 12px;
 }
 
+.btn.btn-outline:hover {
+  background: #fef3c6;
+}
+
 /* ============================================================
    KOLOM FOTO — TAMBAHAN BARU
    Tidak ada di detail-penjualan (tidak ada kolom gambar di sana)
@@ -136,13 +140,6 @@
    TOMBOL TINDAKAN (Edit & Hapus) di kolom Tindakan tabel
    TAMBAHAN: trigger untuk popup edit dan hapus
    ============================================================ */
-.tindakan-col {
-  display: flex;
-  gap: 8px;
-  justify-content: center;
-  align-items: center;
-}
-
 .btn-tindakan {
   width: 32px;
   height: 32px;

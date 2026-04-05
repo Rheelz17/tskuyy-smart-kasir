@@ -7,10 +7,10 @@
     <!-- CSS sama dengan detail-penjualan, hanya tambahan di manajemen-menu.css -->
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="manajemen-karyawan.css" />
+    <link rel="stylesheet" href="popup.css" />
   </head>
   <body>
     <div class="app-container">
-      <!-- SIDEBAR — sama persis dengan detail-penjualan.html -->
       <aside class="sidebar">
         <div class="sidebar-logo">
           <img src="assets/images/logotskuy.png" alt="Logo Tskuy" />
@@ -279,7 +279,7 @@
                rata kanan, terpisah dari baris search/filter/export
                ===================== -->
           <div class="action-bar-top">
-            <button class="btn-tambah">
+            <a href="#popup-tambah" class="btn-tambah">
               <svg
                 width="20"
                 height="20"
@@ -296,7 +296,7 @@
                 />
               </svg>
               Tambah Karyawan
-            </button>
+            </a>
           </div>
 
           <!-- =====================
@@ -1211,6 +1211,175 @@
             </div>
           </footer>
         </main>
+      </div>
+    </div>
+
+    <!-- ============================================================
+  POPUP 1: TAMBAH MENU BARU
+  Trigger: <a href="#popup-tambah"> di tombol .btn-tambah (action-bar-top)
+  Tutup:   <a href="#"> di .popup-close dan .btn-batal
+  ============================================================ -->
+    <div class="popup-overlay" id="popup-tambah">
+      <div class="popup-box">
+        <!-- Judul & tombol close -->
+        <h3>Tambah Karyawan Baru</h3>
+        <p class="popup-desc">Isi kolom di bawah untuk menambahkan karyawan baru</p>
+        <a href="#" class="popup-close">✕</a>
+
+        <!-- Layout 2 kolom: upload kiri, form kanan -->
+        <div class="popup-form-layout">
+          <!-- Kiri: area upload gambar -->
+          <div class="upload-area">
+            <span class="upload-icon">🖼️</span>
+            <p>Unggah Foto Wajah</p>
+            <small>Klik atau seret fotomu ke sini (JPG or PNG).</small>
+          </div>
+
+          <!-- Kanan: form fields -->
+          <div class="form-fields">
+            <div class="form-group">
+              <label>ID Karyawan</label>
+              <input type="text" placeholder="EMP009" />
+            </div>
+            <div class="form-group">
+              <label>Nama Lengkap</label>
+              <input type="text" placeholder="Masukkan Nama Lengkap..." />
+            </div>
+            <div class="form-group">
+              <label>Jabatan</label>
+              <select>
+                <option value="" disabled selected>Jabatan</option>
+                <option>Admin</option>
+                <option>Kasir</option>
+                <option>Koki</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Nomor Telepon</label>
+              <input type="number" placeholder="Masukkan Nomor Telepon..." />
+            </div>
+            <div class="form-group">
+              <label>Email</label>
+              <input
+                type="text"
+                placeholder="Masukkan Email Baru..."
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer: status toggle + tombol aksi -->
+        <div class="popup-footer">
+          <div class="status-toggle-wrap">
+            <span>Akses Login</span>
+            <!-- Toggle off by default (menu baru belum aktif) -->
+            <input type="checkbox" id="toggle-tambah" class="toggle-input" />
+            <label for="toggle-tambah" class="toggle-label"></label>
+          </div>
+          <div class="popup-actions">
+            <a href="#" class="btn-batal">Batal</a>
+            <button class="btn-simpan">Simpan</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================
+  POPUP 2: EDIT MENU
+  Trigger: tombol edit di kolom Tindakan tiap baris tabel
+           contoh: <a href="#popup-edit-1"> (per item bisa beda id)
+  Tutup:   <a href="#"> di .popup-close dan .btn-batal
+  Catatan: nilai form diisi sesuai data baris yang diedit
+  ============================================================ -->
+    <div class="popup-overlay" id="popup-edit">
+      <div class="popup-box">
+        <h3>Edit Menu</h3>
+        <p class="popup-desc">
+          Silakan sesuaikan perubahan yang Anda inginkan.
+        </p>
+        <a href="#" class="popup-close">✕</a>
+
+        <div class="popup-form-layout">
+          <!-- Kiri: preview gambar yang sudah ada -->
+          <div class="upload-area has-image">
+            <img src="assets/images/menu-placeholder.jpg" alt="Preview" />
+          </div>
+
+          <!-- Kanan: form diisi dengan data existing -->
+          <div class="form-fields">
+            <div class="form-group">
+              <label>Nama Menu</label>
+              <!-- value diisi sesuai data menu yang diedit -->
+              <input type="text" value="Nasi Goreng" />
+            </div>
+            <div class="form-group">
+              <label>Kode Menu</label>
+              <input type="text" value="NG" />
+            </div>
+            <div class="form-group">
+              <label>Kategori</label>
+              <select>
+                <option>Makanan</option>
+                <option>Minuman</option>
+                <option>Snack</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Stok</label>
+              <input type="number" value="100" />
+            </div>
+            <div class="form-group">
+              <label>Harga Jual</label>
+              <input type="text" value="Rp. 15.000" />
+            </div>
+          </div>
+        </div>
+
+        <div class="popup-footer">
+          <div class="status-toggle-wrap">
+            <span>Status awal</span>
+            <!-- checked = menu sedang aktif -->
+            <input
+              type="checkbox"
+              id="toggle-edit"
+              class="toggle-input"
+              checked
+            />
+            <label for="toggle-edit" class="toggle-label"></label>
+          </div>
+          <div class="popup-actions">
+            <a href="#" class="btn-batal">Batal</a>
+            <button class="btn-simpan">Simpan</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================
+  POPUP 3: HAPUS MENU
+  Trigger: tombol hapus di kolom Tindakan tiap baris tabel
+           contoh: <a href="#popup-hapus">
+  Tutup:   <a href="#"> di tombol Batal
+  ============================================================ -->
+    <div class="popup-overlay" id="popup-hapus">
+      <div class="popup-box popup-hapus">
+        <!-- Tidak ada tombol close X di desain hapus, tapi aman ditambah -->
+        <a href="#" class="popup-close">✕</a>
+
+        <!-- Ikon seru merah -->
+        <div class="hapus-icon">!</div>
+
+        <h3>Apa kamu yakin untuk menghapus menu ini?</h3>
+        <p>
+          Menu ini "Nasi Goreng" akan dihapus permanen dari daftar menu.
+          Tindakan ini tidak bisa dibatalkan, tapi riwayat penjualan yang ada
+          akan tetap aman walau menu telah terhapus.
+        </p>
+
+        <div class="hapus-actions">
+          <a href="#" class="btn-hapus-batal">Batal</a>
+          <a href="#" class="btn-hapus-konfirm">Ya, Hapus Permanen</a>
+        </div>
       </div>
     </div>
   </body>

@@ -360,3 +360,493 @@
 .btn-hapus-konfirm:hover {
   background: #dc2626;
 }
+
+/* ============================================================
+   POPUP FILTER SPESIFIK
+   Trigger: tombol Filter di action-bar
+   Berbeda dengan popup lain: lebih sempit (320px), tidak ada overlay
+   gelap penuh — posisi muncul di dekat tombol (dropdown style)
+   ============================================================ */
+
+/* Box filter lebih kecil dari popup biasa */
+.popup-box.popup-filter {
+  width: 350px;
+  padding: 20px;
+}
+
+/* Judul baris "Filter Spesifik" + link "Reset" di kanan */
+.popup-box.popup-filter > filter-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.filter-header h3 {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 0; /* override dari .popup-box h3 */
+}
+
+/* Link Reset berwarna kuning */
+.filter-reset {
+  font-size: 13px;
+  font-weight: 600;
+  color: #fbbf24;
+  text-decoration: none;
+}
+
+.filter-reset:hover {
+  color: #f59e0b;
+}
+
+/* Label section (STATUS KETERSEDIAAN, KATEGORI, RENTANG HARGA) */
+.filter-section-label {
+  font-size: 10px;
+  font-weight: 700;
+  color: #aaa;
+  letter-spacing: 0.08em;
+  margin-bottom: 8px;
+  margin-top: 14px;
+}
+
+/* Baris tiap opsi radio */
+.filter-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+  cursor: pointer;
+  font-size: 13px;
+  color: #333;
+}
+
+/* Sembunyikan input radio default browser */
+.filter-option input[type="radio"] {
+  display: none;
+}
+
+/* Custom radio button — lingkaran kosong */
+.radio-custom {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: border-color 0.2s;
+}
+
+/* Titik di dalam radio saat checked */
+.radio-custom::after {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #fbbf24;
+  display: none;
+}
+
+/* Saat radio dipilih: border kuning + titik muncul */
+.filter-option input[type="radio"]:checked + .radio-custom {
+  border-color: #fbbf24;
+}
+
+.filter-option input[type="radio"]:checked + .radio-custom::after {
+  display: block;
+}
+
+/* Rentang Harga — 2 input dengan tanda dash di tengah */
+.filter-range {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+  justify-content: center;
+}
+
+.filter-range input {
+  flex: 1;
+  height: 36px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 12px;
+  outline: none;
+  text-align: center;
+}
+
+.filter-range input:focus {
+  border-color: #fbbf24;
+}
+
+/* Tanda dash pemisah antara dua input harga */
+.filter-range-sep {
+  font-size: 14px;
+  color: #aaa;
+  flex-shrink: 0;
+}
+
+/* Tombol Terapkan Filter — kuning full width */
+.btn-filter-apply {
+  display: block;
+  width: 100%;
+  margin-top: 20px;
+  padding: 11px 0;
+  background: #fbbf24;
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+}
+
+.btn-filter-apply:hover {
+  background: #f59e0b;
+}
+
+/* ============================================================
+   POPUP PROFIL — LIHAT
+   Trigger: klik avatar/nama user di header
+   Header kuning dengan nama + role, field readonly (tidak bisa diedit)
+   ============================================================ */
+
+.popup-box.popup-profil {
+  width: 440px;
+  padding: 0; /* padding di-handle per-section */
+  overflow: hidden; /* agar header kuning ikut border-radius */
+}
+
+/* Header kuning: nama + role + avatar */
+.profil-header {
+  background: #fbbf24;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  position: relative;
+}
+
+.profil-header .popup-close {
+  /* Override posisi — tetap pojok kanan tapi di dalam header kuning */
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  background: rgba(255, 255, 255, 0.3);
+  color: #fff;
+}
+
+.profil-header .popup-close:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+/* Avatar di header profil */
+.profil-avatar {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #fff;
+  border: 2px solid #fff;
+}
+
+.profil-header-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.profil-header-name {
+  font-size: 15px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.profil-header-role {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* Body profil: field-field data */
+.profil-body {
+  padding: 20px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Tiap baris field: label + input */
+.profil-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.profil-field label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #555;
+}
+
+/* Input readonly — tampak seperti teks biasa */
+.profil-field input {
+  height: 36px;
+  border: 1px solid #e8e8e8;
+  border-radius: 8px;
+  padding: 0 12px;
+  font-size: 13px;
+  color: #333;
+  background: #fff;
+  outline: none;
+}
+
+/* Footer profil lihat: hanya tombol Edit Profil */
+.profil-footer {
+  padding: 0 24px 20px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn-edit-profil {
+  padding: 9px 28px;
+  background: #fbbf24;
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+}
+
+.btn-edit-profil:hover {
+  background: #f59e0b;
+}
+
+/* ============================================================
+   POPUP PROFIL — EDIT
+   Trigger: tombol "Edit Profil" dari popup Lihat
+   Perbedaan: ada foto besar di tengah + ikon edit foto, 
+   field bisa diketik, ada dropdown Peran/Role, footer Batal+Simpan
+   ============================================================ */
+
+/* Foto besar di tengah atas popup edit profil */
+.profil-edit-photo-wrap {
+  display: flex;
+  justify-content: center;
+  padding: 24px 0 8px;
+  position: relative;
+}
+
+.profil-edit-photo {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #ddd;
+  display: block;
+}
+
+/* Ikon edit kecil di pojok kanan bawah foto */
+.profil-edit-photo-btn {
+  position: absolute;
+  bottom: 8px;
+  right: calc(50% - 54px); /* geser ke tepi kanan foto */
+  width: 26px;
+  height: 26px;
+  background: #fbbf24;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Body edit profil — sama dengan .profil-body tapi field bisa diedit */
+.profil-edit-body {
+  padding: 8px 24px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.profil-edit-body .profil-field input,
+.profil-edit-body .profil-field select {
+  height: 36px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 0 12px;
+  font-size: 13px;
+  color: #333;
+  background: #fff;
+  outline: none;
+  width: 100%;
+}
+
+.profil-edit-body .profil-field input:focus,
+.profil-edit-body .profil-field select:focus {
+  border-color: #fbbf24;
+}
+
+/* Footer edit profil: Batal (abu) + Simpan (kuning) */
+.profil-edit-footer {
+  padding: 16px 24px 20px;
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+/* ============================================================
+   POPUP EXPORT
+   Trigger: tombol Export di action-bar
+   Konten: pilih format (Excel/PDF) + rentang data + tombol unduh
+   ============================================================ */
+
+.popup-box.popup-export {
+  width: 340px;
+  padding: 0;
+  overflow: hidden;
+}
+
+/* Header kuning "Unduh Data Karyawan" */
+.export-header {
+  background: #fbbf24;
+  padding: 14px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.export-header h3 {
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 0;
+}
+
+.export-header .popup-close {
+  position: static; /* override absolute dari .popup-close default */
+  background: rgba(255, 255, 255, 0.3);
+  color: #fff;
+}
+
+/* Body export */
+.export-body {
+  padding: 20px;
+}
+
+.export-body h4 {
+  font-size: 13px;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 12px;
+}
+
+/* Opsi format: kartu pilih Excel / PDF */
+.export-format-options {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+/* Tiap kartu format */
+.export-format-opt {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 16px;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: border-color 0.2s;
+  font-size: 13px;
+  font-weight: 600;
+  color: #333;
+}
+
+.export-format-opt:hover {
+  border-color: #fbbf24;
+}
+
+/* Ikon format (placeholder warna) */
+.export-format-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.export-format-icon.excel {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.export-format-icon.pdf {
+  background: #fee2e2;
+  color: #ef4444;
+}
+
+/* Rentang Data — label section */
+.export-range-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: #aaa;
+  letter-spacing: 0.06em;
+  margin-bottom: 10px;
+}
+
+/* Opsi radio rentang data — reuse style .filter-option */
+.export-radio-opt {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+  cursor: pointer;
+  font-size: 12px;
+  color: #333;
+}
+
+.export-radio-opt input[type="radio"] {
+  display: none;
+}
+
+/* Keterangan jumlah di samping label (abu kecil) */
+.export-radio-count {
+  font-size: 11px;
+  color: #aaa;
+  margin-left: 2px;
+}
+
+/* Tombol Unduh Data */
+.btn-unduh {
+  display: block;
+  width: 100%;
+  margin-top: 16px;
+  padding: 10px 0;
+  background: #fbbf24;
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+}
+
+.btn-unduh:hover {
+  background: #f59e0b;
+}

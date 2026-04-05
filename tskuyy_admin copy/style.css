@@ -32,12 +32,11 @@ body {
 }
 
 /* Logo di dalam sidebar */
-/* PERUBAHAN: logo dipindah dari header ke bagian atas sidebar */
 .sidebar-logo {
-  width: 50px;
-  height: 50px;
+  width: 100px;
+  height: 60px;
   border-radius: 50%;
-  background: #fff;
+  /* background: #fff; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -46,7 +45,7 @@ body {
 }
 
 .sidebar-logo img {
-  width: 85%;
+  width: 100%;
   object-fit: contain;
 }
 
@@ -68,8 +67,8 @@ body {
 /* Nav item: persegi rounded, bukan bulat */
 /* PERUBAHAN: border-radius dari 50% ke 12px agar sesuai referensi */
 .nav-item {
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -264,6 +263,9 @@ body {
   display: flex;
   gap: 8px;
 }
+.btn.btn-outline:hover {
+  background: #fef3c6;
+}
 
 .btn-outline {
   background: #fff;
@@ -276,6 +278,7 @@ body {
   gap: 6px;
   font-size: 13px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  text-decoration: none;
 }
 
 /* ============================================================
