@@ -48,16 +48,6 @@ body {
   justify-content: center;
   align-items: center;
   flex-shrink: 0;
-  overflow: hidden;
-  padding: 0;
-}
-
-.logo-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 50%;
-  display: block;
 }
 
 .search-container {
@@ -163,7 +153,6 @@ body {
   display: flex;
   flex: 1;
   overflow: hidden;
-  position: relative;
 }
 
 /* ==================== SIDEBAR ==================== */
@@ -215,28 +204,28 @@ body {
   align-items: center;
   justify-content: center;
   border-radius: 50px;
-  color: #efb100;
+  color: #EFB100;
   cursor: pointer;
   transition: 0.2s;
 }
 
 .nav-item:hover {
   background: #f1f5f9;
-  color: #efb100;
+  color: #EFB100;
 }
 
 .nav-item.active {
-  background: #292d32;
-  color: #efb100;
+  background: #292D32;
+  color: #EFB100;
 }
 
 .nav-item.logout {
-  color: #e95322;
+  color: #E95322;
 }
 
 .nav-item.logout:hover {
   background: #fee2e2;
-  color: #e95322;
+  color: #E95322;
 }
 
 /* ==================== CONTENT AREA ==================== */
@@ -250,10 +239,10 @@ body {
   gap: 14px;
 }
 
+/* scrollbar style */
 .content-area::-webkit-scrollbar {
   width: 5px;
 }
-
 .content-area::-webkit-scrollbar-thumb {
   background: #ddd;
   border-radius: 10px;
@@ -300,10 +289,11 @@ body {
   gap: 12px;
   flex: 1;
   overflow-x: auto;
-  scroll-snap-type: x mandatory;
+  scroll-snap-type: x mandatory;   /* ← snap antar kartu */
   scroll-behavior: smooth;
 }
 
+/* scrollbar style */
 .queue-container::-webkit-scrollbar {
   display: none;
 }
@@ -318,28 +308,6 @@ body {
   display: flex;
   flex-direction: column;
   gap: 10px;
-}
-
-label.queue-card {
-  cursor: pointer;
-  transition: filter 0.15s, transform 0.15s;
-}
-
-label.queue-card:hover {
-  filter: brightness(0.95);
-  transform: translateY(-2px);
-}
-
-.queue-green {
-  background: #dcfce7;
-}
-
-.queue-yellow {
-  background: #fef9c3;
-}
-
-.queue-red {
-  background: #fee2e2;
 }
 
 .card-top {
@@ -395,7 +363,7 @@ label.queue-card:hover {
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
 .nav-arrow:hover {
@@ -554,14 +522,8 @@ label.queue-card:hover {
   transition: box-shadow 0.2s, transform 0.2s;
 }
 
-label.menu-card {
-  display: block;
-  cursor: pointer;
-  text-align: left;
-}
-
 .menu-card:hover {
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
   transform: translateY(-2px);
 }
 
@@ -709,7 +671,6 @@ label.menu-card {
 .cart-content::-webkit-scrollbar {
   width: 4px;
 }
-
 .cart-content::-webkit-scrollbar-thumb {
   background: #eee;
   border-radius: 10px;
@@ -913,28 +874,21 @@ label.menu-card {
 }
 
 .order-btn {
-  display: flex !important;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
   width: 100%;
-  padding: 15px;
-  background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+  padding: 14px;
+  background: #fbbf24;
   border: none;
-  border-radius: 14px;
-  color: #fff !important;
-  font-weight: 800;
-  font-size: 15px;
+  border-radius: 12px;
+  color: #fff;
+  font-weight: 700;
+  font-size: 14px;
   cursor: pointer;
-  letter-spacing: 0.5px;
-  box-shadow: 0 4px 14px rgba(251, 191, 36, 0.45);
-  transition: all 0.2s;
-  text-decoration: none;
+  letter-spacing: 0.3px;
+  transition: background 0.2s, transform 0.1s;
 }
 
 .order-btn:hover {
-  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
-  box-shadow: 0 6px 20px rgba(251, 191, 36, 0.55);
+  background: #f59e0b;
   transform: translateY(-1px);
 }
 
@@ -943,11 +897,13 @@ label.menu-card {
 }
 
 /* ==================== POPUP SYSTEM ==================== */
-.popup-toggle,
-.filter-radio {
+
+/* Sembunyikan semua checkbox */
+.popup-toggle {
   display: none;
 }
 
+/* Overlay — muncul saat salah satu checkbox checked */
 .popup-overlay {
   display: none;
   position: fixed;
@@ -956,6 +912,7 @@ label.menu-card {
   z-index: 200;
 }
 
+/* Semua popup — tersembunyi secara default */
 .popup {
   display: none;
   position: fixed;
@@ -970,75 +927,22 @@ label.menu-card {
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
 }
 
-#toggle-payment:checked ~ .popup-overlay,
+/* ---- Tampilkan popup saat checkbox checked ---- */
+#toggle-payment:checked   ~ .popup-overlay,
 #toggle-qris-confirm:checked ~ .popup-overlay,
 #toggle-qris-code:checked ~ .popup-overlay,
-#toggle-tunai:checked ~ .popup-overlay,
-#toggle-success:checked ~ .popup-overlay,
-#toggle-hapus-keranjang:checked ~ .popup-overlay,
-#toggle-batal-pesanan:checked ~ .popup-overlay,
-#toggle-alasan-batal:checked ~ .popup-overlay,
-#toggle-detail-antrian:checked ~ .popup-overlay,
-#toggle-detail-menu:checked ~ .popup-overlay,
-#toggle-antrian-full:checked ~ .popup-overlay,
-#toggle-notif:checked ~ .popup-overlay,
-#toggle-profil:checked ~ .popup-overlay {
+#toggle-tunai:checked     ~ .popup-overlay,
+#toggle-success:checked   ~ .popup-overlay {
   display: block;
 }
 
-#toggle-payment:checked ~ #popup-payment {
-  display: block;
-}
+#toggle-payment:checked   ~ #popup-payment      { display: block; }
+#toggle-qris-confirm:checked ~ #popup-qris-confirm { display: block; }
+#toggle-qris-code:checked ~ #popup-qris-code    { display: block; }
+#toggle-tunai:checked     ~ #popup-tunai         { display: block; }
+#toggle-success:checked   ~ #popup-success       { display: block; }
 
-#toggle-qris-confirm:checked ~ #popup-qris-confirm {
-  display: block;
-}
-
-#toggle-qris-code:checked ~ #popup-qris-code {
-  display: block;
-}
-
-#toggle-tunai:checked ~ #popup-tunai {
-  display: block;
-}
-
-#toggle-success:checked ~ #popup-success {
-  display: block;
-}
-
-#toggle-hapus-keranjang:checked ~ #popup-hapus-keranjang {
-  display: block;
-}
-
-#toggle-batal-pesanan:checked ~ #popup-batal-pesanan {
-  display: block;
-}
-
-#toggle-alasan-batal:checked ~ #popup-alasan-batal {
-  display: block;
-}
-
-#toggle-detail-antrian:checked ~ #popup-detail-antrian {
-  display: block;
-}
-
-#toggle-detail-menu:checked ~ #popup-detail-menu {
-  display: block;
-}
-
-#toggle-antrian-full:checked ~ #popup-antrian-full {
-  display: flex !important;
-}
-
-#toggle-notif:checked ~ #notif-toast,
-#toggle-notif:checked ~ #popup-notif-panel {
-  display: flex;
-}
-
-#toggle-profil:checked ~ #popup-profil {
-  display: block;
-}
-
+/* ---- Popup Header ---- */
 .popup-header {
   display: flex;
   justify-content: space-between;
@@ -1058,6 +962,7 @@ label.menu-card {
   font-weight: 700;
 }
 
+/* ---- Popup Close Button ---- */
 .popup-close {
   cursor: pointer;
   display: flex;
@@ -1076,13 +981,14 @@ label.menu-card {
 }
 
 .popup-close-white {
-  background: rgba(255, 255, 255, 0.25);
+  background: rgba(255,255,255,0.25);
 }
 
 .popup-close-white:hover {
-  background: rgba(255, 255, 255, 0.4);
+  background: rgba(255,255,255,0.4);
 }
 
+/* Float close (untuk popup tanpa header bar) */
 .popup-close-float {
   position: absolute;
   top: 14px;
@@ -1091,6 +997,7 @@ label.menu-card {
   z-index: 1;
 }
 
+/* ---- Popup Body ---- */
 .popup-body {
   padding: 20px;
   display: flex;
@@ -1098,6 +1005,7 @@ label.menu-card {
   gap: 14px;
 }
 
+/* ---- Total Tagihan di popup ---- */
 .popup-total-label {
   font-size: 13px;
   font-weight: 600;
@@ -1112,6 +1020,7 @@ label.menu-card {
   margin-bottom: 4px;
 }
 
+/* ---- Tombol utama popup ---- */
 .popup-btn {
   display: block;
   width: 100%;
@@ -1133,23 +1042,7 @@ label.menu-card {
   background: #f59e0b;
 }
 
-.popup-btn-danger {
-  background: #ef4444;
-}
-
-.popup-btn-danger:hover {
-  background: #dc2626;
-}
-
-.popup-btn-green {
-  background: #22c55e;
-}
-
-.popup-btn-green:hover {
-  background: #16a34a;
-}
-
-/* ==================== METODE PEMBAYARAN ==================== */
+/* ==================== POPUP 1: Metode Pembayaran ==================== */
 .payment-option {
   display: flex;
   align-items: center;
@@ -1189,7 +1082,7 @@ label.menu-card {
   align-items: center;
 }
 
-/* ==================== KONFIRMASI QRIS ==================== */
+/* ==================== POPUP 2: Konfirmasi QRIS ==================== */
 .popup-confirm {
   text-align: center;
 }
@@ -1219,7 +1112,7 @@ label.menu-card {
   line-height: 1.6;
 }
 
-/* ==================== QR CODE ==================== */
+/* ==================== POPUP 3: QR Code ==================== */
 .qris-logo {
   display: flex;
   justify-content: center;
@@ -1247,7 +1140,7 @@ label.menu-card {
   text-align: center;
 }
 
-/* ==================== TUNAI ==================== */
+/* ==================== POPUP 4: Tunai ==================== */
 .tunai-label {
   font-size: 13px;
   font-weight: 600;
@@ -1310,7 +1203,7 @@ label.menu-card {
   text-align: center;
 }
 
-/* ==================== BERHASIL ==================== */
+/* ==================== POPUP 5: Berhasil ==================== */
 .success-title {
   font-size: 20px;
   font-weight: 800;
@@ -1378,7 +1271,26 @@ label.menu-card {
   margin-top: 0;
 }
 
-/* ==================== POPUP WARNING ==================== */
+/* ==================== POPUP BATCH 2 — OVERLAY SELECTORS ==================== */
+
+#toggle-hapus-keranjang:checked ~ .popup-overlay,
+#toggle-batal-pesanan:checked   ~ .popup-overlay,
+#toggle-alasan-batal:checked    ~ .popup-overlay,
+#toggle-detail-antrian:checked  ~ .popup-overlay,
+#toggle-detail-menu:checked     ~ .popup-overlay,
+#toggle-antrian-full:checked    ~ .popup-overlay {
+  display: block;
+}
+
+#toggle-hapus-keranjang:checked ~ #popup-hapus-keranjang { display: block; }
+#toggle-batal-pesanan:checked   ~ #popup-batal-pesanan   { display: block; }
+#toggle-alasan-batal:checked    ~ #popup-alasan-batal    { display: block; }
+#toggle-detail-antrian:checked  ~ #popup-detail-antrian  { display: block; }
+#toggle-detail-menu:checked     ~ #popup-detail-menu     { display: block; }
+#toggle-antrian-full:checked    ~ #popup-antrian-full    { display: block; }
+#toggle-notif:checked           ~ #notif-toast           { display: flex; }
+
+/* ==================== POPUP WARNING (Hapus & Batal) ==================== */
 .popup-warning {
   width: 380px;
   border-radius: 20px;
@@ -1471,6 +1383,7 @@ label.menu-card {
 .alasan-list {
   display: flex;
   flex-direction: column;
+  gap: 0;
   border: 1.5px solid #e5e7eb;
   border-radius: 12px;
   overflow: hidden;
@@ -1524,6 +1437,22 @@ label.menu-card {
 .alasan-note {
   font-size: 12px;
   color: #aaa;
+}
+
+.popup-btn-danger {
+  background: #ef4444;
+}
+
+.popup-btn-danger:hover {
+  background: #dc2626;
+}
+
+.popup-btn-green {
+  background: #22c55e;
+}
+
+.popup-btn-green:hover {
+  background: #16a34a;
 }
 
 .btn-kembali {
@@ -1634,14 +1563,8 @@ label.menu-card {
   max-height: 380px;
 }
 
-.menu-detail-info::-webkit-scrollbar {
-  width: 4px;
-}
-
-.menu-detail-info::-webkit-scrollbar-thumb {
-  background: #eee;
-  border-radius: 4px;
-}
+.menu-detail-info::-webkit-scrollbar { width: 4px; }
+.menu-detail-info::-webkit-scrollbar-thumb { background: #eee; border-radius: 4px; }
 
 .menu-detail-name {
   font-size: 20px;
@@ -1702,6 +1625,7 @@ label.menu-card {
 .level-list {
   display: flex;
   flex-direction: column;
+  gap: 0;
   border: 1.5px solid #e5e7eb;
   border-radius: 10px;
   overflow: hidden;
@@ -1775,6 +1699,10 @@ label.menu-card {
   flex-direction: column;
   border-radius: 20px;
   overflow: hidden;
+}
+
+#toggle-antrian-full:checked ~ #popup-antrian-full {
+  display: flex !important;
 }
 
 .antrian-full-header {
@@ -1864,14 +1792,8 @@ label.menu-card {
   overflow-y: auto;
 }
 
-.antrian-full-grid::-webkit-scrollbar {
-  width: 5px;
-}
-
-.antrian-full-grid::-webkit-scrollbar-thumb {
-  background: #ddd;
-  border-radius: 10px;
-}
+.antrian-full-grid::-webkit-scrollbar { width: 5px; }
+.antrian-full-grid::-webkit-scrollbar-thumb { background: #ddd; border-radius: 10px; }
 
 .antrian-card {
   border-radius: 14px;
@@ -1881,32 +1803,9 @@ label.menu-card {
   gap: 8px;
 }
 
-label.antrian-card {
-  cursor: pointer;
-  display: flex;
-}
-
-label.antrian-card:hover {
-  filter: brightness(0.96);
-  transform: translateY(-1px);
-  transition: all 0.15s;
-}
-
-.antrian-green {
-  background: #dcfce7;
-}
-
-.antrian-yellow {
-  background: #fef9c3;
-}
-
-.antrian-pink {
-  background: #fce7f3;
-}
-
-.antrian-red {
-  background: #fee2e2;
-}
+.antrian-green  { background: #dcfce7; }
+.antrian-yellow { background: #fef9c3; }
+.antrian-pink   { background: #fce7f3; }
 
 .antrian-card-top {
   display: flex;
@@ -1931,12 +1830,63 @@ label.antrian-card:hover {
   margin-top: -4px;
 }
 
-/* ==================== DEMO TRIGGERS ==================== */
-.demo-triggers {
+/* ==================== NOTIFIKASI TOAST ==================== */
+.notif-toast {
   display: none;
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fef9c3;
+  border: 1.5px solid #fde68a;
+  border-radius: 14px;
+  padding: 12px 18px;
+  gap: 12px;
+  align-items: center;
+  z-index: 400;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  min-width: 220px;
+}
+
+.notif-toast-icon {
+  width: 36px;
+  height: 36px;
+  background: #fef08a;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.notif-toast-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.notif-toast-title {
+  font-size: 13px;
+  font-weight: 800;
+  color: #92400e;
+}
+
+.notif-toast-desc {
+  font-size: 12px;
+  color: #78350f;
+}
+
+.notif-toast-id {
+  font-size: 11px;
+  color: #a16207;
+}
+
+/* ==================== DEMO TRIGGER BUTTONS ==================== */
+.demo-triggers {
   position: fixed;
   bottom: 16px;
   right: 16px;
+  display: flex;
   flex-direction: column;
   gap: 6px;
   z-index: 150;
@@ -1960,388 +1910,299 @@ label.antrian-card:hover {
   opacity: 1;
 }
 
-/* ==================== FILTER SYSTEM ==================== */
-#fa-all:checked ~ .antrian-full-grid .antrian-card {
+/* ===== label sebagai menu-card & antrian-card ===== */
+label.menu-card {
+  display: block;
+  cursor: pointer;
+  text-align: left;
+}
+
+label.antrian-card {
+  cursor: pointer;
   display: flex;
 }
 
-#fa-dine:checked ~ .antrian-full-grid .antrian-card,
-#fa-takeaway:checked ~ .antrian-full-grid .antrian-card,
-#fa-served:checked ~ .antrian-full-grid .antrian-card {
-  display: none;
+label.antrian-card:hover {
+  filter: brightness(0.96);
+  transform: translateY(-1px);
+  transition: all 0.15s;
 }
 
-#fa-dine:checked ~ .antrian-full-grid .antrian-card[data-type="dine"] {
-  display: flex;
-}
+/* Hapus demo triggers jika masih ada */
+.demo-triggers { display: none; }
 
-#fa-takeaway:checked ~ .antrian-full-grid .antrian-card[data-type="takeaway"] {
-  display: flex;
-}
+/* ==================== FILTER SYSTEM — CSS ONLY ==================== */
+
+/* Sembunyikan semua radio */
+.filter-radio { display: none; }
+
+/* ==================== FILTER ANTRIAN ==================== */
+#fa-all:checked ~ .antrian-full-grid .antrian-card { display: flex; }
+#fa-dine:checked ~ .antrian-full-grid .antrian-card { display: none; }
+#fa-dine:checked ~ .antrian-full-grid .antrian-card[data-type="dine"] { display: flex; }
+#fa-takeaway:checked ~ .antrian-full-grid .antrian-card { display: none; }
+#fa-takeaway:checked ~ .antrian-full-grid .antrian-card[data-type="takeaway"] { display: flex; }
+#fa-served:checked ~ .antrian-full-grid .antrian-card { display: none; }
 
 /* Tab antrian aktif */
-#fa-all:checked ~ .antrian-tabs label[for="fa-all"],
-#fa-dine:checked ~ .antrian-tabs label[for="fa-dine"],
+#fa-all:checked      ~ .antrian-tabs label[for="fa-all"],
+#fa-dine:checked     ~ .antrian-tabs label[for="fa-dine"],
 #fa-takeaway:checked ~ .antrian-tabs label[for="fa-takeaway"],
-#fa-served:checked ~ .antrian-tabs label[for="fa-served"] {
-  background: #fbbf24;
-  border-color: #fbbf24;
-  color: #fff;
+#fa-served:checked   ~ .antrian-tabs label[for="fa-served"] {
+  background: #fbbf24; border-color: #fbbf24; color: #fff;
 }
-
-#fa-all:checked ~ .antrian-tabs label:not([for="fa-all"]),
-#fa-dine:checked ~ .antrian-tabs label:not([for="fa-dine"]),
+#fa-all:checked      ~ .antrian-tabs label:not([for="fa-all"]),
+#fa-dine:checked     ~ .antrian-tabs label:not([for="fa-dine"]),
 #fa-takeaway:checked ~ .antrian-tabs label:not([for="fa-takeaway"]),
-#fa-served:checked ~ .antrian-tabs label:not([for="fa-served"]) {
-  background: transparent;
-  border-color: #e5e7eb;
-  color: #555;
+#fa-served:checked   ~ .antrian-tabs label:not([for="fa-served"]) {
+  background: transparent; border-color: #e5e7eb; color: #555;
 }
-
 #fa-all:checked ~ .antrian-tabs label[for="fa-all"] .tab-badge,
 #fa-dine:checked ~ .antrian-tabs label[for="fa-dine"] .tab-badge,
 #fa-takeaway:checked ~ .antrian-tabs label[for="fa-takeaway"] .tab-badge,
 #fa-served:checked ~ .antrian-tabs label[for="fa-served"] .tab-badge {
-  background: #fff;
-  color: #92400e;
-  border: none;
+  background: #fff; color: #92400e; border: none;
 }
 
 /* ==================== DUAL FILTER: MOOD × KATEGORI ==================== */
-.content-area .menu-card[data-kategori] {
-  display: none !important;
-}
+/*
+  Urutan DOM di <main>:
+  #mood-semua ... #mood-bebas (radio)
+  #filter-makanan ... #filter-snack (radio)
+  .mood-section
+  .menu-choice > .menu-grid > .menu-card[data-kategori][data-mood]
 
-#mood-semua:checked ~ #filter-makanan:checked ~ .menu-choice .menu-card[data-kategori="makanan"],
-#mood-semua:checked ~ #filter-minuman:checked ~ .menu-choice .menu-card[data-kategori="minuman"],
-#mood-semua:checked ~ #filter-snack:checked ~ .menu-choice .menu-card[data-kategori="snack"] {
-  display: block !important;
-}
+  Selector: #mood-X:checked ~ #filter-Y:checked ~ .menu-choice .menu-card[...]
+  Ini valid karena semua radio adalah siblings dalam <main>.
+*/
 
-#mood-chill:checked ~ #filter-makanan:checked ~ .menu-choice .menu-card[data-kategori="makanan"][data-mood~="chill"],
-#mood-chill:checked ~ #filter-minuman:checked ~ .menu-choice .menu-card[data-kategori="minuman"][data-mood~="chill"],
-#mood-chill:checked ~ #filter-snack:checked ~ .menu-choice .menu-card[data-kategori="snack"][data-mood~="chill"] {
-  display: block !important;
-}
+/* Sembunyikan semua card menu */
+.content-area .menu-card[data-kategori] { display: none !important; }
 
-#mood-lapar:checked ~ #filter-makanan:checked ~ .menu-choice .menu-card[data-kategori="makanan"][data-mood~="lapar"],
-#mood-lapar:checked ~ #filter-minuman:checked ~ .menu-choice .menu-card[data-kategori="minuman"][data-mood~="lapar"],
-#mood-lapar:checked ~ #filter-snack:checked ~ .menu-choice .menu-card[data-kategori="snack"][data-mood~="lapar"] {
-  display: block !important;
-}
+#mood-semua:checked ~ #filter-makanan:checked ~ .menu-choice .menu-card[data-kategori="makanan"] { display: block !important; }
+#mood-semua:checked ~ #filter-minuman:checked ~ .menu-choice .menu-card[data-kategori="minuman"] { display: block !important; }
+#mood-semua:checked ~ #filter-snack:checked ~ .menu-choice .menu-card[data-kategori="snack"] { display: block !important; }
 
-#mood-fokus:checked ~ #filter-makanan:checked ~ .menu-choice .menu-card[data-kategori="makanan"][data-mood~="fokus"],
-#mood-fokus:checked ~ #filter-minuman:checked ~ .menu-choice .menu-card[data-kategori="minuman"][data-mood~="fokus"],
-#mood-fokus:checked ~ #filter-snack:checked ~ .menu-choice .menu-card[data-kategori="snack"][data-mood~="fokus"] {
-  display: block !important;
-}
+#mood-chill:checked ~ #filter-makanan:checked ~ .menu-choice .menu-card[data-kategori="makanan"][data-mood~="chill"] { display: block !important; }
+#mood-chill:checked ~ #filter-minuman:checked ~ .menu-choice .menu-card[data-kategori="minuman"][data-mood~="chill"] { display: block !important; }
+#mood-chill:checked ~ #filter-snack:checked ~ .menu-choice .menu-card[data-kategori="snack"][data-mood~="chill"] { display: block !important; }
 
-#mood-bebas:checked ~ #filter-makanan:checked ~ .menu-choice .menu-card[data-kategori="makanan"][data-mood~="bebas"],
-#mood-bebas:checked ~ #filter-minuman:checked ~ .menu-choice .menu-card[data-kategori="minuman"][data-mood~="bebas"],
-#mood-bebas:checked ~ #filter-snack:checked ~ .menu-choice .menu-card[data-kategori="snack"][data-mood~="bebas"] {
-  display: block !important;
-}
+#mood-lapar:checked ~ #filter-makanan:checked ~ .menu-choice .menu-card[data-kategori="makanan"][data-mood~="lapar"] { display: block !important; }
+#mood-lapar:checked ~ #filter-minuman:checked ~ .menu-choice .menu-card[data-kategori="minuman"][data-mood~="lapar"] { display: block !important; }
+#mood-lapar:checked ~ #filter-snack:checked ~ .menu-choice .menu-card[data-kategori="snack"][data-mood~="lapar"] { display: block !important; }
+
+#mood-fokus:checked ~ #filter-makanan:checked ~ .menu-choice .menu-card[data-kategori="makanan"][data-mood~="fokus"] { display: block !important; }
+#mood-fokus:checked ~ #filter-minuman:checked ~ .menu-choice .menu-card[data-kategori="minuman"][data-mood~="fokus"] { display: block !important; }
+#mood-fokus:checked ~ #filter-snack:checked ~ .menu-choice .menu-card[data-kategori="snack"][data-mood~="fokus"] { display: block !important; }
+
+#mood-bebas:checked ~ #filter-makanan:checked ~ .menu-choice .menu-card[data-kategori="makanan"][data-mood~="bebas"] { display: block !important; }
+#mood-bebas:checked ~ #filter-minuman:checked ~ .menu-choice .menu-card[data-kategori="minuman"][data-mood~="bebas"] { display: block !important; }
+#mood-bebas:checked ~ #filter-snack:checked ~ .menu-choice .menu-card[data-kategori="snack"][data-mood~="bebas"] { display: block !important; }
 
 /* Mood tab active styling */
-#mood-semua:checked ~ .mood-section #mtab-semua,
-#mood-chill:checked ~ .mood-section #mtab-chill,
-#mood-lapar:checked ~ .mood-section #mtab-lapar,
-#mood-fokus:checked ~ .mood-section #mtab-fokus,
-#mood-bebas:checked ~ .mood-section #mtab-bebas {
-  background: #fef3c7;
-  border-color: #fbbf24;
-  color: #92400e;
-  font-weight: 700;
-}
+#mood-semua:checked ~ .mood-section #mtab-semua { background:#fef3c7; border-color:#fbbf24; color:#92400e; font-weight:700; }
+#mood-chill:checked ~ .mood-section #mtab-chill { background:#fef3c7; border-color:#fbbf24; color:#92400e; font-weight:700; }
+#mood-lapar:checked ~ .mood-section #mtab-lapar { background:#fef3c7; border-color:#fbbf24; color:#92400e; font-weight:700; }
+#mood-fokus:checked ~ .mood-section #mtab-fokus { background:#fef3c7; border-color:#fbbf24; color:#92400e; font-weight:700; }
+#mood-bebas:checked ~ .mood-section #mtab-bebas { background:#fef3c7; border-color:#fbbf24; color:#92400e; font-weight:700; }
 
 /* Kategori tab active styling */
-#filter-makanan:checked ~ .menu-choice #tab-makanan,
-#filter-minuman:checked ~ .menu-choice #tab-minuman,
-#filter-snack:checked ~ .menu-choice #tab-snack {
-  background: #fff7e0;
-  border-color: #fbbf24;
-  color: #92400e;
-  font-weight: 700;
-}
+#filter-makanan:checked ~ .menu-choice #tab-makanan { background:#fff7e0; border-color:#fbbf24; color:#92400e; font-weight:700; }
+#filter-makanan:checked ~ .menu-choice #tab-minuman { background:#fff; border-color:#e5e7eb; color:#555; font-weight:500; }
+#filter-makanan:checked ~ .menu-choice #tab-snack { background:#fff; border-color:#e5e7eb; color:#555; font-weight:500; }
 
-#filter-makanan:checked ~ .menu-choice #tab-minuman,
-#filter-makanan:checked ~ .menu-choice #tab-snack,
-#filter-minuman:checked ~ .menu-choice #tab-makanan,
-#filter-minuman:checked ~ .menu-choice #tab-snack,
-#filter-snack:checked ~ .menu-choice #tab-makanan,
-#filter-snack:checked ~ .menu-choice #tab-minuman {
-  background: #fff;
-  border-color: #e5e7eb;
-  color: #555;
-  font-weight: 500;
-}
+#filter-minuman:checked ~ .menu-choice #tab-minuman { background:#fff7e0; border-color:#fbbf24; color:#92400e; font-weight:700; }
+#filter-minuman:checked ~ .menu-choice #tab-makanan { background:#fff; border-color:#e5e7eb; color:#555; font-weight:500; }
+#filter-minuman:checked ~ .menu-choice #tab-snack { background:#fff; border-color:#e5e7eb; color:#555; font-weight:500; }
 
-/* ==================== CART TOGGLE ==================== */
-.cart-toggle-btn {
-  display: none;
-  position: fixed;
-  bottom: 24px;
-  right: 20px;
-  z-index: 201;
-  background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
-  color: #fff;
-  border: none;
-  border-radius: 50px;
-  padding: 12px 20px;
-  font-size: 13px;
-  font-weight: 700;
+#filter-snack:checked ~ .menu-choice #tab-snack { background:#fff7e0; border-color:#fbbf24; color:#92400e; font-weight:700; }
+#filter-snack:checked ~ .menu-choice #tab-makanan { background:#fff; border-color:#e5e7eb; color:#555; font-weight:500; }
+#filter-snack:checked ~ .menu-choice #tab-minuman { background:#fff; border-color:#e5e7eb; color:#555; font-weight:500; }
+
+
+/* ==================== LOGO IMG ==================== */
+.logo { overflow: hidden; padding: 0; }
+.logo-img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; display: block; }
+
+/* ==================== QUEUE CARD AS LABEL ==================== */
+label.queue-card {
   cursor: pointer;
-  gap: 8px;
-  align-items: center;
-  box-shadow: 0 4px 16px rgba(251, 191, 36, 0.5);
-  transition: all 0.2s;
-}
-
-.cart-toggle-btn:hover {
-  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
-  transform: translateY(-2px);
-}
-
-.cart-open .cart-sidebar {
-  right: 0;
-}
-
-.cart-open .cart-overlay {
-  display: block;
-}
-
-.cart-overlay {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.35);
-  z-index: 199;
-}
-
-/* ==================== HEADER PROFILE & NOTIFICATION POPUP ==================== */
-.popup-profil {
-  width: 620px;
-  max-width: calc(100vw - 32px);
-  border: 2px solid #d8a500;
-  border-radius: 24px;
-}
-
-.popup-body-profil {
-  background: #f3f4f6;
-  padding: 22px 18px 18px;
-  gap: 14px;
-}
-
-.profil-top {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 6px;
-}
-
-.profil-avatar img {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  object-fit: cover;
-  display: block;
-}
-
-.profil-name {
-  font-size: 22px;
-  font-weight: 600;
-  color: #222;
-  line-height: 1.2;
-}
-
-.profil-role {
-  font-size: 13px;
-  color: #7b8491;
-}
-
-.profil-field-wrap {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-}
-
-.profil-label {
-  font-size: 14px;
-  font-weight: 600;
-  color: #444;
-  padding-left: 12px;
-}
-
-.profil-field {
-  min-height: 40px;
-  padding: 12px 14px;
-  border: 1.5px solid #b8bcc4;
-  border-radius: 10px;
-  background: #fff;
-  font-size: 14px;
-  color: #2f3136;
-  display: flex;
-  align-items: center;
-}
-
-.profil-actions {
-  display: flex;
-  justify-content: flex-end;
-  margin-top: 4px;
-}
-
-.profil-btn-close {
-  width: 188px;
-  margin-top: 0;
+  gap: 10px;
   border-radius: 12px;
+  padding: 14px;
+  transition: filter 0.15s, transform 0.15s;
 }
+label.queue-card:hover { filter: brightness(0.95); transform: translateY(-2px); }
+.queue-green  { background: #dcfce7; }
+.queue-yellow { background: #fef9c3; }
+.queue-red    { background: #fee2e2; }
+.antrian-red  { background: #fee2e2; }
 
-.notif-panel {
-  display: none;
-  position: fixed;
-  top: 76px;
-  right: 24px;
-  width: 430px;
-  max-width: calc(100vw - 24px);
-  background: #f4f4f4;
-  border: 1px solid #cfcfcf;
-  border-radius: 0 0 18px 18px;
-  z-index: 350;
-  overflow: hidden;
-  box-shadow: 0 16px 38px rgba(0, 0, 0, 0.18);
-}
-
-#toggle-notif:checked ~ #popup-notif-panel {
-  display: block;
-}
-
-.notif-panel-header {
-  display: flex;
-  justify-content: space-between;
+/* ==================== ORDER NOW BUTTON ==================== */
+.order-btn {
+  display: flex !important;
   align-items: center;
-  padding: 18px 20px;
-  background: #fff;
-  border-bottom: 1px solid #d9d9d9;
-}
-
-.notif-panel-header h3 {
-  font-size: 18px;
-  font-weight: 700;
-  color: #222;
-}
-
-.notif-read-link {
-  font-size: 12px;
-  font-weight: 600;
-  color: #e1a900;
-  cursor: pointer;
-}
-
-.notif-panel-list {
-  max-height: 510px;
-  overflow-y: auto;
-  background: #f6f6f6;
-}
-
-.notif-panel-list::-webkit-scrollbar {
-  width: 4px;
-}
-
-.notif-panel-list::-webkit-scrollbar-thumb {
-  background: #d0d0d0;
-  border-radius: 10px;
-}
-
-.notif-panel-item {
-  display: flex;
-  gap: 14px;
-  padding: 18px 20px;
-  background: #f7f7f7;
-  border-bottom: 1px solid #d9d9d9;
-  cursor: pointer;
-}
-
-.notif-panel-item:hover {
-  background: #fdf8e7;
-}
-
-.notif-panel-icon-wrap {
-  width: 54px;
-  display: flex;
   justify-content: center;
-  flex-shrink: 0;
-  padding-top: 2px;
-}
-
-.notif-panel-content {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.notif-panel-title {
-  font-size: 18px;
-  font-weight: 700;
-  color: #222;
-  line-height: 1.2;
-}
-
-.notif-panel-desc,
-.notif-panel-order {
-  font-size: 14px;
-  font-weight: 600;
-  color: #666;
-  line-height: 1.35;
-}
-
-.notif-panel-time {
-  position: relative;
-  font-size: 13px;
-  color: #808080;
-  margin-top: 4px;
-  padding-left: 18px;
-}
-
-.notif-panel-time::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 50%;
-  width: 12px;
-  height: 12px;
-  border: 1.6px solid #8d8d8d;
-  border-radius: 50%;
-  transform: translateY(-50%);
-}
-
-.notif-panel-time::after {
-  content: "";
-  position: absolute;
-  left: 6px;
-  top: calc(50% - 3px);
-  width: 1.6px;
-  height: 4px;
-  background: #8d8d8d;
-  transform: translateX(-50%);
-}
-
-.notif-panel-footer {
-  display: block;
-  padding: 16px 20px;
-  text-align: center;
-  background: #fff;
-  font-size: 16px;
-  font-weight: 700;
-  color: #222;
+  gap: 8px;
+  width: 100%;
+  padding: 15px;
+  background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+  border: none;
+  border-radius: 14px;
+  color: #fff !important;
+  font-weight: 800;
+  font-size: 15px;
   cursor: pointer;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 14px rgba(251, 191, 36, 0.45);
+  transition: all 0.2s;
+  text-decoration: none;
 }
-
-.notif-panel-footer:hover {
-  background: #fafafa;
+.order-btn:hover {
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  box-shadow: 0 6px 20px rgba(251, 191, 36, 0.55);
+  transform: translateY(-1px);
 }
+.order-btn:active { transform: translateY(0); }
 
-/* ==================== RESPONSIVE: TABLET ==================== */
+/* ==================== POPUP BATCH 2 OVERLAY SELECTORS ==================== */
+#toggle-hapus-keranjang:checked ~ .popup-overlay,
+#toggle-batal-pesanan:checked   ~ .popup-overlay,
+#toggle-alasan-batal:checked    ~ .popup-overlay,
+#toggle-detail-antrian:checked  ~ .popup-overlay,
+#toggle-detail-menu:checked     ~ .popup-overlay,
+#toggle-antrian-full:checked    ~ .popup-overlay { display: block; }
+
+#toggle-hapus-keranjang:checked ~ #popup-hapus-keranjang { display: block; }
+#toggle-batal-pesanan:checked   ~ #popup-batal-pesanan   { display: block; }
+#toggle-alasan-batal:checked    ~ #popup-alasan-batal    { display: block; }
+#toggle-detail-antrian:checked  ~ #popup-detail-antrian  { display: block; }
+#toggle-detail-menu:checked     ~ #popup-detail-menu     { display: block; }
+#toggle-antrian-full:checked    ~ #popup-antrian-full    { display: flex !important; }
+#toggle-notif:checked           ~ #notif-toast           { display: flex; }
+
+/* ==================== POPUP WARNING ==================== */
+.popup-warning { width: 380px; border-radius: 20px; overflow: hidden; }
+.popup-body-warning { display:flex; flex-direction:column; align-items:center; text-align:center; gap:12px; padding:28px 28px 24px; }
+.warning-icon-wrap { width:68px; height:68px; background:#ef4444; border-radius:50%; display:flex; align-items:center; justify-content:center; margin-bottom:4px; }
+.warning-title { font-size:17px; font-weight:800; color:#111; line-height:1.4; }
+.warning-desc { font-size:12px; color:#aaa; line-height:1.6; }
+.warning-actions { display:flex; gap:10px; width:100%; margin-top:6px; }
+.btn-batal-warning { flex:1; padding:13px; background:#fee2e2; color:#ef4444; border:none; border-radius:12px; font-size:14px; font-weight:700; cursor:pointer; text-align:center; transition:background 0.2s; }
+.btn-batal-warning:hover { background:#fecaca; }
+.btn-confirm-warning { flex:2; padding:13px; background:#ef4444; color:#fff; border:none; border-radius:12px; font-size:14px; font-weight:700; cursor:pointer; text-align:center; transition:background 0.2s; }
+.btn-confirm-warning:hover { background:#dc2626; }
+
+/* ==================== POPUP ALASAN BATALKAN ==================== */
+.alasan-intro { font-size:13px; color:#333; line-height:1.6; }
+.alasan-list { display:flex; flex-direction:column; border:1.5px solid #e5e7eb; border-radius:12px; overflow:hidden; }
+.alasan-option { display:flex; align-items:center; gap:12px; padding:13px 16px; cursor:pointer; border-bottom:1px solid #f0f0f0; transition:background 0.15s; }
+.alasan-option:last-of-type { border-bottom:none; }
+.alasan-option:hover { background:#fffbeb; }
+.alasan-option input[type="radio"] { accent-color:#fbbf24; width:16px; height:16px; flex-shrink:0; }
+.alasan-text { font-size:13px; color:#333; }
+.alasan-input { width:100%; padding:11px 14px; border:none; border-top:1px solid #f0f0f0; font-size:12px; color:#555; outline:none; background:#fafafa; }
+.alasan-input::placeholder { color:#ccc; }
+.alasan-note { font-size:12px; color:#aaa; }
+.popup-btn-danger { background:#ef4444; }
+.popup-btn-danger:hover { background:#dc2626; }
+.popup-btn-green { background:#22c55e; }
+.popup-btn-green:hover { background:#16a34a; }
+.btn-kembali { display:block; width:100%; padding:13px; background:#f3f4f6; border:none; border-radius:12px; color:#555; font-weight:700; font-size:14px; cursor:pointer; text-align:center; margin-top:-6px; transition:background 0.2s; }
+.btn-kembali:hover { background:#e5e7eb; }
+
+/* ==================== POPUP DETAIL ANTRIAN ==================== */
+.detail-antrian-title { font-size:18px; font-weight:800; color:#222; text-align:center; }
+.detail-antrian-meta { font-size:12px; color:#888; text-align:center; margin-top:-8px; }
+.detail-item-list { border:1.5px solid #e5e7eb; border-radius:12px; overflow:hidden; background:#fffbeb; }
+.detail-item { padding:14px 16px; display:flex; flex-direction:column; gap:6px; }
+.detail-item-name { font-size:13px; font-weight:700; color:#222; }
+.detail-item-note { display:inline-flex; align-items:center; gap:5px; background:#fef9c3; color:#92400e; padding:4px 10px; border-radius:20px; font-size:11px; font-weight:600; width:fit-content; }
+.detail-item-divider { border-top:1px solid #e5e7eb; }
+
+/* ==================== POPUP DETAIL MENU ==================== */
+.popup-menu-detail { width:680px; max-width:95vw; }
+.menu-detail-inner { display:flex; }
+.menu-detail-img-wrap { width:260px; flex-shrink:0; }
+.menu-detail-img { width:100%; height:100%; object-fit:cover; display:block; min-height:300px; }
+.menu-detail-info { flex:1; padding:24px 20px 16px; display:flex; flex-direction:column; gap:12px; overflow-y:auto; max-height:380px; }
+.menu-detail-info::-webkit-scrollbar { width:4px; }
+.menu-detail-info::-webkit-scrollbar-thumb { background:#eee; border-radius:4px; }
+.menu-detail-name { font-size:20px; font-weight:800; color:#222; margin-top:8px; }
+.menu-detail-price { font-size:18px; font-weight:700; color:#e07b2a; margin-top:-6px; }
+.menu-detail-desc { font-size:12px; color:#888; line-height:1.6; margin-top:-4px; }
+.menu-detail-row { display:flex; justify-content:space-between; align-items:center; padding:10px 0; border-top:1px solid #f0f0f0; }
+.menu-detail-label { font-size:13px; font-weight:700; color:#222; }
+.menu-detail-qty { display:flex; align-items:center; gap:10px; }
+.menu-detail-section { display:flex; flex-direction:column; gap:8px; border-top:1px solid #f0f0f0; padding-top:10px; }
+.menu-detail-wajib { font-size:11px; color:#e07b2a; font-weight:600; margin-top:-6px; }
+.level-list { display:flex; flex-direction:column; border:1.5px solid #e5e7eb; border-radius:10px; overflow:hidden; }
+.level-option { display:flex; justify-content:space-between; align-items:center; padding:10px 14px; border-bottom:1px solid #f0f0f0; cursor:pointer; font-size:13px; color:#444; transition:background 0.15s; }
+.level-option:last-child { border-bottom:none; }
+.level-option:hover { background:#fffbeb; }
+.level-check { width:16px; height:16px; accent-color:#fbbf24; flex-shrink:0; }
+.menu-detail-catatan { padding:14px 20px 0; display:flex; flex-direction:column; gap:8px; border-top:1px solid #f0f0f0; }
+.catatan-input { width:100%; padding:11px 14px; border:1.5px solid #e5e7eb; border-radius:10px; font-size:12px; color:#555; outline:none; transition:border-color 0.2s; }
+.catatan-input:focus { border-color:#fbbf24; }
+.catatan-input::placeholder { color:#ccc; }
+.menu-detail-footer { padding:14px 20px 16px; }
+
+/* ==================== POPUP ANTRIAN FULL ==================== */
+.popup-antrian-full { width:780px; max-width:95vw; max-height:90vh; display:none; flex-direction:column; border-radius:20px; overflow:hidden; }
+.antrian-full-header { display:flex; justify-content:space-between; align-items:center; padding:20px 24px 16px; flex-shrink:0; }
+.antrian-full-title { font-size:22px; font-weight:800; color:#111; }
+.antrian-close { cursor:pointer; display:flex; align-items:center; justify-content:center; width:36px; height:36px; border-radius:50%; transition:background 0.2s; }
+.antrian-close:hover { background:#f3f4f6; }
+.antrian-tabs { display:flex; gap:10px; padding:0 24px 16px; flex-shrink:0; }
+.antrian-tab { display:flex; align-items:center; gap:6px; padding:8px 16px; border-radius:30px; border:1.5px solid #e5e7eb; font-size:13px; font-weight:600; color:#555; cursor:pointer; transition:all 0.2s; }
+.antrian-tab:hover { border-color:#fbbf24; color:#92400e; }
+.antrian-tab-active { background:#fbbf24; border-color:#fbbf24; color:#fff; }
+.tab-badge { font-size:11px; font-weight:700; padding:2px 7px; border-radius:30px; }
+.tab-badge-yellow { background:#fff; color:#92400e; }
+.tab-badge-outline { background:transparent; border:1.5px solid currentColor; color:inherit; }
+.antrian-full-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; padding:0 24px 24px; overflow-y:auto; }
+.antrian-full-grid::-webkit-scrollbar { width:5px; }
+.antrian-full-grid::-webkit-scrollbar-thumb { background:#ddd; border-radius:10px; }
+.antrian-card { border-radius:14px; padding:16px; display:flex; flex-direction:column; gap:8px; }
+.antrian-green  { background:#dcfce7; }
+.antrian-yellow { background:#fef9c3; }
+.antrian-pink   { background:#fce7f3; }
+.antrian-card-top { display:flex; justify-content:space-between; align-items:flex-start; }
+.antrian-table { font-size:15px; font-weight:800; color:#111; }
+.antrian-time { font-size:11px; color:#777; }
+.antrian-order-id { font-size:12px; color:#666; margin-top:-4px; }
+label.antrian-card { cursor:pointer; }
+label.antrian-card:hover { filter:brightness(0.96); transform:translateY(-1px); transition:all 0.15s; }
+
+/* ==================== NOTIFIKASI TOAST ==================== */
+.notif-toast { display:none; position:fixed; bottom:24px; left:50%; transform:translateX(-50%); background:#fef9c3; border:1.5px solid #fde68a; border-radius:14px; padding:12px 18px; gap:12px; align-items:center; z-index:400; box-shadow:0 8px 24px rgba(0,0,0,0.12); min-width:220px; }
+.notif-toast-icon { width:36px; height:36px; background:#fef08a; border-radius:10px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.notif-toast-text { display:flex; flex-direction:column; gap:1px; }
+.notif-toast-title { font-size:13px; font-weight:800; color:#92400e; }
+.notif-toast-desc { font-size:12px; color:#78350f; }
+.notif-toast-id { font-size:11px; color:#a16207; }
+
+/* ==================== POPUP BERHASIL ==================== */
+.success-title { font-size:20px; font-weight:800; color:#222; text-align:center; margin-top:16px; }
+.success-icon { width:80px; height:80px; border:3px solid #22c55e; border-radius:20px; display:flex; align-items:center; justify-content:center; margin:0 auto; background:#fff; }
+.struk-divider { border-top:1px solid #e5e7eb; margin:2px 0; }
+.struk-rows { display:flex; flex-direction:column; gap:8px; }
+.struk-row { display:flex; justify-content:space-between; align-items:center; }
+.struk-label { font-size:13px; color:#555; }
+.struk-value { font-size:13px; color:#222; }
+.struk-bold { font-weight:700; }
+.struk-kembalian { background:#f8fafc; padding:10px 12px; border-radius:10px; }
+.struk-printing { font-size:12px; color:#aaa; text-align:center; }
+.popup-btn-selesai { margin-top:0; }
+
+
+
+/* ==================== TABLET RESPONSIVE (768px - 1024px) ==================== */
 @media (max-width: 1024px) {
+
+  /* ---- HEADER ---- */
   .main-header {
     padding: 0 16px;
     height: 62px;
@@ -2363,22 +2224,198 @@ label.antrian-card:hover {
     padding: 6px 8px;
   }
 
+  /* ---- QUEUE SECTION ---- */
   .queue-container {
     gap: 8px;
+  }
+
+  /* ---- POPUP MENU DETAIL ---- */
+  .popup-menu-detail {
+    width: 90vw;
+  }
+
+  .menu-detail-img-wrap {
+    width: 200px;
+  }
+
+  /* ---- POPUP ANTRIAN FULL ---- */
+  .popup-antrian-full {
+    width: 90vw;
+  }
+
+  .antrian-full-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 820px) {
+
+  /* ---- HEADER ---- */
+  .main-header {
+    padding: 0 12px;
+    height: 58px;
+  }
+
+  .header-left {
+    gap: 12px;
+  }
+
+  .search-container {
+    width: 30%;
+  }
+
+  /* ---- SIDEBAR: tetap muncul ---- */
+  .sidebar {
+    width: 54px;
+  }
+
+  /* ---- MAIN LAYOUT ---- */
+  .main-layout {
+    position: relative;
+  }
+
+  /* ---- CONTENT AREA ---- */
+  .content-area {
+    padding: 10px;
+    gap: 10px;
+  }
+
+  .cart-sidebar {
+    height: calc(100vh - 62px); /* sesuaikan tinggi header */
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* matikan tombol toggle */
+  .cart-toggle-btn {
+    display: none !important;
+  }
+
+  /* overlay juga dimatikan */
+  .cart-overlay {
+    display: none !important;
+  }
+  /* ---- POPUP MENU DETAIL: stack vertikal ---- */
+  .menu-detail-inner {
+    flex-direction: column;
+  }
+
+  .menu-detail-img-wrap {
+    width: 100%;
+    height: 200px;
+  }
+
+  .menu-detail-img {
+    min-height: 200px;
+  }
+
+  .menu-detail-info {
+    max-height: none;
+  }
+
+  .popup-menu-detail {
+    width: 92vw;
+    max-height: 85vh;
+    overflow-y: auto;
+  }
+
+  /* ---- POPUP ANTRIAN FULL ---- */
+  .antrian-full-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    padding: 0 16px 20px;
+  }
+
+  .antrian-tabs {
+    gap: 8px;
+    padding: 0 16px 12px;
+    flex-wrap: wrap;
+  }
+
+  /* ---- QUEUE CARDS ---- */
+  .queue-card {
+    padding: 12px;
+  }
+}
+
+/* Cart Toggle Button — hanya muncul di tablet portrait ke bawah */
+.cart-toggle-btn {
+  display: none;
+  position: fixed;
+  bottom: 24px;
+  right: 20px;
+  z-index: 201;
+  background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  padding: 12px 20px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  gap: 8px;
+  align-items: center;
+  box-shadow: 0 4px 16px rgba(251,191,36,0.5);
+  transition: all 0.2s;
+}
+
+.cart-toggle-btn:hover {
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  transform: translateY(-2px);
+}
+
+/* State saat cart terbuka */
+.cart-open .cart-sidebar {
+  right: 0;
+}
+
+.cart-open .cart-overlay {
+  display: block;
+}
+
+.cart-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  z-index: 199;
+}
+
+/* ==================== QUEUE CARD: 2 KARTU DI TABLET ==================== */
+@media (max-width: 1024px) {
+  .queue-container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .queue-container .queue-card:nth-child(n + 3) {
+  /* Sembunyikan kartu ke-3 dan seterusnya */
+  .queue-container .queue-card:nth-child(n+3) {
     display: none;
   }
+}
 
+@media (max-width: 820px) {
+  .queue-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .queue-container .queue-card:nth-child(n+3) {
+    display: none;
+  }
+}
+
+
+/* ==================== POPUP TABLET RESPONSIVE ==================== */
+@media (max-width: 1024px) {
+
+  /* ---- Base popup: lebih lebar, pakai vw ---- */
   .popup {
     width: 88vw;
     max-width: 460px;
     border-radius: 18px;
   }
 
+  /* ---- Popup Warning (Hapus / Batal Pesanan) ---- */
   .popup-warning {
     width: 88vw;
     max-width: 420px;
@@ -2398,6 +2435,7 @@ label.antrian-card:hover {
     font-size: 16px;
   }
 
+  /* ---- Popup Pembayaran ---- */
   .popup-total-amount {
     font-size: 26px;
   }
@@ -2416,6 +2454,7 @@ label.antrian-card:hover {
     font-size: 14px;
   }
 
+  /* ---- Popup Konfirmasi QRIS ---- */
   .confirm-illustration {
     width: 160px;
   }
@@ -2428,11 +2467,13 @@ label.antrian-card:hover {
     padding-top: 28px;
   }
 
+  /* ---- Popup QR Code ---- */
   .qr-img {
     width: 160px;
     height: 160px;
   }
 
+  /* ---- Popup Tunai ---- */
   .tunai-input {
     font-size: 14px;
     padding: 12px 14px;
@@ -2448,6 +2489,7 @@ label.antrian-card:hover {
     padding: 12px 14px;
   }
 
+  /* ---- Popup Berhasil ---- */
   .success-title {
     font-size: 18px;
   }
@@ -2457,6 +2499,7 @@ label.antrian-card:hover {
     height: 70px;
   }
 
+  /* ---- Popup Alasan Batalkan ---- */
   .alasan-option {
     padding: 11px 14px;
     gap: 10px;
@@ -2466,6 +2509,7 @@ label.antrian-card:hover {
     font-size: 12px;
   }
 
+  /* ---- Popup Detail Antrian ---- */
   .detail-antrian-title {
     font-size: 16px;
   }
@@ -2474,6 +2518,7 @@ label.antrian-card:hover {
     padding: 12px 14px;
   }
 
+  /* ---- Popup Detail Menu ---- */
   .popup-menu-detail {
     width: 86vw;
     max-width: 640px;
@@ -2496,6 +2541,7 @@ label.antrian-card:hover {
     padding: 20px 16px 14px;
   }
 
+  /* ---- Popup Antrian Full ---- */
   .popup-antrian-full {
     width: 86vw;
     max-width: 680px;
@@ -2521,61 +2567,10 @@ label.antrian-card:hover {
     padding: 7px 13px;
     font-size: 12px;
   }
-
-  .kategori-menu-btn {
-    overflow-x: auto;
-    overflow-y: hidden;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-  }
-
-  .kategori-menu-btn::-webkit-scrollbar {
-    display: none;
-  }
-
-  .menu-tab {
-    flex-shrink: 0;
-  }
-
-  .menu-tab svg {
-    flex-shrink: 0;
-  }
 }
 
-/* ==================== RESPONSIVE: <= 820px ==================== */
+/* ---- Portrait tablet (≤ 820px): popup lebih ramping ---- */
 @media (max-width: 820px) {
-  .main-header {
-    padding: 0 12px;
-    height: 58px;
-  }
-
-  .header-left {
-    gap: 12px;
-  }
-
-  .search-container {
-    width: 30%;
-  }
-
-  .sidebar {
-    width: 54px;
-  }
-
-  .content-area {
-    padding: 10px;
-    gap: 10px;
-  }
-
-  .cart-sidebar {
-    height: calc(100vh - 62px);
-    display: flex;
-    flex-direction: column;
-  }
-
-  .cart-toggle-btn,
-  .cart-overlay {
-    display: none !important;
-  }
 
   .popup {
     width: 92vw;
@@ -2587,6 +2582,8 @@ label.antrian-card:hover {
     max-width: 380px;
   }
 
+  /* Popup Detail Menu: stack vertikal sudah diatur sebelumnya,
+     tambahan penyesuaian ukuran */
   .popup-menu-detail {
     width: 94vw;
     max-width: 420px;
@@ -2624,6 +2621,7 @@ label.antrian-card:hover {
     font-size: 15px;
   }
 
+  /* Popup Antrian Full: 2 kolom, scroll */
   .popup-antrian-full {
     width: 94vw;
     max-height: 88vh;
@@ -2654,6 +2652,7 @@ label.antrian-card:hover {
     padding: 6px 11px;
   }
 
+  /* Konfirmasi QRIS — lebih compact */
   .confirm-illustration {
     width: 130px;
   }
@@ -2663,6 +2662,7 @@ label.antrian-card:hover {
     height: 140px;
   }
 
+  /* Popup body padding lebih kecil */
   .popup-body {
     padding: 16px;
     gap: 12px;
@@ -2676,51 +2676,7 @@ label.antrian-card:hover {
     padding: 14px 16px;
     font-size: 14px;
   }
-
-  .popup-profil {
-    width: calc(100vw - 24px);
-  }
-
-  .profil-name {
-    font-size: 18px;
-  }
-
-  .notif-panel {
-    top: 68px;
-    right: 12px;
-    width: calc(100vw - 24px);
-  }
-
-  .notif-panel-item {
-    padding: 16px;
-  }
-
-  .notif-panel-title {
-    font-size: 16px;
-  }
-  .kategori-menu-btn {
-    flex-wrap: nowrap;
-    gap: 6px;
-    padding: 6px;
-    border-radius: 18px;
-    justify-content: flex-start;
-  }
-
-  .menu-tab {
-    min-height: 44px;
-    padding: 8px 12px;
-    border-radius: 14px;
-    font-size: 12px;
-    gap: 5px;
-    white-space: nowrap;
-  }
-
-  .menu-tab svg {
-    width: 24px;
-    height: 24px;
-  }
-
-  .menu-tab small {
-    font-size: 9px;
-  }
 }
+
+
+
