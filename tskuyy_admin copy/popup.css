@@ -1,0 +1,362 @@
+/* ============================================================
+   POPUP.CSS
+   File ini berisi semua style untuk 3 popup:
+   1. Tambah Menu Baru
+   2. Edit Menu
+   3. Hapus Menu
+   
+   Cara pakai: <link rel="stylesheet" href="popup.css" />
+   di dalam <head> halaman yang membutuhkan popup
+   ============================================================ */
+
+/* ============================================================
+   OVERLAY — latar gelap di belakang popup
+   Teknik: display:none by default, display:flex saat :target aktif
+   ============================================================ */
+.popup-overlay {
+  display: none;
+  position: fixed;
+  inset: 0; /* full screen: top/right/bottom/left = 0 */
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Muncul saat link #id diklik (teknik CSS :target) */
+.popup-overlay:target {
+  display: flex;
+}
+
+/* ============================================================
+   POPUP BOX — kotak putih utama
+   ============================================================ */
+.popup-box {
+  background: #fff;
+  border-radius: 16px;
+  padding: 28px;
+  width: 520px;
+  max-width: 92vw;
+  position: relative;
+}
+
+/* Judul popup */
+.popup-box h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 4px;
+}
+
+/* Subjudul/deskripsi di bawah judul */
+.popup-box .popup-desc {
+  font-size: 12px;
+  color: #999;
+  margin-bottom: 20px;
+}
+
+/* Tombol close (X) — pojok kanan atas */
+.popup-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #fee2e2;
+  color: #ef4444;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  line-height: 1;
+}
+
+.popup-close:hover {
+  background: #fecaca;
+}
+
+/* ============================================================
+   FORM LAYOUT — 2 kolom (kiri: upload gambar, kanan: form fields)
+   Dipakai oleh popup Tambah dan Edit
+   ============================================================ */
+.popup-form-layout {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+/* ============================================================
+   AREA UPLOAD GAMBAR (kiri)
+   ============================================================ */
+.upload-area {
+  border: 2px dashed #ddd;
+  border-radius: 12px;
+  padding: 20px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  min-height: 160px;
+  text-align: center;
+  color: #aaa;
+  transition: border-color 0.2s;
+}
+
+.upload-area:hover {
+  border-color: #fbbf24;
+}
+
+/* Ikon upload (placeholder SVG/emoji) */
+.upload-icon {
+  font-size: 28px;
+  color: #ccc;
+}
+
+.upload-area p {
+  font-size: 12px;
+  font-weight: 600;
+  color: #555;
+}
+
+.upload-area small {
+  font-size: 11px;
+  color: #aaa;
+}
+
+/* Preview gambar untuk popup Edit (gambar sudah ada) */
+.upload-area.has-image {
+  padding: 0;
+  border: none;
+}
+
+.upload-area.has-image img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* ============================================================
+   FORM FIELDS (kanan)
+   ============================================================ */
+.form-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.form-group label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #333;
+}
+
+/* Input & select — style seragam */
+.form-group input,
+.form-group select {
+  height: 36px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 0 12px;
+  font-size: 12px;
+  color: #333;
+  outline: none;
+  background: #fff;
+  transition: border-color 0.2s;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: #fbbf24;
+}
+
+/* Placeholder warna sesuai referensi */
+.form-group input::placeholder {
+  color: #bbb;
+}
+
+/* ============================================================
+   FOOTER POPUP — baris Status awal + tombol Batal/Simpan
+   ============================================================ */
+.popup-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+/* Label "Status awal" + toggle */
+.status-toggle-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  color: #555;
+  font-weight: 600;
+}
+
+/* Toggle switch CSS-only */
+.toggle-input {
+  display: none;
+}
+
+.toggle-label {
+  width: 40px;
+  height: 22px;
+  background: #ddd;
+  border-radius: 20px;
+  display: block;
+  position: relative;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.toggle-label::after {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background: #fff;
+  border-radius: 50%;
+  top: 3px;
+  left: 3px;
+  transition: left 0.2s;
+}
+
+/* Saat toggle aktif (Edit Menu: status sudah aktif) */
+.toggle-input:checked + .toggle-label {
+  background: #4ade80;
+}
+
+.toggle-input:checked + .toggle-label::after {
+  left: 21px;
+}
+
+/* Wrapper tombol Batal & Simpan */
+.popup-actions {
+  display: flex;
+  gap: 10px;
+}
+
+/* Tombol Batal */
+.btn-batal {
+  padding: 8px 22px;
+  border-radius: 20px;
+  border: 1px solid #ddd;
+  background: #f5f5f5;
+  color: #888;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+}
+
+.btn-batal:hover {
+  background: #eee;
+}
+
+/* Tombol Simpan */
+.btn-simpan {
+  padding: 8px 22px;
+  border-radius: 20px;
+  border: none;
+  background: #fbbf24;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.btn-simpan:hover {
+  background: #f59e0b;
+}
+
+/* ============================================================
+   POPUP HAPUS — layout berbeda, lebih kecil & centered
+   ============================================================ */
+.popup-box.popup-hapus {
+  width: 380px;
+  text-align: center;
+}
+
+/* Ikon seru merah di tengah */
+.hapus-icon {
+  width: 56px;
+  height: 56px;
+  background: #fee2e2;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+  font-size: 24px;
+  color: #ef4444;
+  font-weight: 900;
+}
+
+.popup-hapus h3 {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #1a1a1a;
+}
+
+.popup-hapus p {
+  font-size: 12px;
+  color: #777;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+/* Tombol hapus: Batal (outline) + Ya Hapus (merah) */
+.hapus-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.btn-hapus-batal {
+  padding: 9px 24px;
+  border-radius: 20px;
+  border: 1px solid #ddd;
+  background: #fff;
+  color: #555;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+}
+
+.btn-hapus-konfirm {
+  padding: 9px 24px;
+  border-radius: 20px;
+  border: none;
+  background: #ef4444;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+}
+
+.btn-hapus-konfirm:hover {
+  background: #dc2626;
+}

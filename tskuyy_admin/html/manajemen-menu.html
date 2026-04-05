@@ -1,0 +1,1393 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manajemen Menu - Tskuy</title>
+    <!-- CSS sama dengan detail-penjualan, hanya tambahan di manajemen-menu.css -->
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/manajemen-menu.css" />
+    <link rel="stylesheet" href="../css/popup.css" />
+  </head>
+  <body>
+    <div class="app-container">
+      <aside class="sidebar">
+        <div class="sidebar-logo">
+          <img src="assets/images/logotskuy.png" alt="Logo Tskuy" />
+        </div>
+        <div class="nav-items">
+          <div class="nav-item">
+            <svg
+              width="30"
+              height="30"
+              viewBox="0 0 43 43"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M17.059 18.0606H12.1811C11.4653 18.0548 10.7765 18.3334 10.2662 18.8353C9.75593 19.3372 9.46592 20.0213 9.46002 20.737V30.866C9.47327 32.3559 10.6913 33.5532 12.1811 33.5406H17.059C17.7747 33.5467 18.4635 33.268 18.9739 32.7661C19.4842 32.2642 19.7742 31.5802 19.78 30.8643V20.737C19.7742 20.0213 19.4842 19.3372 18.9739 18.8353C18.4635 18.3334 17.7747 18.0548 17.059 18.0606Z"
+                stroke="#EFB100"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M17.059 7.74127H12.1811C10.7212 7.70078 9.50404 8.8495 9.46002 10.3092V12.0533C9.50404 13.5131 10.7212 14.6618 12.1811 14.6213H17.059C18.5187 14.6618 19.736 13.5131 19.78 12.0533V10.3092C19.736 8.8495 18.5187 7.70078 17.059 7.74127Z"
+                stroke="#EFB100"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M25.941 23.2214H30.8172C31.5332 23.2277 32.2224 22.9493 32.7331 22.4474C33.2438 21.9453 33.5341 21.2611 33.54 20.5451V10.4176C33.5341 9.7019 33.2441 9.01782 32.7338 8.51591C32.2235 8.01399 31.5346 7.73535 30.8189 7.7413H25.941C25.2253 7.73535 24.5365 8.01399 24.0261 8.51591C23.5158 9.01782 23.2258 9.7019 23.22 10.4176V20.5451C23.2258 21.2607 23.5158 21.9448 24.0261 22.4467C24.5365 22.9486 25.2253 23.2272 25.941 23.2214Z"
+                stroke="#EFB100"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M25.941 33.5412H30.8172C32.2777 33.5826 33.4959 32.4337 33.54 30.9732V29.2292C33.4959 27.7694 32.2787 26.6208 30.8189 26.6612H25.941C24.4812 26.6208 23.264 27.7694 23.22 29.2292V30.9715C23.263 32.432 24.4806 33.5816 25.941 33.5412Z"
+                stroke="#EFB100"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
+          <div class="nav-item">
+            <svg
+              width="23"
+              height="23"
+              viewBox="0 0 33 33"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g clip-path="url(#clip0_921_2704)">
+                <path
+                  d="M8.66218 6.875H28.875L26.125 16.5H10.143M27.5 22H11L8.25 4.125H4.125M12.375 27.5C12.375 28.2594 11.7594 28.875 11 28.875C10.2406 28.875 9.625 28.2594 9.625 27.5C9.625 26.7406 10.2406 26.125 11 26.125C11.7594 26.125 12.375 26.7406 12.375 27.5ZM27.5 27.5C27.5 28.2594 26.8844 28.875 26.125 28.875C25.3656 28.875 24.75 28.2594 24.75 27.5C24.75 26.7406 25.3656 26.125 26.125 26.125C26.8844 26.125 27.5 26.7406 27.5 27.5Z"
+                  stroke="#EFB100"
+                  stroke-width="3"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </g>
+              <defs>
+                <clipPath id="clip0_921_2704">
+                  <rect width="33" height="33" fill="white" />
+                </clipPath>
+              </defs>
+            </svg>
+          </div>
+          <div class="nav-item active">
+            <svg
+              width="30"
+              height="30"
+              viewBox="0 0 40 40"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M10 11.2502H28.75C29.5 11.2502 30 11.7502 30 12.5002V35.0002C30 35.7502 29.5 36.2502 28.75 36.2502H11.25C10.5 36.2502 10 35.7502 10 35.0002V11.2502ZM10 11.2502L24.5 4.62519C25.25 4.12519 26.25 4.75019 26.25 5.75019V11.2502"
+                stroke="#EFB100"
+                stroke-width="2"
+                stroke-miterlimit="10"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M21.375 36.25L20.875 32.125C20.75 30.5 21.25 28.875 22.375 27.75C23.25 26.875 23.75 25.25 23.75 23.125V16.25"
+                stroke="#EFB100"
+                stroke-width="2"
+                stroke-miterlimit="10"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M16.25 16.25V23.125C16.25 25.25 16.75 26.75 17.625 27.75C18.75 29 19.25 30.5 19.125 32.125L18.625 36.25"
+                stroke="#EFB100"
+                stroke-width="2"
+                stroke-miterlimit="10"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M20 23.75V16.25"
+                stroke="#EFB100"
+                stroke-width="2"
+                stroke-miterlimit="10"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
+          <div class="nav-item">
+            <svg
+              width="23"
+              height="23"
+              viewBox="0 0 33 33"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M24.75 9.845C24.6675 9.83125 24.5712 9.83125 24.4887 9.845C22.5912 9.77625 21.0787 8.2225 21.0787 6.2975C21.0787 4.33125 22.66 2.75 24.6262 2.75C26.5925 2.75 28.1737 4.345 28.1737 6.2975C28.16 8.2225 26.6475 9.77625 24.75 9.845Z"
+                stroke="#EFB100"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M23.3336 19.8552C25.2174 20.1714 27.2936 19.8414 28.7511 18.8652C30.6899 17.5727 30.6899 15.4552 28.7511 14.1627C27.2799 13.1865 25.1761 12.8565 23.2924 13.1865"
+                stroke="#EFB100"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M8.20872 9.845C8.29122 9.83125 8.38747 9.83125 8.46997 9.845C10.3675 9.77625 11.88 8.2225 11.88 6.2975C11.88 4.33125 10.2987 2.75 8.33247 2.75C6.36622 2.75 4.78497 4.345 4.78497 6.2975C4.79872 8.2225 6.31122 9.77625 8.20872 9.845Z"
+                stroke="#EFB100"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M9.62492 19.8552C7.74117 20.1714 5.66492 19.8414 4.20742 18.8652C2.26867 17.5727 2.26867 15.4552 4.20742 14.1627C5.67867 13.1865 7.78242 12.8565 9.66617 13.1865"
+                stroke="#EFB100"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M16.5 20.1165C16.4175 20.1028 16.3212 20.1028 16.2387 20.1165C14.3412 20.0478 12.8287 18.494 12.8287 16.569C12.8287 14.6028 14.41 13.0215 16.3762 13.0215C18.3425 13.0215 19.9237 14.6165 19.9237 16.569C19.91 18.494 18.3975 20.0615 16.5 20.1165Z"
+                stroke="#EFB100"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M12.4987 24.4476C10.5599 25.7401 10.5599 27.8576 12.4987 29.1501C14.6987 30.6214 18.3012 30.6214 20.5012 29.1501C22.44 27.8576 22.44 25.7401 20.5012 24.4476C18.315 22.9901 14.6987 22.9901 12.4987 24.4476Z"
+                stroke="#EFB100"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
+        </div>
+        <div class="nav-bottom">
+          <div class="nav-item setting">
+            <svg
+              width="25"
+              height="25"
+              viewBox="0 0 36 39"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M30.3329 21.4261L32.6574 22.762C33.5035 23.2501 34.1208 24.053 34.374 24.9945C34.6272 25.9359 34.4956 26.9391 34.0079 27.7838L33.1847 29.2055C32.9423 29.6234 32.6198 29.9895 32.2356 30.283C31.8513 30.5765 31.4128 30.7918 30.9452 30.9163C30.4775 31.0409 29.9898 31.0723 29.51 31.0089C29.0301 30.9455 28.5675 30.7885 28.1485 30.5468L25.8348 29.2163C24.8238 30.0269 23.693 30.6766 22.4827 31.1424V33.825C22.4827 34.7997 22.0944 35.7343 21.4032 36.4236C20.712 37.1128 19.7745 37.5 18.797 37.5H17.1505C16.173 37.5 15.2356 37.1128 14.5444 36.4236C13.8532 35.7343 13.4648 34.7997 13.4648 33.825V31.1424C12.2545 30.6766 11.1238 30.0269 10.1127 29.2163L7.92281 30.4771C7.48732 30.7281 7.00653 30.8908 6.50785 30.9563C6.00917 31.0217 5.5024 30.9885 5.01663 30.8584C4.53086 30.7284 4.0756 30.504 3.67687 30.1983C3.27813 29.8925 2.94376 29.5115 2.6929 29.0768L2.01494 27.9072C1.76293 27.4729 1.59925 26.9933 1.53317 26.4958C1.46709 25.9984 1.49994 25.4929 1.62986 25.0081C1.75977 24.5233 1.98416 24.0688 2.29028 23.6705C2.5964 23.2722 2.97819 22.938 3.41388 22.6869L5.6092 21.4261C5.39398 20.151 5.39398 18.849 5.6092 17.5739L3.41388 16.3131C2.97819 16.062 2.5964 15.7278 2.29028 15.3295C1.98416 14.9312 1.75977 14.4768 1.62986 13.992C1.49994 13.5072 1.46709 13.0016 1.53317 12.5042C1.59925 12.0067 1.76293 11.5271 2.01494 11.0928L2.6929 9.92324C2.94376 9.48854 3.27813 9.10746 3.67687 8.80175C4.0756 8.49604 4.53086 8.27165 5.01663 8.14159C5.5024 8.01152 6.00917 7.97831 6.50785 8.04374C7.00653 8.10917 7.48732 8.27195 7.92281 8.52288L10.1127 9.78374C11.1238 8.97313 12.2545 8.32337 13.4648 7.85761V5.17504C13.4648 4.20034 13.8532 3.26565 14.5444 2.57643C15.2356 1.88721 16.173 1.5 17.1505 1.5H18.797C19.7745 1.5 20.712 1.88721 21.4032 2.57643C22.0944 3.26565 22.4827 4.20034 22.4827 5.17504V7.85761C23.693 8.32337 24.8238 8.97313 25.8348 9.78374L28.1485 8.4532C28.5675 8.2115 29.0301 8.05449 29.51 7.99108C29.9898 7.92768 30.4775 7.95914 30.9452 8.08369C31.4128 8.20824 31.8513 8.42346 32.2356 8.717C32.6198 9.01054 32.9423 9.37665 33.1847 9.79448L34.0079 11.2162C34.4956 12.061 34.6272 13.0642 34.374 14.0056C34.1208 14.9471 33.5035 15.7499 32.6574 16.238L30.3329 17.5739C30.5554 18.8484 30.5554 20.1516 30.3329 21.4261Z"
+                stroke="#6A7282"
+                stroke-width="3"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
+          <div class="nav-item logout">
+            <svg
+              width="23"
+              height="23"
+              viewBox="0 0 74 74"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M35.2237 36.7731H2.50369M10.9038 45.593L4.43359 40.6831C3.83248 40.2249 3.34515 39.6341 3.00977 38.9568C2.67438 38.2795 2.5 37.5339 2.5 36.7781C2.5 36.0223 2.67438 35.2767 3.00977 34.5994C3.34515 33.922 3.83248 33.3312 4.43359 32.873L10.9038 27.9531M56.5437 15.2231V58.3231M23.3335 50.4531C29.3335 72.7831 46.2637 71.0131 46.2637 71.0131C46.2637 71.0131 63.2638 72.7831 69.1938 50.4531C71.5238 41.4819 71.5238 32.0642 69.1938 23.093C63.2438 0.762966 46.2637 2.53315 46.2637 2.53315C46.2637 2.53315 29.2635 0.762966 23.3335 23.093"
+                stroke="#E95322"
+                stroke-width="5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
+        </div>
+      </aside>
+
+      <div class="right-wrapper">
+        <header class="main-header">
+          <div class="header-left">
+            <div class="header-titles">
+              <h2 class="judul">Manajemen Menu</h2>
+              <p class="subjudul">Kelola daftar menu dan ketersediaan stok</p>
+            </div>
+          </div>
+          <div class="header-right">
+            <div class="notif-wrapper">
+              <span class="notif-badge"></span>
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 42 42"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+              >
+                <rect width="42" height="42" fill="url(#pattern0_921_2682)" />
+                <defs>
+                  <pattern
+                    id="pattern0_921_2682"
+                    patternContentUnits="objectBoundingBox"
+                    width="1"
+                    height="1"
+                  >
+                    <use
+                      xlink:href="#image0_921_2682"
+                      transform="scale(0.0104167)"
+                    />
+                  </pattern>
+                  <image
+                    id="image0_921_2682"
+                    width="96"
+                    height="96"
+                    preserveAspectRatio="none"
+                    xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAACXBIWXMAAAsTAAALEwEAmpwYAAAExElEQVR4nO2dW4hWVRTHf2VQxmQGGmbWUFrRRaPoYmlRFN2gHnrpoZeeyiwLtCgiwoceKqFMSxvI1CQMKghSIQkhpaKoh4osogtmF6ZyKq10JuuLBcuXYdb+znwz5+y99rd/sGGYD875//fZZ5+1L2cdKBQKhUKhUCgUCoX0OAa4Ergf2AjsAL4CBoaVb4DtwEvAg8AVQE9s8V45HrgTeBMYBFodloPANmAhMC22KQ9cAKwHDoyh0kMX4xXg0tgmU+RM4PUaKt0q0o1dFNt0ChwNPA3802DlHyr/ARu6uWu6BPgyQsUPLz8DN9JlLACGRllJEgEtAa7SLutYPdYRwHH6P/ntXo2EvhvlhVihx8qaw4FnKlbIn0AfcBkwoYNzHab9/DLg14rn3Jxz6CqVv65CJewFHtFWPZ7PGrnrdlc4/4fAZDJDWuPaCubX6higLuRCLK0Q5r6b252wtI3hX4CbGtQzB/i0jaatuTwTbtGQzzL6CXBKBF0TdWAWughP4JxTtU+3DL6jcz0xn0tPBvRJw7kZp0zQEadl7j1gEmmwsk33OAWH3BUwJTOXU0krSHg5oFeiN1dM1pYzkpm/gLNJjx7gs0BXNA9HLAu0pkWkyzmB6e+3cIIMoPYZJt7W2z1lHg00nvk44AFD/L/A+aTPROB7w8OrJI6EdbsM8TJB5oVFhofB1COi+YHb10PrP8RRgSDiHhLGmumU8YA3Vnh8GH9riJaZSI/r060Ryn59TiTHSYHF8KT7TQOJ1voNT1eTILcaYj/CLxsNT7JHKTkeN8Quxy+LDU9rSJDXDLG34ZfrAws2yfGxIdbVHMowTjM8fU2CWKPHGfhlquFJxgjJ8bshNpU5/0440vAka8rJYe1u62RLSUpYI/vkcCM0V19uhObqy43QXH25EZqrLzdCc/XlRmiuvtwIzdWXG6G5+nIjNFdfboTm6suN0Fx9uRGaqy83QnP15UZojr56vQjtAMuXeE6GPkPkHvwzYHgTz0lwcmBL93P4p8/wNqjeo7PaEDgU6eW78aY30MBWkcBuOOud2+fJhzWBRhb1WbAqIEzekMyF3sBd8GwsUTMCrT/JnWNj5IXAs6A3pa3oB3VDU27MDOz8kNdcG+UE4O9AvodcWWd4PtD0BrSVgdZ/OvkyM3AXyAsdjTBdX1IYSYQk3Mud9Yb3/Vo3tfNwoPWfQf7MCtwFDzUh4APj5C/SPWwI5L+onZ+Mk0vOtm7hLKMOfmji5P1GLoVz6R7OM3IgSeOsna3G1S8FtjRxAe5OwGgr0SL5rqPmUujmslvfsG8s620dCbZbTouMAebSMJcDPyZgvhW59GvG3mi5ge4D3tflx1aXlD3qeUmOSV73GqZHk0h1knGMP2rUnQ1fGJV34SiOcbFxjM9r1J0Nm43Kk/yeVVluHOONGnVnw8JApCFJ9doxOxCheUyb0zgnBmYbd7W5CLMDKdOGdCGpMIatLi29E57Sfr5Hy1z9FEpobCJLqIWKTAN+G8ewcaDmtPhZcs04fdxHFopuiG3GK3doBY6l8m+PbcI713XYHUm3c21s8bkwBXis4mcNh3RDbdd+H6xOpmssvwnYqTmq9+nfm/S3EmoWCoVCoVAoFAqFQqFAqvwPEaqt04je69gAAAAASUVORK5CYII="
+                  />
+                </defs>
+              </svg>
+            </div>
+            <div class="user-profile">
+              <img src="assets/images/adriano.jpeg" alt="user" class="avatar" />
+              <div class="user-info">
+                <span class="user-name">Dzaky Fauzi</span>
+                <small class="user-role">Cashier</small>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <main class="content-area">
+          <!-- =====================
+               ACTION BAR ATAS
+               PERUBAHAN: ditambah baris pertama khusus tombol "Tambah Menu"
+               rata kanan, terpisah dari baris search/filter/export
+               ===================== -->
+          <div class="action-bar-top">
+            <!-- <button class="btn-tambah">
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 45 44"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M23.4044 20.8924V7.67587M19.6987 11.0729L21.7615 8.45948C21.9535 8.21596 22.2016 8.01854 22.4863 7.88258C22.7709 7.74662 23.0844 7.67578 23.4023 7.67578C23.7201 7.67578 24.0336 7.74662 24.3183 7.88258C24.6029 8.01854 24.8509 8.21596 25.0429 8.45948L27.1059 11.0729M32.4586 29.5042H14.3501M17.6525 16.0898C8.26628 18.5133 9.01413 25.3559 9.01413 25.3559C9.01413 25.3559 8.26628 32.2226 17.6525 34.6179C21.4217 35.5591 25.3785 35.5591 29.1477 34.6179C38.5297 32.1943 37.7861 25.3559 37.7861 25.3559C37.7861 25.3559 38.5297 18.4891 29.1477 16.0898"
+                  stroke="#EFB100"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              Tambah Menu
+            </button> -->
+            <a href="#popup-tambah" class="btn-tambah">
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 45 44"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M23.4044 20.8924V7.67587M19.6987 11.0729L21.7615 8.45948C21.9535 8.21596 22.2016 8.01854 22.4863 7.88258C22.7709 7.74662 23.0844 7.67578 23.4023 7.67578C23.7201 7.67578 24.0336 7.74662 24.3183 7.88258C24.6029 8.01854 24.8509 8.21596 25.0429 8.45948L27.1059 11.0729M32.4586 29.5042H14.3501M17.6525 16.0898C8.26628 18.5133 9.01413 25.3559 9.01413 25.3559C9.01413 25.3559 8.26628 32.2226 17.6525 34.6179C21.4217 35.5591 25.3785 35.5591 29.1477 34.6179C38.5297 32.1943 37.7861 25.3559 37.7861 25.3559C37.7861 25.3559 38.5297 18.4891 29.1477 16.0898"
+                  stroke="#EFB100"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              Tambah Menu
+            </a>
+          </div>
+
+          <!-- =====================
+               ACTION BAR BAWAH
+               PERUBAHAN: ditambah tab kategori (All, Makanan, Minuman, Snack)
+               di sisi kiri, search+filter+export tetap di kanan
+               ===================== -->
+          <div class="action-bar">
+            <div class="category-tabs">
+              <button class="tab active">
+                <p class="all-active">All</p>
+              </button>
+              <button class="tab">Makanan</button>
+              <button class="tab">Minuman</button>
+              <button class="tab">Snack</button>
+            </div>
+            <div class="action-right">
+              <div class="search-wrapper">
+                <input type="text" placeholder="Cari Data Menu..." />
+                <span class="search-icon">
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 26 26"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M25.1027 22.0708L19.6596 16.6276C20.7842 14.9326 21.4425 12.903 21.4425 10.7212C21.4425 4.80955 16.6329 0 10.7212 0C4.80955 0 0 4.80955 0 10.7212C0 16.6329 4.80955 21.4425 10.7212 21.4425C12.903 21.4425 14.9326 20.7842 16.6276 19.6596L22.0708 25.1027C22.907 25.9401 24.2665 25.9401 25.1027 25.1027C25.9401 24.2654 25.9401 22.9081 25.1027 22.0708ZM3.21637 10.7212C3.21637 6.58285 6.58285 3.21637 10.7212 3.21637C14.8596 3.21637 18.2261 6.58285 18.2261 10.7212C18.2261 14.8596 14.8596 18.2261 10.7212 18.2261C6.58285 18.2261 3.21637 14.8596 3.21637 10.7212Z"
+                      fill="#F8B602"
+                    />
+                  </svg>
+                </span>
+              </div>
+              <div class="action-buttons">
+                <button class="btn btn-outline">
+                  <svg
+                    width="22"
+                    height="22"
+                    viewBox="0 0 22 22"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M19.25 5.50033H17.4167M19.25 11.0003H14.6667M19.25 16.5003H14.6667M6.41667 18.3337V12.4314C6.41667 12.2408 6.41667 12.1454 6.39795 12.0542C6.38135 11.9734 6.35388 11.8951 6.31631 11.8215C6.27395 11.7386 6.2144 11.6642 6.09527 11.5152L3.07139 7.7354C2.95227 7.5865 2.89272 7.51205 2.85036 7.42915C2.81278 7.35559 2.78532 7.2773 2.76872 7.1964C2.75 7.10521 2.75 7.00986 2.75 6.81918V5.13366C2.75 4.62028 2.75 4.36359 2.84991 4.1675C2.9378 3.99502 3.07803 3.85479 3.25051 3.7669C3.44659 3.66699 3.70329 3.66699 4.21667 3.66699H12.2833C12.7968 3.66699 13.0534 3.66699 13.2495 3.7669C13.422 3.85479 13.5622 3.99502 13.6501 4.1675C13.75 4.36359 13.75 4.62028 13.75 5.13366V6.81918C13.75 7.00986 13.75 7.10521 13.7313 7.1964C13.7147 7.2773 13.6872 7.35559 13.6496 7.42915C13.6073 7.51205 13.5477 7.5865 13.4286 7.7354L10.4047 11.5152C10.2856 11.6642 10.2261 11.7386 10.1837 11.8215C10.1461 11.8951 10.1186 11.9734 10.102 12.0542C10.0833 12.1454 10.0833 12.2408 10.0833 12.4314V15.5837L6.41667 18.3337Z"
+                      stroke="#EFB100"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                  Filter
+                </button>
+                <button class="btn btn-outline">
+                  <svg
+                    width="25"
+                    height="25"
+                    viewBox="0 0 30 30"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M15.6026 14.0951V5.28424M13.1322 7.54887L14.5074 5.80663C14.6353 5.64429 14.8008 5.51268 14.9905 5.42204C15.1803 5.3314 15.3893 5.28418 15.6012 5.28418C15.8131 5.28418 16.0221 5.3314 16.2119 5.42204C16.4016 5.51268 16.5669 5.64429 16.6949 5.80663L18.0702 7.54887M21.6386 19.8361H9.56654M11.7681 10.8934C5.51074 12.5091 6.0093 17.0707 6.0093 17.0707C6.0093 17.0707 5.51074 21.6484 11.7681 23.2452C14.2808 23.8726 16.9186 23.8726 19.4314 23.2452C25.6859 21.6295 25.1902 17.0707 25.1902 17.0707C25.1902 17.0707 25.6859 12.4929 19.4314 10.8934"
+                      stroke="#EFB100"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                  Export
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th class="col-foto">Foto</th>
+                  <th class="col-nama">Nama</th>
+                  <th class="col-kode">Kode Menu</th>
+                  <th>Kategori</th>
+                  <th>Stok</th>
+                  <th>Harga</th>
+                  <th>Status Menu</th>
+                  <th>Tindakan</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <img
+                      src="assets/images/miejebew.jpeg"
+                      alt="Mie Jebew"
+                      class="menu-thumb"
+                    />
+                  </td>
+                  <td class="col-nama bold">Mie Jebew</td>
+                  <td>MJ</td>
+                  <td>Makanan</td>
+                  <td><span class="stok-badge">100</span></td>
+                  <td class="bold">Rp. 7.000</td>
+                  <td>Aktif</td>
+                  <td class="tindakan-col">
+                    <a href="#popup-edit" class="btn-tindakan edit">
+                      <svg
+                        width="40"
+                        height="40"
+                        viewBox="0 0 40 40"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <rect
+                          width="40"
+                          height="40"
+                          rx="10"
+                          fill="#EFB100"
+                          fill-opacity="0.25"
+                        />
+                        <path
+                          d="M34.2599 11.8001L21.1424 24.9175C19.8361 26.2238 15.9586 26.8288 15.0923 25.9625C14.2261 25.0963 14.8173 21.2188 16.1236 19.9125L29.2549 6.78131C29.5787 6.42802 29.9707 6.14402 30.4074 5.94644C30.844 5.74885 31.3161 5.64174 31.7953 5.63164C32.2744 5.62157 32.7507 5.70866 33.1952 5.8877C33.6397 6.06674 34.0434 6.33404 34.3818 6.67339C34.7202 7.01274 34.9864 7.41712 35.1642 7.86216C35.342 8.3072 35.4279 8.78364 35.4165 9.26276C35.4051 9.74188 35.2966 10.2138 35.0979 10.6498C34.8991 11.0859 34.6141 11.4772 34.2599 11.8001Z"
+                          stroke="#EFB100"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M20.125 8.5H13.25C11.7913 8.5 10.3924 9.07945 9.36099 10.1109C8.32955 11.1424 7.75 12.5413 7.75 14V27.75C7.75 29.2087 8.32955 30.6077 9.36099 31.639C10.3924 32.6706 11.7913 33.25 13.25 33.25H28.375C31.4138 33.25 32.5 30.775 32.5 27.75V20.875"
+                          stroke="#EFB100"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </a>
+                    <a href="#popup-hapus" class="btn-tindakan hapus">
+                      <svg
+                        width="40"
+                        height="40"
+                        viewBox="0 0 40 40"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <rect
+                          width="40"
+                          height="40"
+                          rx="10"
+                          fill="#FB2C36"
+                          fill-opacity="0.25"
+                        />
+                        <path
+                          d="M17.5834 19.5V26.7917"
+                          stroke="#FB2C36"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M23.4166 19.5V26.7917"
+                          stroke="#FB2C36"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M8.83337 12.208H32.1667"
+                          stroke="#FB2C36"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M11.75 16.583V28.2497C11.75 30.666 13.7088 32.6247 16.125 32.6247H24.875C27.2913 32.6247 29.25 30.666 29.25 28.2497V16.583"
+                          stroke="#FB2C36"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M16.125 9.29167C16.125 7.68084 17.4308 6.375 19.0417 6.375H21.9583C23.5692 6.375 24.875 7.68084 24.875 9.29167V12.2083H16.125V9.29167Z"
+                          stroke="#FB2C36"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <img
+                      src="assets/images/miejebew.jpeg"
+                      alt="Seblak Bandung"
+                      class="menu-thumb"
+                    />
+                  </td>
+                  <td class="col-nama bold">Seblak Bandung</td>
+                  <td>SB</td>
+                  <td>Makanan</td>
+                  <td><span class="stok-badge">100</span></td>
+                  <td class="bold">Rp. 15.000</td>
+                  <td>Aktif</td>
+                  <td class="tindakan-col">
+                    <a href="#popup-edit" class="btn-tindakan edit">
+                      <svg
+                        width="40"
+                        height="40"
+                        viewBox="0 0 40 40"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <rect
+                          width="40"
+                          height="40"
+                          rx="10"
+                          fill="#EFB100"
+                          fill-opacity="0.25"
+                        />
+                        <path
+                          d="M34.2599 11.8001L21.1424 24.9175C19.8361 26.2238 15.9586 26.8288 15.0923 25.9625C14.2261 25.0963 14.8173 21.2188 16.1236 19.9125L29.2549 6.78131C29.5787 6.42802 29.9707 6.14402 30.4074 5.94644C30.844 5.74885 31.3161 5.64174 31.7953 5.63164C32.2744 5.62157 32.7507 5.70866 33.1952 5.8877C33.6397 6.06674 34.0434 6.33404 34.3818 6.67339C34.7202 7.01274 34.9864 7.41712 35.1642 7.86216C35.342 8.3072 35.4279 8.78364 35.4165 9.26276C35.4051 9.74188 35.2966 10.2138 35.0979 10.6498C34.8991 11.0859 34.6141 11.4772 34.2599 11.8001Z"
+                          stroke="#EFB100"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M20.125 8.5H13.25C11.7913 8.5 10.3924 9.07945 9.36099 10.1109C8.32955 11.1424 7.75 12.5413 7.75 14V27.75C7.75 29.2087 8.32955 30.6077 9.36099 31.639C10.3924 32.6706 11.7913 33.25 13.25 33.25H28.375C31.4138 33.25 32.5 30.775 32.5 27.75V20.875"
+                          stroke="#EFB100"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </a>
+                    <a href="#popup-hapus" class="btn-tindakan hapus">
+                      <svg
+                        width="40"
+                        height="40"
+                        viewBox="0 0 40 40"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <rect
+                          width="40"
+                          height="40"
+                          rx="10"
+                          fill="#FB2C36"
+                          fill-opacity="0.25"
+                        />
+                        <path
+                          d="M17.5834 19.5V26.7917"
+                          stroke="#FB2C36"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M23.4166 19.5V26.7917"
+                          stroke="#FB2C36"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M8.83337 12.208H32.1667"
+                          stroke="#FB2C36"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M11.75 16.583V28.2497C11.75 30.666 13.7088 32.6247 16.125 32.6247H24.875C27.2913 32.6247 29.25 30.666 29.25 28.2497V16.583"
+                          stroke="#FB2C36"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M16.125 9.29167C16.125 7.68084 17.4308 6.375 19.0417 6.375H21.9583C23.5692 6.375 24.875 7.68084 24.875 9.29167V12.2083H16.125V9.29167Z"
+                          stroke="#FB2C36"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <img
+                      src="assets/images/miejebew.jpeg"
+                      alt="Keju Aroma"
+                      class="menu-thumb"
+                    />
+                  </td>
+                  <td class="col-nama bold">Keju Aroma</td>
+                  <td>KA</td>
+                  <td>Snack</td>
+                  <td><span class="stok-badge">100</span></td>
+                  <td class="bold">Rp. 10.000</td>
+                  <td>Aktif</td>
+                  <td class="tindakan-col">
+                    <a href="#popup-edit" class="btn-tindakan edit">
+                      <svg
+                        width="40"
+                        height="40"
+                        viewBox="0 0 40 40"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <rect
+                          width="40"
+                          height="40"
+                          rx="10"
+                          fill="#EFB100"
+                          fill-opacity="0.25"
+                        />
+                        <path
+                          d="M34.2599 11.8001L21.1424 24.9175C19.8361 26.2238 15.9586 26.8288 15.0923 25.9625C14.2261 25.0963 14.8173 21.2188 16.1236 19.9125L29.2549 6.78131C29.5787 6.42802 29.9707 6.14402 30.4074 5.94644C30.844 5.74885 31.3161 5.64174 31.7953 5.63164C32.2744 5.62157 32.7507 5.70866 33.1952 5.8877C33.6397 6.06674 34.0434 6.33404 34.3818 6.67339C34.7202 7.01274 34.9864 7.41712 35.1642 7.86216C35.342 8.3072 35.4279 8.78364 35.4165 9.26276C35.4051 9.74188 35.2966 10.2138 35.0979 10.6498C34.8991 11.0859 34.6141 11.4772 34.2599 11.8001Z"
+                          stroke="#EFB100"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M20.125 8.5H13.25C11.7913 8.5 10.3924 9.07945 9.36099 10.1109C8.32955 11.1424 7.75 12.5413 7.75 14V27.75C7.75 29.2087 8.32955 30.6077 9.36099 31.639C10.3924 32.6706 11.7913 33.25 13.25 33.25H28.375C31.4138 33.25 32.5 30.775 32.5 27.75V20.875"
+                          stroke="#EFB100"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </a>
+                    <a href="#popup-hapus" class="btn-tindakan hapus">
+                      <svg
+                        width="40"
+                        height="40"
+                        viewBox="0 0 40 40"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <rect
+                          width="40"
+                          height="40"
+                          rx="10"
+                          fill="#FB2C36"
+                          fill-opacity="0.25"
+                        />
+                        <path
+                          d="M17.5834 19.5V26.7917"
+                          stroke="#FB2C36"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M23.4166 19.5V26.7917"
+                          stroke="#FB2C36"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M8.83337 12.208H32.1667"
+                          stroke="#FB2C36"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M11.75 16.583V28.2497C11.75 30.666 13.7088 32.6247 16.125 32.6247H24.875C27.2913 32.6247 29.25 30.666 29.25 28.2497V16.583"
+                          stroke="#FB2C36"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M16.125 9.29167C16.125 7.68084 17.4308 6.375 19.0417 6.375H21.9583C23.5692 6.375 24.875 7.68084 24.875 9.29167V12.2083H16.125V9.29167Z"
+                          stroke="#FB2C36"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <img
+                      src="assets/images/miejebew.jpeg"
+                      alt="Cireng"
+                      class="menu-thumb"
+                    />
+                  </td>
+                  <td class="col-nama bold">Cireng</td>
+                  <td>CRG</td>
+                  <td>Snack</td>
+                  <td><span class="stok-badge">100</span></td>
+                  <td class="bold">Rp. 12.000</td>
+                  <td>Aktif</td>
+                  <td class="tindakan-col">
+                    <a href="#popup-edit" class="btn-tindakan edit">
+                      <svg
+                        width="40"
+                        height="40"
+                        viewBox="0 0 40 40"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <rect
+                          width="40"
+                          height="40"
+                          rx="10"
+                          fill="#EFB100"
+                          fill-opacity="0.25"
+                        />
+                        <path
+                          d="M34.2599 11.8001L21.1424 24.9175C19.8361 26.2238 15.9586 26.8288 15.0923 25.9625C14.2261 25.0963 14.8173 21.2188 16.1236 19.9125L29.2549 6.78131C29.5787 6.42802 29.9707 6.14402 30.4074 5.94644C30.844 5.74885 31.3161 5.64174 31.7953 5.63164C32.2744 5.62157 32.7507 5.70866 33.1952 5.8877C33.6397 6.06674 34.0434 6.33404 34.3818 6.67339C34.7202 7.01274 34.9864 7.41712 35.1642 7.86216C35.342 8.3072 35.4279 8.78364 35.4165 9.26276C35.4051 9.74188 35.2966 10.2138 35.0979 10.6498C34.8991 11.0859 34.6141 11.4772 34.2599 11.8001Z"
+                          stroke="#EFB100"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M20.125 8.5H13.25C11.7913 8.5 10.3924 9.07945 9.36099 10.1109C8.32955 11.1424 7.75 12.5413 7.75 14V27.75C7.75 29.2087 8.32955 30.6077 9.36099 31.639C10.3924 32.6706 11.7913 33.25 13.25 33.25H28.375C31.4138 33.25 32.5 30.775 32.5 27.75V20.875"
+                          stroke="#EFB100"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </a>
+                    <a href="#popup-hapus" class="btn-tindakan hapus">
+                      <svg
+                        width="40"
+                        height="40"
+                        viewBox="0 0 40 40"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <rect
+                          width="40"
+                          height="40"
+                          rx="10"
+                          fill="#FB2C36"
+                          fill-opacity="0.25"
+                        />
+                        <path
+                          d="M17.5834 19.5V26.7917"
+                          stroke="#FB2C36"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M23.4166 19.5V26.7917"
+                          stroke="#FB2C36"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M8.83337 12.208H32.1667"
+                          stroke="#FB2C36"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M11.75 16.583V28.2497C11.75 30.666 13.7088 32.6247 16.125 32.6247H24.875C27.2913 32.6247 29.25 30.666 29.25 28.2497V16.583"
+                          stroke="#FB2C36"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M16.125 9.29167C16.125 7.68084 17.4308 6.375 19.0417 6.375H21.9583C23.5692 6.375 24.875 7.68084 24.875 9.29167V12.2083H16.125V9.29167Z"
+                          stroke="#FB2C36"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <img
+                      src="assets/images/miejebew.jpeg"
+                      alt="Tahu Walik"
+                      class="menu-thumb"
+                    />
+                  </td>
+                  <td class="col-nama bold">Tahu Walik</td>
+                  <td>TW</td>
+                  <td>Snack</td>
+                  <td><span class="stok-badge">100</span></td>
+                  <td class="bold">Rp. 10.000</td>
+                  <td>Aktif</td>
+                  <td class="tindakan-col">
+                    <a href="#popup-edit" class="btn-tindakan edit">
+                      <svg
+                        width="40"
+                        height="40"
+                        viewBox="0 0 40 40"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <rect
+                          width="40"
+                          height="40"
+                          rx="10"
+                          fill="#EFB100"
+                          fill-opacity="0.25"
+                        />
+                        <path
+                          d="M34.2599 11.8001L21.1424 24.9175C19.8361 26.2238 15.9586 26.8288 15.0923 25.9625C14.2261 25.0963 14.8173 21.2188 16.1236 19.9125L29.2549 6.78131C29.5787 6.42802 29.9707 6.14402 30.4074 5.94644C30.844 5.74885 31.3161 5.64174 31.7953 5.63164C32.2744 5.62157 32.7507 5.70866 33.1952 5.8877C33.6397 6.06674 34.0434 6.33404 34.3818 6.67339C34.7202 7.01274 34.9864 7.41712 35.1642 7.86216C35.342 8.3072 35.4279 8.78364 35.4165 9.26276C35.4051 9.74188 35.2966 10.2138 35.0979 10.6498C34.8991 11.0859 34.6141 11.4772 34.2599 11.8001Z"
+                          stroke="#EFB100"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M20.125 8.5H13.25C11.7913 8.5 10.3924 9.07945 9.36099 10.1109C8.32955 11.1424 7.75 12.5413 7.75 14V27.75C7.75 29.2087 8.32955 30.6077 9.36099 31.639C10.3924 32.6706 11.7913 33.25 13.25 33.25H28.375C31.4138 33.25 32.5 30.775 32.5 27.75V20.875"
+                          stroke="#EFB100"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </a>
+                    <a href="#popup-hapus" class="btn-tindakan hapus">
+                      <svg
+                        width="40"
+                        height="40"
+                        viewBox="0 0 40 40"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <rect
+                          width="40"
+                          height="40"
+                          rx="10"
+                          fill="#FB2C36"
+                          fill-opacity="0.25"
+                        />
+                        <path
+                          d="M17.5834 19.5V26.7917"
+                          stroke="#FB2C36"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M23.4166 19.5V26.7917"
+                          stroke="#FB2C36"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M8.83337 12.208H32.1667"
+                          stroke="#FB2C36"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M11.75 16.583V28.2497C11.75 30.666 13.7088 32.6247 16.125 32.6247H24.875C27.2913 32.6247 29.25 30.666 29.25 28.2497V16.583"
+                          stroke="#FB2C36"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M16.125 9.29167C16.125 7.68084 17.4308 6.375 19.0417 6.375H21.9583C23.5692 6.375 24.875 7.68084 24.875 9.29167V12.2083H16.125V9.29167Z"
+                          stroke="#FB2C36"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <img
+                      src="assets/images/miejebew.jpeg"
+                      alt="Nasi Telor Omlet"
+                      class="menu-thumb"
+                    />
+                  </td>
+                  <td class="col-nama bold">Nasi Telor Omlet</td>
+                  <td>NTO</td>
+                  <td>Makanan</td>
+                  <td><span class="stok-badge">100</span></td>
+                  <td class="bold">Rp. 15.000</td>
+                  <td>Aktif</td>
+                  <td class="tindakan-col">
+                    <a href="#popup-edit" class="btn-tindakan edit">
+                      <svg
+                        width="40"
+                        height="40"
+                        viewBox="0 0 40 40"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <rect
+                          width="40"
+                          height="40"
+                          rx="10"
+                          fill="#EFB100"
+                          fill-opacity="0.25"
+                        />
+                        <path
+                          d="M34.2599 11.8001L21.1424 24.9175C19.8361 26.2238 15.9586 26.8288 15.0923 25.9625C14.2261 25.0963 14.8173 21.2188 16.1236 19.9125L29.2549 6.78131C29.5787 6.42802 29.9707 6.14402 30.4074 5.94644C30.844 5.74885 31.3161 5.64174 31.7953 5.63164C32.2744 5.62157 32.7507 5.70866 33.1952 5.8877C33.6397 6.06674 34.0434 6.33404 34.3818 6.67339C34.7202 7.01274 34.9864 7.41712 35.1642 7.86216C35.342 8.3072 35.4279 8.78364 35.4165 9.26276C35.4051 9.74188 35.2966 10.2138 35.0979 10.6498C34.8991 11.0859 34.6141 11.4772 34.2599 11.8001Z"
+                          stroke="#EFB100"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M20.125 8.5H13.25C11.7913 8.5 10.3924 9.07945 9.36099 10.1109C8.32955 11.1424 7.75 12.5413 7.75 14V27.75C7.75 29.2087 8.32955 30.6077 9.36099 31.639C10.3924 32.6706 11.7913 33.25 13.25 33.25H28.375C31.4138 33.25 32.5 30.775 32.5 27.75V20.875"
+                          stroke="#EFB100"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </a>
+                    <a href="#popup-hapus" class="btn-tindakan hapus">
+                      <svg
+                        width="40"
+                        height="40"
+                        viewBox="0 0 40 40"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <rect
+                          width="40"
+                          height="40"
+                          rx="10"
+                          fill="#FB2C36"
+                          fill-opacity="0.25"
+                        />
+                        <path
+                          d="M17.5834 19.5V26.7917"
+                          stroke="#FB2C36"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M23.4166 19.5V26.7917"
+                          stroke="#FB2C36"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M8.83337 12.208H32.1667"
+                          stroke="#FB2C36"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M11.75 16.583V28.2497C11.75 30.666 13.7088 32.6247 16.125 32.6247H24.875C27.2913 32.6247 29.25 30.666 29.25 28.2497V16.583"
+                          stroke="#FB2C36"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M16.125 9.29167C16.125 7.68084 17.4308 6.375 19.0417 6.375H21.9583C23.5692 6.375 24.875 7.68084 24.875 9.29167V12.2083H16.125V9.29167Z"
+                          stroke="#FB2C36"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <img
+                      src="assets/images/miejebew.jpeg"
+                      alt="Nasi Ayam Saus Tiram"
+                      class="menu-thumb"
+                    />
+                  </td>
+                  <td class="col-nama bold">Nasi Ayam Saus Tiram</td>
+                  <td>NAST</td>
+                  <td>Makanan</td>
+                  <td><span class="stok-badge">100</span></td>
+                  <td class="bold">Rp. 18.000</td>
+                  <td>Aktif</td>
+                  <td class="tindakan-col">
+                    <a href="#popup-edit" class="btn-tindakan edit">
+                      <svg
+                        width="40"
+                        height="40"
+                        viewBox="0 0 40 40"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <rect
+                          width="40"
+                          height="40"
+                          rx="10"
+                          fill="#EFB100"
+                          fill-opacity="0.25"
+                        />
+                        <path
+                          d="M34.2599 11.8001L21.1424 24.9175C19.8361 26.2238 15.9586 26.8288 15.0923 25.9625C14.2261 25.0963 14.8173 21.2188 16.1236 19.9125L29.2549 6.78131C29.5787 6.42802 29.9707 6.14402 30.4074 5.94644C30.844 5.74885 31.3161 5.64174 31.7953 5.63164C32.2744 5.62157 32.7507 5.70866 33.1952 5.8877C33.6397 6.06674 34.0434 6.33404 34.3818 6.67339C34.7202 7.01274 34.9864 7.41712 35.1642 7.86216C35.342 8.3072 35.4279 8.78364 35.4165 9.26276C35.4051 9.74188 35.2966 10.2138 35.0979 10.6498C34.8991 11.0859 34.6141 11.4772 34.2599 11.8001Z"
+                          stroke="#EFB100"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M20.125 8.5H13.25C11.7913 8.5 10.3924 9.07945 9.36099 10.1109C8.32955 11.1424 7.75 12.5413 7.75 14V27.75C7.75 29.2087 8.32955 30.6077 9.36099 31.639C10.3924 32.6706 11.7913 33.25 13.25 33.25H28.375C31.4138 33.25 32.5 30.775 32.5 27.75V20.875"
+                          stroke="#EFB100"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </a>
+                    <a href="#popup-hapus" class="btn-tindakan hapus">
+                      <svg
+                        width="40"
+                        height="40"
+                        viewBox="0 0 40 40"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <rect
+                          width="40"
+                          height="40"
+                          rx="10"
+                          fill="#FB2C36"
+                          fill-opacity="0.25"
+                        />
+                        <path
+                          d="M17.5834 19.5V26.7917"
+                          stroke="#FB2C36"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M23.4166 19.5V26.7917"
+                          stroke="#FB2C36"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M8.83337 12.208H32.1667"
+                          stroke="#FB2C36"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M11.75 16.583V28.2497C11.75 30.666 13.7088 32.6247 16.125 32.6247H24.875C27.2913 32.6247 29.25 30.666 29.25 28.2497V16.583"
+                          stroke="#FB2C36"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M16.125 9.29167C16.125 7.68084 17.4308 6.375 19.0417 6.375H21.9583C23.5692 6.375 24.875 7.68084 24.875 9.29167V12.2083H16.125V9.29167Z"
+                          stroke="#FB2C36"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <img
+                      src="assets/images/miejebew.jpeg"
+                      alt="Pisang Bakar"
+                      class="menu-thumb"
+                    />
+                  </td>
+                  <td class="col-nama bold">Pisang Bakar</td>
+                  <td>PB</td>
+                  <td>Snack</td>
+                  <td><span class="stok-badge">100</span></td>
+                  <td class="bold">Rp. 15.000</td>
+                  <td>Aktif</td>
+                  <td class="tindakan-col">
+                    <a href="#popup-edit" class="btn-tindakan edit">
+                      <svg
+                        width="40"
+                        height="40"
+                        viewBox="0 0 40 40"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <rect
+                          width="40"
+                          height="40"
+                          rx="10"
+                          fill="#EFB100"
+                          fill-opacity="0.25"
+                        />
+                        <path
+                          d="M34.2599 11.8001L21.1424 24.9175C19.8361 26.2238 15.9586 26.8288 15.0923 25.9625C14.2261 25.0963 14.8173 21.2188 16.1236 19.9125L29.2549 6.78131C29.5787 6.42802 29.9707 6.14402 30.4074 5.94644C30.844 5.74885 31.3161 5.64174 31.7953 5.63164C32.2744 5.62157 32.7507 5.70866 33.1952 5.8877C33.6397 6.06674 34.0434 6.33404 34.3818 6.67339C34.7202 7.01274 34.9864 7.41712 35.1642 7.86216C35.342 8.3072 35.4279 8.78364 35.4165 9.26276C35.4051 9.74188 35.2966 10.2138 35.0979 10.6498C34.8991 11.0859 34.6141 11.4772 34.2599 11.8001Z"
+                          stroke="#EFB100"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M20.125 8.5H13.25C11.7913 8.5 10.3924 9.07945 9.36099 10.1109C8.32955 11.1424 7.75 12.5413 7.75 14V27.75C7.75 29.2087 8.32955 30.6077 9.36099 31.639C10.3924 32.6706 11.7913 33.25 13.25 33.25H28.375C31.4138 33.25 32.5 30.775 32.5 27.75V20.875"
+                          stroke="#EFB100"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </a>
+                    <a href="#popup-hapus" class="btn-tindakan hapus">
+                      <svg
+                        width="40"
+                        height="40"
+                        viewBox="0 0 40 40"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <rect
+                          width="40"
+                          height="40"
+                          rx="10"
+                          fill="#FB2C36"
+                          fill-opacity="0.25"
+                        />
+                        <path
+                          d="M17.5834 19.5V26.7917"
+                          stroke="#FB2C36"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M23.4166 19.5V26.7917"
+                          stroke="#FB2C36"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M8.83337 12.208H32.1667"
+                          stroke="#FB2C36"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M11.75 16.583V28.2497C11.75 30.666 13.7088 32.6247 16.125 32.6247H24.875C27.2913 32.6247 29.25 30.666 29.25 28.2497V16.583"
+                          stroke="#FB2C36"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M16.125 9.29167C16.125 7.68084 17.4308 6.375 19.0417 6.375H21.9583C23.5692 6.375 24.875 7.68084 24.875 9.29167V12.2083H16.125V9.29167Z"
+                          stroke="#FB2C36"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <footer class="content-footer">
+            <p class="data-info">Menampilkan 16 dari 123 Menu</p>
+            <div class="pagination">
+              <button class="page-link sebelum">Sebelumnya</button>
+              <button class="page-number active">2</button>
+              <button class="page-number">3</button>
+              <button class="page-link">Selanjutnya</button>
+            </div>
+          </footer>
+        </main>
+      </div>
+    </div>
+
+    <!-- ============================================================
+  POPUP 1: TAMBAH MENU BARU
+  Trigger: <a href="#popup-tambah"> di tombol .btn-tambah (action-bar-top)
+  Tutup:   <a href="#"> di .popup-close dan .btn-batal
+  ============================================================ -->
+    <div class="popup-overlay" id="popup-tambah">
+      <div class="popup-box">
+        <!-- Judul & tombol close -->
+        <h3>Tambah Menu Baru</h3>
+        <p class="popup-desc">Isi kolom di bawah untuk menambahkan menu baru</p>
+        <a href="#" class="popup-close">✕</a>
+
+        <!-- Layout 2 kolom: upload kiri, form kanan -->
+        <div class="popup-form-layout">
+          <!-- Kiri: area upload gambar -->
+          <div class="upload-area">
+            <span class="upload-icon">🖼️</span>
+            <p>Unggah Gambar</p>
+            <small>Klik atau seret gambar produk (JPG or PNG).</small>
+          </div>
+
+          <!-- Kanan: form fields -->
+          <div class="form-fields">
+            <div class="form-group">
+              <label>Nama Menu</label>
+              <input type="text" placeholder="Masukkan Nama Menu Baru..." />
+            </div>
+            <div class="form-group">
+              <label>Kode Menu</label>
+              <input type="text" placeholder="Masukkan Kode Menu Baru..." />
+            </div>
+            <div class="form-group">
+              <label>Kategori</label>
+              <select>
+                <option value="" disabled selected>Kategori</option>
+                <option>Makanan</option>
+                <option>Minuman</option>
+                <option>Snack</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Stok</label>
+              <input type="number" placeholder="Masukkan Stok Menu Baru..." />
+            </div>
+            <div class="form-group">
+              <label>Harga Jual</label>
+              <input
+                type="text"
+                placeholder="Masukkan Harga Jual Menu Baru..."
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer: status toggle + tombol aksi -->
+        <div class="popup-footer">
+          <div class="status-toggle-wrap">
+            <span>Status awal</span>
+            <!-- Toggle off by default (menu baru belum aktif) -->
+            <input type="checkbox" id="toggle-tambah" class="toggle-input" />
+            <label for="toggle-tambah" class="toggle-label"></label>
+          </div>
+          <div class="popup-actions">
+            <a href="#" class="btn-batal">Batal</a>
+            <button class="btn-simpan">Simpan</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================
+  POPUP 2: EDIT MENU
+  Trigger: tombol edit di kolom Tindakan tiap baris tabel
+           contoh: <a href="#popup-edit-1"> (per item bisa beda id)
+  Tutup:   <a href="#"> di .popup-close dan .btn-batal
+  Catatan: nilai form diisi sesuai data baris yang diedit
+  ============================================================ -->
+    <div class="popup-overlay" id="popup-edit">
+      <div class="popup-box">
+        <h3>Edit Menu</h3>
+        <p class="popup-desc">
+          Silakan sesuaikan perubahan yang Anda inginkan.
+        </p>
+        <a href="#" class="popup-close">✕</a>
+
+        <div class="popup-form-layout">
+          <!-- Kiri: preview gambar yang sudah ada -->
+          <div class="upload-area has-image">
+            <img src="assets/images/menu-placeholder.jpg" alt="Preview" />
+          </div>
+
+          <!-- Kanan: form diisi dengan data existing -->
+          <div class="form-fields">
+            <div class="form-group">
+              <label>Nama Menu</label>
+              <!-- value diisi sesuai data menu yang diedit -->
+              <input type="text" value="Nasi Goreng" />
+            </div>
+            <div class="form-group">
+              <label>Kode Menu</label>
+              <input type="text" value="NG" />
+            </div>
+            <div class="form-group">
+              <label>Kategori</label>
+              <select>
+                <option>Makanan</option>
+                <option>Minuman</option>
+                <option>Snack</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Stok</label>
+              <input type="number" value="100" />
+            </div>
+            <div class="form-group">
+              <label>Harga Jual</label>
+              <input type="text" value="Rp. 15.000" />
+            </div>
+          </div>
+        </div>
+
+        <div class="popup-footer">
+          <div class="status-toggle-wrap">
+            <span>Status awal</span>
+            <!-- checked = menu sedang aktif -->
+            <input
+              type="checkbox"
+              id="toggle-edit"
+              class="toggle-input"
+              checked
+            />
+            <label for="toggle-edit" class="toggle-label"></label>
+          </div>
+          <div class="popup-actions">
+            <a href="#" class="btn-batal">Batal</a>
+            <button class="btn-simpan">Simpan</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================
+  POPUP 3: HAPUS MENU
+  Trigger: tombol hapus di kolom Tindakan tiap baris tabel
+           contoh: <a href="#popup-hapus">
+  Tutup:   <a href="#"> di tombol Batal
+  ============================================================ -->
+    <div class="popup-overlay" id="popup-hapus">
+      <div class="popup-box popup-hapus">
+        <!-- Tidak ada tombol close X di desain hapus, tapi aman ditambah -->
+        <a href="#" class="popup-close">✕</a>
+
+        <!-- Ikon seru merah -->
+        <div class="hapus-icon">!</div>
+
+        <h3>Apa kamu yakin untuk menghapus menu ini?</h3>
+        <p>
+          Menu ini "Nasi Goreng" akan dihapus permanen dari daftar menu.
+          Tindakan ini tidak bisa dibatalkan, tapi riwayat penjualan yang ada
+          akan tetap aman walau menu telah terhapus.
+        </p>
+
+        <div class="hapus-actions">
+          <a href="#" class="btn-hapus-batal">Batal</a>
+          <a href="#" class="btn-hapus-konfirm">Ya, Hapus Permanen</a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

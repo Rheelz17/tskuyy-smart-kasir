@@ -115,7 +115,55 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 0 20px;
+  position: relative;
 }
+
+/* --- POP-UP CONTAINER --- */
+  .profile-menu-popup {
+    position: absolute;
+    display: none;
+    right: 0;
+    top: 100%;
+    background-color: #ffffff;
+    border-radius: 20px;
+    padding: 12px 16px; /* Padding luar biar nggak mentok */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    min-width: 20px;
+  }
+  .profile-menu-popup.active {
+    display: block;
+  }
+  /* --- MENU ITEM --- */
+  .menu-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 12px 16px;
+    text-decoration: none;
+    border-radius: 12px;
+    transition: background-color 0.2s ease;
+    cursor: pointer;
+  }
+
+  /* Efek saat kursor diarahkan ke menu */
+  .menu-item:hover {
+    background-color: #f3f4f6; /* Abu-abu sangat terang */
+  }
+
+  /* Teks Profil Saya */
+  .menu-item span {
+    font-size: 24px; /* Ukuran teks lumayan besar sesuai desain */
+    color: #737373; /* Warna abu-abu */
+    font-weight: 500;
+  }
+
+  /* Ikon Wrapper */
+  .icon-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
  
 .topbar-left {
   display: flex;
