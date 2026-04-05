@@ -84,59 +84,68 @@ body {
   gap: 18px;
 }
 
+/* Notif */
 .notif-wrapper {
   position: relative;
-  background: #f8f8f8;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
+  width: 36px;
+  height: 36px;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  background: #f8fafc;
+  border-radius: 50px;
+  border: 1px solid #e2e8f0;
+  color: #64748b;
   cursor: pointer;
 }
 
 .notif-badge {
   position: absolute;
-  top: 8px;
-  right: 8px;
-  width: 8px;
-  height: 8px;
-  background: #ef4444;
+  top: -4px;
+  right: -4px;
+  width: 16px;
+  height: 16px;
+  background: #e07b2a;
+  color: #fff;
+  font-size: 9px;
+  font-weight: 700;
   border-radius: 50%;
-  border: 2px solid #fff;
-}
-
-.user-profile {
   display: flex;
   align-items: center;
-  gap: 10px;
+  justify-content: center;
+  border: none;
 }
 
-.avatar {
-  width: 40px;
-  height: 40px;
+/* User card */
+.user-card {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  border: 1px solid #e2e8f0;
+  border-radius: 50px;
+  background: #f8fafc;
+  cursor: pointer;
+}
+
+.user-avatar img {
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
   object-fit: cover;
-  background: #eee;
-}
-
-.user-info {
-  display: flex;
-  flex-direction: column;
 }
 
 .user-name {
-  font-size: 13px;
-  font-weight: 700;
-  color: #222;
-  line-height: 1.3;
+  font-size: 12px;
+  font-weight: 600;
+  color: #0f172a;
+  display: block;
 }
 
 .user-role {
-  font-size: 11px;
-  color: #aaa;
-  line-height: 1.3;
+  font-size: 10px;
+  color: #94a3b8;
+  display: block;
 }
 
 /* ==================== MAIN LAYOUT ==================== */
@@ -148,54 +157,75 @@ body {
 
 /* ==================== SIDEBAR ==================== */
 .sidebar {
-  width: 72px;
+  width: 60px;
   background: #fff;
+  border-right: 1px solid #e2e8f0;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: center;
   padding: 16px 0;
-  border-right: 1px solid #f0f0f0;
+  gap: 8px;
   flex-shrink: 0;
 }
 
-.side-nav,
-.side-footer {
+.sidebar-logo {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.sidebar-logo img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50px;
+  object-fit: cover;
+}
+
+.side-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  flex: 1;
+}
+
+.sidebar-bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
 }
 
 .nav-item {
-  width: 46px;
-  height: 46px;
+  width: 40px;
+  height: 40px;
   display: flex;
-  justify-content: center;
   align-items: center;
-  border-radius: 14px;
+  justify-content: center;
+  border-radius: 50px;
+  color: #EFB100;
   cursor: pointer;
-  color: #bbb;
-  transition: background 0.2s, color 0.2s;
+  transition: 0.2s;
 }
 
 .nav-item:hover {
-  background: #fff7e0;
-  color: #eab308;
+  background: #f1f5f9;
+  color: #EFB100;
 }
 
 .nav-item.active {
-  background: #fef3c7;
-  color: #eab308;
+  background: #292D32;
+  color: #EFB100;
 }
 
 .nav-item.logout {
-  color: #ef4444;
+  color: #E95322;
 }
 
 .nav-item.logout:hover {
   background: #fee2e2;
-  color: #ef4444;
+  color: #E95322;
 }
 
 /* ==================== CONTENT AREA ==================== */
@@ -2160,3 +2190,225 @@ label.antrian-card:hover { filter:brightness(0.96); transform:translateY(-1px); 
 .struk-kembalian { background:#f8fafc; padding:10px 12px; border-radius:10px; }
 .struk-printing { font-size:12px; color:#aaa; text-align:center; }
 .popup-btn-selesai { margin-top:0; }
+
+/* ============= POP UP PROFILE SAYA (OBAT ANTI GELAP) ======================= */
+
+/* 1. MUNCULIN BACKGROUND GELAP & POP-UPNYA BARENGAN */
+#toggle-profil-saya:checked ~ .popup-overlay,
+#toggle-profil-saya:checked ~ #popup-profil-saya {
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* 2. BIKIN KOTAKNYA NGAMBANG DI TENGAH LAYAR */
+#popup-profil-saya {
+  width: 90%;
+  max-width: 500px;
+  padding-bottom: 30px;
+  
+  /* Ini magic word-nya biar dia ke tengah muka */
+  position: fixed !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  z-index: 999999 !important; 
+  
+  background-color: #ffffff !important; 
+  border-radius: 16px;
+  box-shadow: 0 15px 50px rgba(0,0,0,0.5);
+  display: none; /* Sembunyi secara default */
+}
+
+/* --- HEADER POP-UP PROFIL --- */
+#popup-profil-saya .popup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 24px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+#popup-profil-saya .popup-header span {
+  font-size: 18px;
+  font-weight: 700;
+  color: #111827;
+}
+
+/* --- BAGIAN FOTO & NAMA --- */
+.profil-header-info {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px dashed #e5e7eb;
+  padding: 20px 24px 0 24px; 
+}
+
+.profil-avatar-img {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #eab308; 
+}
+
+.profil-name-role h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 4px;
+}
+
+.profil-name-role p {
+  font-size: 14px;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+/* --- GRID FORM DATA DIRI --- */
+.profil-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  padding: 0 24px; 
+}
+
+.profil-form-grid .full-width {
+  grid-column: span 2; 
+}
+
+.profil-form-grid .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.profil-form-grid label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #4b5563;
+}
+
+/* --- EFEK READONLY / DIKUNCI --- */
+.profil-form-grid input,
+.profil-form-grid textarea {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #374151;
+  background-color: #f3f4f6 !important; 
+  outline: none;
+  cursor: not-allowed; 
+  resize: none;
+}
+
+.profil-form-grid input:focus,
+.profil-form-grid textarea:focus {
+  border-color: #d1d5db;
+  box-shadow: none;
+}
+
+/* ==================== RESET ==================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+/* ==================== ROOT ==================== */
+:root {
+  --min-width: 344px;
+}
+
+/* ==================== GLOBAL ==================== */
+html {
+  font-size: clamp(12px, 1vw, 16px);
+  overflow-x: auto;
+}
+
+body {
+  background: #f0f0f0;
+  min-width: var(--min-width);
+  overflow-x: auto;
+  line-height: 1.5;
+}
+
+/* LOCK LAYOUT */
+.app-container,
+.main-layout,
+.content-area {
+  min-width: var(--min-width);
+}
+
+/* ==================== TYPOGRAPHY ==================== */
+.section-title { font-size: clamp(14px, 1.4vw, 18px); }
+.section-label { font-size: clamp(12px, 1.2vw, 15px); }
+.section-labelmini { font-size: clamp(10px, 1vw, 13px); }
+.user-name { font-size: clamp(11px, 1vw, 14px); }
+.user-role { font-size: clamp(9px, 0.8vw, 12px); }
+.search-bar { font-size: clamp(11px, 1vw, 14px); }
+.table-number { font-size: clamp(12px, 1.2vw, 15px); }
+.order-id { font-size: clamp(10px, 0.9vw, 12px); }
+.time-status { font-size: clamp(9px, 0.8vw, 11px); }
+.card-judul { font-size: clamp(12px, 1.1vw, 15px); }
+.card-desc { font-size: clamp(10px, 0.9vw, 12px); }
+.card-price { font-size: clamp(12px, 1.1vw, 15px); }
+.menu-tab, .mood { font-size: clamp(11px, 1vw, 14px); }
+.popup-header { font-size: clamp(13px, 1.2vw, 16px); }
+.popup-total-amount { font-size: clamp(20px, 2vw, 30px); }
+.payment-option-text { font-size: clamp(13px, 1.2vw, 15px); }
+
+/* ==================== CART DEFAULT ==================== */
+.cart-sidebar {
+  width: 28%;
+  min-width: 260px;
+  max-width: 320px;
+  position: sticky;
+  top: 70px;
+  height: calc(100vh - 70px);
+  overflow-y: auto;
+}
+
+/* ==================== TABLET LANDSCAPE FIX ==================== */
+@media (max-width: 1024px) and (min-width: 768px) {
+  html { font-size: clamp(11px, 0.9vw, 14px); }
+  .section-title { font-size: clamp(13px, 1.2vw, 16px); }
+  .section-label { font-size: clamp(11px, 1vw, 14px); }
+  .user-name, .search-bar { font-size: clamp(10px, 0.9vw, 13px); }
+  .card-judul, .card-price { font-size: clamp(11px, 1vw, 14px); }
+  .card-desc { font-size: clamp(9px, 0.8vw, 11px); }
+  .table-number { font-size: clamp(11px, 1vw, 14px); }
+  .order-id { font-size: clamp(9px, 0.8vw, 11px); }
+  .menu-detail-name { font-size: clamp(14px, 1.2vw, 18px); }
+  .menu-detail-price { font-size: clamp(13px, 1.1vw, 16px); }
+  .popup-total-amount { font-size: clamp(18px, 1.8vw, 24px); }
+}
+
+/* ==================== TABLET PORTRAIT ==================== */
+@media (max-width: 820px) {
+  .main-layout { display: flex; }
+  .main-header { padding: 0 12px; height: 58px; }
+  .search-container { width: 100%; }
+  .sidebar { width: 54px; }
+  .content-area { width: 65%; padding: 10px; }
+  /* CART tetap di kanan */
+  .cart-sidebar {
+    width: 35%;
+    min-width: 220px;
+    position: sticky;
+    top: 70px;
+    height: calc(100vh - 70px);
+    box-shadow: none;
+  }
+}
+
+/* ==================== IMAGE FIX ==================== */
+img {
+  max-width: 100%;
+  height: auto;
+}
