@@ -1,0 +1,181 @@
+/* --- BASE PRINT STYLES --- */
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    /* Font bersih dan standar untuk print dokumen */
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; 
+  }
+
+  body {
+    background-color: #525659; /* Warna abu-abu khas PDF Viewer */
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+    min-height: 100vh;
+  }
+
+  /* --- KERTAS A4 CONTAINER --- */
+  .a4-paper {
+    background-color: #ffffff;
+    /* Ukuran standar A4 (210mm x 297mm) */
+    width: 210mm;
+    min-height: 297mm;
+    padding: 20mm; /* Margin kertas */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    position: relative;
+  }
+
+  /* --- KOP SURAT (HEADER Laporan) --- */
+  .report-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: 2px solid #000000;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+  }
+
+  .company-info h1 {
+    font-size: 24px;
+    font-weight: 800;
+    color: #000000;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+  }
+
+  .company-info p {
+    font-size: 11px;
+    color: #4b5563;
+    line-height: 1.4;
+  }
+
+  .document-meta {
+    text-align: right;
+  }
+
+  .document-meta h2 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #000000;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+  }
+
+  .document-meta p {
+    font-size: 11px;
+    color: #4b5563;
+  }
+
+  /* --- REPORT METADATA --- */
+  .report-details {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    font-size: 11px;
+  }
+
+  .detail-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .detail-group span strong {
+    display: inline-block;
+    width: 100px;
+    color: #000000;
+  }
+
+  /* --- TABEL DATA --- */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 11px;
+    margin-bottom: 30px;
+  }
+
+  th, td {
+    border: 1px solid #d1d5db;
+    padding: 10px 8px;
+    text-align: left;
+  }
+
+  th {
+    background-color: #f3f4f6; /* Abu-abu muda untuk header tabel */
+    color: #000000;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 10px;
+  }
+
+  /* Pengaturan lebar kolom spesifik biar rapi */
+  th.col-no { width: 5%; text-align: center; }
+  th.col-sku { width: 12%; }
+  th.col-name { width: 30%; }
+  th.col-cat { width: 15%; }
+  th.col-stock { width: 10%; text-align: center; }
+  th.col-price { width: 15%; text-align: right; }
+  th.col-status { width: 13%; text-align: center; }
+
+  td.text-center { text-align: center; }
+  td.text-right { text-align: right; }
+  
+  td.col-name { font-weight: 600; color: #111827; }
+
+  /* Styling Status di Print (Pakai teks biasa aja, bukan tombol toggle) */
+  .status-active { color: #16a34a; font-weight: 700; }
+  .status-inactive { color: #dc2626; font-weight: 700; }
+
+  /* --- FOOTER / TTD --- */
+  .report-footer {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 40px;
+    font-size: 11px;
+  }
+
+  .signature-box {
+    text-align: center;
+    width: 200px;
+  }
+
+  .signature-box p {
+    margin-bottom: 60px; /* Ruang untuk tanda tangan fisik */
+  }
+
+  .signature-box h4 {
+    font-size: 12px;
+    font-weight: 700;
+    text-decoration: underline;
+    margin-bottom: 2px;
+  }
+
+  /* Pagination di bawah kertas */
+  .page-number {
+    position: absolute;
+    bottom: 20mm;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 10px;
+    color: #6b7280;
+  }
+
+  /* --- ATURAN PRINT FISIK --- */
+  @media print {
+    body {
+      background-color: transparent;
+      padding: 0;
+    }
+    .a4-paper {
+      box-shadow: none;
+      width: 100%;
+      height: 100%;
+      padding: 0;
+    }
+    @page {
+      size: A4;
+      margin: 20mm;
+    }
+  }

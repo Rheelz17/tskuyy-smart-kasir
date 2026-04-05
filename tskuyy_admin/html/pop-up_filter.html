@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pop-up Filter Spesifik</title>
+<link rel="stylesheet" href="../css/pop-up_filter-css.css">
+</head>
+<body>
+
+<div class="filter-card">
+  <div class="filter-header">
+    <h2>Filter Spesifik</h2>
+    <button class="btn-reset">Reset</button>
+  </div>
+  <hr class="divider">
+
+  <div class="filter-section">
+    <h3 class="section-title">STATUS KETERSEDIAAN</h3>
+    <div class="radio-group">
+      <label class="radio-label">
+        <input type="radio" name="status" value="semua">
+        <span class="custom-radio"></span>
+        Semua Status
+      </label>
+      <label class="radio-label">
+        <input type="radio" name="status" value="tersedia" checked>
+        <span class="custom-radio"></span>
+        Tersedia
+      </label>
+      <label class="radio-label">
+        <input type="radio" name="status" value="tidak_tersedia">
+        <span class="custom-radio"></span>
+        Tidak Tersedia
+      </label>
+    </div>
+  </div>
+
+  <div class="filter-section">
+    <h3 class="section-title">KATEGORI</h3>
+    <div class="radio-group">
+      <label class="radio-label">
+        <input type="radio" name="kategori" value="semua">
+        <span class="custom-radio"></span>
+        Semua Kategori
+      </label>
+      <label class="radio-label">
+        <input type="radio" name="kategori" value="makanan" checked>
+        <span class="custom-radio"></span>
+        Makanan
+      </label>
+      <label class="radio-label">
+        <input type="radio" name="kategori" value="minuman">
+        <span class="custom-radio"></span>
+        Minuman
+      </label>
+      <label class="radio-label">
+        <input type="radio" name="kategori" value="snack">
+        <span class="custom-radio"></span>
+        Snack
+      </label>
+    </div>
+  </div>
+
+  <div class="filter-section">
+    <h3 class="section-title">RENTANG HARGA</h3>
+    <div class="price-range">
+      <input type="number" placeholder="Min">
+      <span class="price-separator">-</span>
+      <input type="number" placeholder="Max">
+    </div>
+  </div>
+
+  <button class="btn-apply">Terapkan Filter</button>
+</div>
+
+</body>
+</html>

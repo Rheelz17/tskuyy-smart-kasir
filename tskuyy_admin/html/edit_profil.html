@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Modal Edit Profil Saya - Warkop TSKUY</title>
+<style>
+  /* --- BASE STYLES --- */
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  body {
+    background-color: #f3f4f6; /* Latar abu-abu untuk demo overlay */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+  }
+
+  /* --- MODAL CONTAINER --- */
+  .profile-modal {
+    background-color: #ffffff;
+    width: 100%;
+    max-width: 600px;
+    border: 2px solid #f4b400; /* Border kuning mengelilingi modal */
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+
+  /* --- HEADER --- */
+  .modal-header {
+    background-color: #f4b400; /* Kuning Warkop TSKUY */
+    padding: 16px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .modal-header h2 {
+    font-size: 20px;
+    color: #ffffff;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+
+  .close-btn {
+    background: none;
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.2s;
+  }
+
+  .close-btn:hover {
+    opacity: 0.8;
+  }
+
+  /* --- MODAL BODY --- */
+  .modal-body {
+    padding: 30px 24px 30px 24px;
+  }
+
+  /* --- AVATAR UPLOAD SECTION --- */
+  .avatar-section {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+  }
+
+  .avatar-container {
+    position: relative;
+    width: 110px;
+    height: 110px;
+  }
+
+  .avatar-img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #e5e7eb;
+  }
+
+  .edit-avatar-btn {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: #f4b400; /* Kuning Warkop */
+    color: #ffffff;
+    border: 2px solid #ffffff; /* Biar ada jarak putih dengan gambar */
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: transform 0.2s, background-color 0.2s;
+  }
+
+  .edit-avatar-btn:hover {
+    transform: scale(1.1);
+    background-color: #d97706;
+  }
+
+  /* --- FORM AREA --- */
+  .form-area {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .form-group label {
+    font-size: 14px;
+    font-weight: 700;
+    color: #4b5563; /* Abu-abu gelap */
+  }
+
+  .form-group input, 
+  .form-group select {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid #9ca3af; /* Border abu-abu */
+    border-radius: 8px;
+    font-size: 15px;
+    color: #6b7280; /* Warna teks isi form sesuai desain */
+    background-color: #ffffff;
+    outline: none;
+    font-weight: 500;
+    transition: box-shadow 0.2s, border-color 0.2s;
+  }
+
+  .form-group input:focus, 
+  .form-group select:focus {
+    border-color: #f4b400;
+    box-shadow: 0 0 0 3px rgba(244, 180, 0, 0.2);
+  }
+
+  /* --- FOOTER / ACTION BUTTONS --- */
+  .modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    margin-top: 35px;
+  }
+
+  .btn {
+    border: none;
+    border-radius: 10px;
+    padding: 14px 40px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: opacity 0.2s;
+  }
+
+  .btn:hover {
+    opacity: 0.9;
+  }
+
+  .btn-batal {
+    background-color: #cbd5e1; /* Abu-abu terang */
+    color: #ffffff;
+  }
+
+  .btn-simpan {
+    background-color: #f4b400; /* Kuning Warkop */
+    color: #ffffff;
+  }
+
+  /* --- RESPONSIVE --- */
+  @media (max-width: 480px) {
+    .modal-footer {
+      flex-direction: column;
+    }
+    .btn {
+      width: 100%;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="profile-modal">
+  <div class="modal-header">
+    <h2>Profil Saya</h2>
+    <button class="close-btn" title="Tutup">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="10"></circle>
+        <line x1="15" y1="9" x2="9" y2="15"></line>
+        <line x1="9" y1="9" x2="15" y2="15"></line>
+      </svg>
+    </button>
+  </div>
+
+  <div class="modal-body">
+    
+    <div class="avatar-section">
+      <div class="avatar-container">
+        <input type="file" id="file-input" accept="image/jpeg, image/png" hidden>
+        
+        <img id="profile-preview" src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=300&q=80" alt="Avatar Dzaky Fauzi" class="avatar-img">
+        
+        <button class="edit-avatar-btn" id="btn-edit-avatar" title="Ganti Foto">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+            <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="form-area">
+      <div class="form-group">
+        <label>Nama lengkap</label>
+        <input type="text" value="Dzaky Fauzi">
+      </div>
+      
+      <div class="form-group">
+        <label>Username</label>
+        <input type="text" value="Dzaky Fauzi">
+      </div>
+      
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" value="Dzaky Fauzi">
+      </div>
+      
+      <div class="form-group">
+        <label>Peran / Role</label>
+        <select>
+          <option value="dzaky" selected>Dzaky Fauzi</option>
+          <option value="kasir">Kasir</option>
+          <option value="admin">Admin</option>
+          <option value="owner">Owner</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="modal-footer">
+      <button class="btn btn-batal">Batal</button>
+      <button class="btn btn-simpan">Simpan</button>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  const fileInput = document.getElementById('file-input');
+  const btnEditAvatar = document.getElementById('btn-edit-avatar');
+  const profilePreview = document.getElementById('profile-preview');
+
+  // Pas tombol pensil kuning diklik, buka jendela pilih file
+  btnEditAvatar.addEventListener('click', () => {
+    fileInput.click();
+  });
+
+  // Pas foto udah dipilih, langsung ganti preview fotonya
+  fileInput.addEventListener('change', function() {
+    if (this.files && this.files[0]) {
+      const reader = new FileReader();
+      
+      reader.onload = function(e) {
+        profilePreview.src = e.target.result;
+      }
+      
+      // Valdasi aja sekalian, pastiin filenya gambar
+      if(this.files[0].type.startsWith('image/')) {
+        reader.readAsDataURL(this.files[0]);
+      } else {
+        alert("Upload file gambar (JPG/PNG) ya boss!");
+      }
+    }
+  });
+</script>
+
+</body>
+</html>
