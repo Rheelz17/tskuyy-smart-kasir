@@ -2347,6 +2347,11 @@ label.antrian-card:hover {
     height: 62px;
   }
 
+  .cart-sidebar{
+    width: 320px;
+    min-width: 320px;
+  }
+
   .search-container {
     width: 36%;
   }
