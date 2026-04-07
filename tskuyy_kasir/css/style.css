@@ -1931,7 +1931,6 @@ label.antrian-card:hover {
   margin-top: -4px;
 }
 
-/* ==================== DEMO TRIGGERS ==================== */
 .demo-triggers {
   display: none;
   position: fixed;
@@ -1960,7 +1959,6 @@ label.antrian-card:hover {
   opacity: 1;
 }
 
-/* ==================== FILTER SYSTEM ==================== */
 #fa-all:checked ~ .antrian-full-grid .antrian-card {
   display: flex;
 }
@@ -1979,7 +1977,6 @@ label.antrian-card:hover {
   display: flex;
 }
 
-/* Tab antrian aktif */
 #fa-all:checked ~ .antrian-tabs label[for="fa-all"],
 #fa-dine:checked ~ .antrian-tabs label[for="fa-dine"],
 #fa-takeaway:checked ~ .antrian-tabs label[for="fa-takeaway"],
@@ -2007,7 +2004,6 @@ label.antrian-card:hover {
   border: none;
 }
 
-/* ==================== DUAL FILTER: MOOD × KATEGORI ==================== */
 .content-area .menu-card[data-kategori] {
   display: none !important;
 }

@@ -31,7 +31,6 @@ body {
   background: #f0f2f5;
 }
 
-/* Kolom ilustrasi — kanan, mengisi sisa ruang */
 .auth-illus-col {
   flex: 1;
   position: relative;
@@ -142,7 +141,6 @@ body {
   color: #aaa;
 }
 
-/* Input dengan icon */
 .input-icon-wrap {
   position: relative;
 }
@@ -157,7 +155,6 @@ body {
   cursor: pointer;
 }
 
-/* Icon di kiri (untuk email di popup) */
 .input-icon-left {
   right: unset;
   left: 12px;
@@ -167,7 +164,6 @@ body {
   padding-left: 40px;
 }
 
-/* Select dropdown */
 .select-wrap {
   position: relative;
 }
@@ -187,7 +183,6 @@ body {
   align-items: center;
 }
 
-/* Lupa sandi link */
 .lupa-sandi-link {
   font-size: 11px;
   color: #e07b2a;
@@ -260,7 +255,6 @@ body {
   justify-content: center;
 }
 
-/* Pattern lingkaran dekoratif di background */
 .illus-pattern {
   position: absolute;
   inset: 0;
@@ -308,7 +302,7 @@ body {
 }
 
 .auth-layout-register {
-  flex-direction: row-reverse; /* ilustrasi di kiri, form di kanan */
+  flex-direction: row-reverse; 
 }
 
 .auth-form-col-register {
@@ -322,14 +316,12 @@ body {
   width: 100%;
 }
 
-/* Grid 2 kolom untuk field register */
 .register-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 14px 20px;
 }
 
-/* Semua popup tersembunyi secara default */
 .popup-target {
   display: none;
   position: fixed;
@@ -342,21 +334,18 @@ body {
   padding: 0 16px;
 }
 
-/* Popup muncul saat jadi :target */
 #popup-lupa:target,
 #popup-buat-sandi:target,
 #popup-berhasil:target {
   display: block;
 }
 
-/* Overlay muncul saat salah satu popup aktif */
 #popup-lupa:target ~ .target-overlay,
 #popup-buat-sandi:target ~ .target-overlay,
 #popup-berhasil:target ~ .target-overlay {
   display: block;
 }
 
-/* Overlay — latar gelap di belakang popup */
 .target-overlay {
   display: none;
   position: fixed;
@@ -464,26 +453,33 @@ body {
   }
 }
 
-/* HP */
-@media (max-width: 480px) {
+@media (min-width: 770) and (max-width: 1232) {
   .auth-card {
-    padding: 28px 20px;
+    max-width: 280px;
+    padding: 24px 18px;
   }
 
-  .auth-title {
-    font-size: 24px;
-  }
-
-  .popup-box {
-    padding: 32px 20px 28px;
-  }
-
-  .popup-title {
-    font-size: 18px;
-  }
-
-  .popup-target {
+  .auth-card-register {
     max-width: 100%;
-    padding: 0 12px;
+  }
+
+}@media (max-width: 768px) {
+
+  .auth-form-col,
+  .auth-form-col-register {
+    align-items: center;
+    padding: 28px 18px;
+  }
+
+  .auth-card {
+    max-width: 340px;
+    width: 100%;
+    padding: 26px 20px;
+  }
+
+  .auth-card-register {
+    max-width: 420px;
+    width: 100%;
+    padding: 26px 20px;
   }
 }
