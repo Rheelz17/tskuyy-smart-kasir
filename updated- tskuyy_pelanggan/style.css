@@ -722,10 +722,10 @@ input  { font-family: 'Poppins', sans-serif; }
   flex: 1;
 }
 
+.menu-choice {
+  margin-top: 16px;
+}
 
-/* ===============================
-   TABLET BESAR (<= 1200px)
-   =============================== */
 @media (max-width: 1200px) {
   .navbar {
     padding: 0 18px;

@@ -2373,6 +2373,10 @@ label.antrian-card:hover {
     display: none;
   }
 
+  .menu-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
   .popup {
     width: 88vw;
     max-width: 460px;
@@ -2566,6 +2570,10 @@ label.antrian-card:hover {
     gap: 10px;
   }
 
+  .menu-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
   .cart-sidebar {
     height: calc(100vh - 62px);
     display: flex;
@@ -2698,6 +2706,7 @@ label.antrian-card:hover {
   .notif-panel-title {
     font-size: 16px;
   }
+  
   .kategori-menu-btn {
     flex-wrap: nowrap;
     gap: 6px;
