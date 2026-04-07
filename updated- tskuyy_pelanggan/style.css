@@ -722,6 +722,10 @@ input  { font-family: 'Poppins', sans-serif; }
   flex: 1;
 }
 
+
+/* ===============================
+   TABLET BESAR (<= 1200px)
+   =============================== */
 @media (max-width: 1200px) {
   .navbar {
     padding: 0 18px;
@@ -737,19 +741,21 @@ input  { font-family: 'Poppins', sans-serif; }
   }
 
   .sidebar-keranjang {
-    width: 330px;
-    min-width: 330px;
+    width: 320px;
+    min-width: 320px;
   }
 }
 
 @media (max-width: 900px) {
-  .sidebar-keranjang {
-    display: none;
-  }
 
   .bungkus-halaman {
-    display: block;
-    padding-bottom: var(--tinggi-bar-hp);
+    display: flex;
+    align-items: flex-start;
+  }
+
+  .sidebar-keranjang {
+    width: 280px;
+    min-width: 280px;
   }
 
   .konten-utama {
@@ -792,80 +798,39 @@ input  { font-family: 'Poppins', sans-serif; }
   }
 
   .mood {
-    flex: 0 0 auto;
     padding: 6px 12px;
     font-size: 12px;
   }
 
   .menu-tab {
-    min-width: 150px;
-    min-height: 50px;
+    min-width: 140px;
+    min-height: 48px;
     padding: 8px 12px;
     border-radius: 14px;
   }
 
   .bar-keranjang-hp {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 200;
-    background: var(--kuning);
-    height: var(--tinggi-bar-hp);
-    display: flex;
-    align-items: center;
-    padding: 0 20px;
-    gap: 12px;
-    box-shadow: 0 -4px 20px rgba(0,0,0,0.18);
-    text-decoration: none;
-    color: white;
-  }
-
-  .ikon-keranjang-hp {
-    width: 40px;
-    height: 40px;
-    background: rgba(0,0,0,0.15);
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-  }
-
-  .info-keranjang-hp {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .label-total-hp {
-    font-size: 11px;
-    font-weight: 500;
-    opacity: .85;
-  }
-
-  .jumlah-total-hp {
-    font-size: 16px;
-    font-weight: 800;
-  }
-
-  .teks-checkout-hp {
-    font-size: 13px;
-    font-weight: 700;
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    flex-shrink: 0;
-  }
-}
-
-@media (min-width: 901px) {
-  .bar-keranjang-hp {
     display: none;
   }
 }
 
+@media (min-width: 601px) {
+  .bar-keranjang-hp {
+    display: none !important;
+  }
+}
+
 @media (max-width: 600px) {
+
+  .sidebar-keranjang {
+    display: none;
+  }
+
+  .bungkus-halaman {
+    display: block;
+    padding-bottom: var(--tinggi-bar-hp);
+  }
+
   .navbar {
     padding: 10px 12px;
   }
@@ -899,21 +864,8 @@ input  { font-family: 'Poppins', sans-serif; }
     padding: 12px 12px 20px;
   }
 
-  .mood-section,
-  .menu-choice {
-    padding: 12px;
-    border-radius: 14px;
-  }
-
-  .section-label {
-    font-size: 13px;
-  }
-
-  .section-labelmini {
-    font-size: 10px;
-  }
-
   .grid-menu {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 10px;
   }
 
@@ -924,98 +876,73 @@ input  { font-family: 'Poppins', sans-serif; }
 
   .nama-kartu {
     font-size: 13px;
-    min-height: 34px;
   }
 
   .ket-kartu {
     font-size: 11px;
-    min-height: 32px;
   }
 
   .harga-kartu {
     font-size: 12px;
-    /* font-weight: 700;
-    color: var(--harga);
-    white-space: nowrap; */
   }
 
-  .label-tambah {
-    font-size: 11px;
+  .bar-keranjang-hp {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 200;
+
+    background: var(--kuning);
+    height: var(--tinggi-bar-hp);
+
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    gap: 10px;
+
+    box-shadow: 0 -4px 20px rgba(0,0,0,0.18);
+    text-decoration: none;
+    color: white;
   }
 
-  .hamparan-popup {
-    padding: 12px;
-  }
-
-  .kartu-popup-detail {
-    width: 100%;
-    max-width: 100%;
-    border-radius: 16px;
-    padding: 14px 14px 18px;
-    max-height: 92vh;
-  }
-
-  .tata-letak-popup {
-    flex-direction: column;
-    gap: 14px;
-  }
-
-  .bungkus-gambar-popup {
-    width: 100%;
-    min-width: unset;
-    height: 190px;
-    border-radius: 12px;
-  }
-
-  .nama-popup {
-    font-size: 20px;
-  }
-
-  .harga-popup {
-    font-size: 18px;
-  }
-
-  .deskripsi-popup {
-    font-size: 12px;
-    line-height: 1.5;
-  }
-
-  .label-porsi,
-  .label-level {
-    font-size: 14px;
-  }
-
-  .wajib-level {
-    font-size: 11px;
-  }
-
-  .tombol-cta-popup {
-    height: 44px;
-    font-size: 14px;
+  .ikon-keranjang-hp {
+    width: 36px;
+    height: 36px;
+    background: rgba(0,0,0,0.15);
     border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
-  .kartu-bayar,
-  .kartu-konfirmasi,
-  .card-scan-qris,
-  .kartu-sukses {
-    width: 100%;
-    max-width: 100%;
-    border-radius: 16px;
+  .info-keranjang-hp {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
   }
 
-  .jumlah-total-bayar,
-  .jumlah-total-scan {
-    font-size: 26px;
+  .label-total-hp {
+    font-size: 11px;
+    opacity: .85;
   }
 
-  .qr-img {
-    width: 190px;
-    height: 190px;
+  .jumlah-total-hp {
+    font-size: 15px;
+    font-weight: 800;
+  }
+
+  .teks-checkout-hp {
+    font-size: 12px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 4px;
   }
 }
 
 @media (max-width: 420px) {
+
   .navbar {
     padding: 8px 10px;
   }
@@ -1030,7 +957,6 @@ input  { font-family: 'Poppins', sans-serif; }
   }
 
   .grid-menu {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 8px;
   }
 
@@ -1054,24 +980,14 @@ input  { font-family: 'Poppins', sans-serif; }
     display: none;
   }
 
-  .mood {
-    font-size: 11px;
-    padding: 5px 10px;
-  }
-
-  .menu-tab {
-    min-width: 100%;
-    justify-content: flex-start;
-  }
-
   .bar-keranjang-hp {
     height: 66px;
     padding: 0 12px;
   }
 
   .ikon-keranjang-hp {
-    width: 36px;
-    height: 36px;
+    width: 32px;
+    height: 32px;
   }
 
   .jumlah-total-hp {
@@ -1079,7 +995,6 @@ input  { font-family: 'Poppins', sans-serif; }
   }
 
   .teks-checkout-hp {
-    font-size: 12px;
-    gap: 2px;
+    font-size: 11px;
   }
 }
