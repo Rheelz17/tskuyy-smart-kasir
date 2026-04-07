@@ -2571,13 +2571,14 @@ label.antrian-card:hover {
   }
 
   .menu-grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .cart-sidebar {
-    height: calc(100vh - 62px);
     display: flex;
     flex-direction: column;
+    width: 280px;
+    min-width: 280px;
   }
 
   .cart-toggle-btn,
@@ -2715,6 +2716,24 @@ label.antrian-card:hover {
     justify-content: flex-start;
   }
 
+  .kategori-mood{
+    flex-wrap: nowrap;
+    padding: 6px;
+    border-radius: 18px;
+    justify-content: flex-start;
+  }
+
+  .kategori-mood {
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .kategori-mood::-webkit-scrollbar {
+    display: none;
+  }
+
   .menu-tab {
     min-height: 44px;
     padding: 8px 12px;
@@ -2732,4 +2751,5 @@ label.antrian-card:hover {
   .menu-tab small {
     font-size: 9px;
   }
+
 }
