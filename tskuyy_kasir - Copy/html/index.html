@@ -14,7 +14,6 @@
 
       <!-- ===== HEADER ===== -->
       <header class="main-header">
-        
         <div class="header-left">
           <div class="logo">
             <img src="../image/logo_warkop.png" alt="Tskuy Kasir Logo" class="logo-img">
@@ -30,7 +29,7 @@
         </div>
 
         <div class="header-right">
-        <label for="toggle-notif" class="notif-wrapper">
+        <label for="toggle-notif-panel" class="notif-wrapper">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
             <path d="M6 10C6 6.686 8.686 4 12 4C15.314 4 18 6.686 18 10V14L20 16V17H4V16L6 14V10Z" stroke="#64748b" stroke-width="1.8" stroke-linejoin="round"/>
             <path d="M10 17C10 18.105 10.895 19 12 19C13.105 19 14 18.105 14 17" stroke="#64748b" stroke-width="1.8"/>
@@ -38,7 +37,7 @@
           <span class="notif-badge">2</span>
         </label>
 
-        <label for="toggle-profil" class="user-card">
+        <div class="user-card">
           <div class="user-avatar">
             <img src="https://i.pravatar.cc/150?img=33" alt="User">
           </div>
@@ -46,7 +45,7 @@
             <p class="user-name">Dzaky Fauzi</p>
             <p class="user-role">Cashier</p>
           </div>
-        </label>
+        </div>
       </div>
       </header>
 
@@ -84,13 +83,13 @@
                 <path d="M39.8329 29.9261L42.1574 31.262C43.0035 31.7501 43.6208 32.553 43.874 33.4945C44.1272 34.4359 43.9956 35.4391 43.5079 36.2838L42.6847 37.7055C42.4423 38.1234 42.1198 38.4895 41.7356 38.783C41.3513 39.0765 40.9128 39.2918 40.4452 39.4163C39.9775 39.5409 39.4898 39.5723 39.01 39.5089C38.5301 39.4455 38.0675 39.2885 37.6485 39.0468L35.3348 37.7163C34.3238 38.5269 33.193 39.1766 31.9827 39.6424V42.325C31.9827 43.2997 31.5944 44.2343 30.9032 44.9236C30.212 45.6128 29.2745 46 28.297 46H26.6505C25.673 46 24.7356 45.6128 24.0444 44.9236C23.3532 44.2343 22.9648 43.2997 22.9648 42.325V39.6424C21.7545 39.1766 20.6238 38.5269 19.6127 37.7163L17.4228 38.9771C16.9873 39.2281 16.5065 39.3908 16.0078 39.4563C15.5092 39.5217 15.0024 39.4885 14.5166 39.3584C14.0309 39.2284 13.5756 39.004 13.1769 38.6983C12.7781 38.3925 12.4438 38.0115 12.1929 37.5768L11.5149 36.4072C11.2629 35.9729 11.0993 35.4933 11.0332 34.9958C10.9671 34.4984 10.9999 33.9929 11.1299 33.5081C11.2598 33.0233 11.4842 32.5688 11.7903 32.1705C12.0964 31.7722 12.4782 31.438 12.9139 31.1869L15.1092 29.9261C14.894 28.651 14.894 27.349 15.1092 26.0739L12.9139 24.8131C12.4782 24.562 12.0964 24.2278 11.7903 23.8295C11.4842 23.4312 11.2598 22.9768 11.1299 22.492C10.9999 22.0072 10.9671 21.5016 11.0332 21.0042C11.0993 20.5067 11.2629 20.0271 11.5149 19.5928L12.1929 18.4232C12.4438 17.9885 12.7781 17.6075 13.1769 17.3017C13.5756 16.996 14.0309 16.7716 14.5166 16.6416C15.0024 16.5115 15.5092 16.4783 16.0078 16.5437C16.5065 16.6092 16.9873 16.7719 17.4228 17.0229L19.6127 18.2837C20.6238 17.4731 21.7545 16.8234 22.9648 16.3576V13.675C22.9648 12.7003 23.3532 11.7657 24.0444 11.0764C24.7356 10.3872 25.673 10 26.6505 10H28.297C29.2745 10 30.212 10.3872 30.9032 11.0764C31.5944 11.7657 31.9827 12.7003 31.9827 13.675V16.3576C33.193 16.8234 34.3238 17.4731 35.3348 18.2837L37.6485 16.9532C38.0675 16.7115 38.5301 16.5545 39.01 16.4911C39.4898 16.4277 39.9775 16.4591 40.4452 16.5837C40.9128 16.7082 41.3513 16.9235 41.7356 17.217C42.1198 17.5105 42.4423 17.8767 42.6847 18.2945L43.5079 19.7162C43.9956 20.561 44.1272 21.5642 43.874 22.5056C43.6208 23.4471 43.0035 24.2499 42.1574 24.738L39.8329 26.0739C40.0554 27.3484 40.0554 28.6516 39.8329 29.9261Z" stroke="#EFB100" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </div>
-            <a href="../auth/html/login.html" class="nav-item logout" title="Keluar">
+            <div class="nav-item logout" title="Keluar">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
                 <path d="M9 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
                 <path d="M16 17L21 12L16 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
                 <path d="M21 12H9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
-            </a>
+            </div>
           </div>
         </aside>
 
@@ -540,121 +539,9 @@
     <input type="radio" name="popup" id="toggle-notif"            class="popup-toggle">
     <input type="radio" name="popup" id="toggle-profil"           class="popup-toggle">
     <input type="radio" name="popup" id="toggle-close" class="popup-toggle" checked>
-    <input type="radio" name="popup" id="toggle-profil-saya"      class="popup-toggle">
-    
 
     <!-- ===== OVERLAY ===== -->
     <div class="popup-overlay"></div>
-
-    <!-- ===== POPUP PROFIL ===== -->
-    <div class="popup popup-profil" id="popup-profil">
-      <div class="popup-header popup-header-yellow">
-        <span>Profil Saya</span>
-        <label for="toggle-close" class="popup-close popup-close-white">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#fff" stroke-width="1.8"/><path d="M15 9L9 15M9 9L15 15" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></svg>
-        </label>
-      </div>
-      <div class="popup-body popup-body-profil">
-        <div class="profil-top">
-          <div class="profil-avatar">
-            <img src="https://i.pravatar.cc/150?img=33" alt="Dzaky Fauzi">
-          </div>
-          <div class="profil-top-info">
-            <p class="profil-name">Dzaky Fauzi</p>
-            <p class="profil-role">Cashier</p>
-          </div>
-        </div>
-
-        <div class="profil-field-wrap">
-          <label class="profil-label">Nama lengkap</label>
-          <div class="profil-field">Dzaky Fauzi</div>
-        </div>
-
-        <div class="profil-field-wrap">
-          <label class="profil-label">ID Karyawan</label>
-          <div class="profil-field">EMP0010</div>
-        </div>
-
-        <div class="profil-field-wrap">
-          <label class="profil-label">Jabatan</label>
-          <div class="profil-field">Kasir</div>
-        </div>
-
-        <div class="profil-field-wrap">
-          <label class="profil-label">No Telepon</label>
-          <div class="profil-field">0821-8422-9314</div>
-        </div>
-
-        <div class="profil-field-wrap">
-          <label class="profil-label">Alamat</label>
-          <div class="profil-field">Jl. Raya Cileunyi No. 123, RT 03/RW 05, Bandung, Jawa Barat</div>
-        </div>
-
-        <div class="profil-actions">
-          <label for="toggle-close" class="popup-btn profil-btn-close">Tutup</label>
-        </div>
-      </div>
-    </div>
-
-    <!-- ===== POPUP NOTIFIKASI ===== -->
-    <div class="notif-panel" id="popup-notif-panel">
-      <div class="notif-panel-header">
-        <h3>Notifikasi</h3>
-        <label for="toggle-close" class="notif-read-link">Tandai sudah dibaca</label>
-      </div>
-
-      <div class="notif-panel-list">
-        <label for="toggle-close" class="notif-panel-item">
-          <div class="notif-panel-icon-wrap">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M6 10C6 6.686 8.686 4 12 4C15.314 4 18 6.686 18 10V14L20 16V17H4V16L6 14V10Z" fill="#EFB100"/><path d="M10 17C10 18.105 10.895 19 12 19C13.105 19 14 18.105 14 17" stroke="#EFB100" stroke-width="1.8"/></svg>
-          </div>
-          <div class="notif-panel-content">
-            <p class="notif-panel-title">Pesanan Baru!</p>
-            <p class="notif-panel-desc">MEJA 4 baru saja membuat pesanan</p>
-            <p class="notif-panel-order">#T0987</p>
-            <p class="notif-panel-time">Baru saja</p>
-          </div>
-        </label>
-
-        <label for="toggle-close" class="notif-panel-item">
-          <div class="notif-panel-icon-wrap">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M6 10C6 6.686 8.686 4 12 4C15.314 4 18 6.686 18 10V14L20 16V17H4V16L6 14V10Z" fill="#EFB100"/><path d="M10 17C10 18.105 10.895 19 12 19C13.105 19 14 18.105 14 17" stroke="#EFB100" stroke-width="1.8"/></svg>
-          </div>
-          <div class="notif-panel-content">
-            <p class="notif-panel-title">Pesanan Baru!</p>
-            <p class="notif-panel-desc">MEJA 4 baru saja membuat pesanan</p>
-            <p class="notif-panel-order">#T0987</p>
-            <p class="notif-panel-time">Baru saja</p>
-          </div>
-        </label>
-
-        <label for="toggle-close" class="notif-panel-item">
-          <div class="notif-panel-icon-wrap">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M6 10C6 6.686 8.686 4 12 4C15.314 4 18 6.686 18 10V14L20 16V17H4V16L6 14V10Z" fill="#EFB100"/><path d="M10 17C10 18.105 10.895 19 12 19C13.105 19 14 18.105 14 17" stroke="#EFB100" stroke-width="1.8"/></svg>
-          </div>
-          <div class="notif-panel-content">
-            <p class="notif-panel-title">Pesanan Baru!</p>
-            <p class="notif-panel-desc">MEJA 4 baru saja membuat pesanan</p>
-            <p class="notif-panel-order">#T0987</p>
-            <p class="notif-panel-time">Baru saja</p>
-          </div>
-        </label>
-
-        <label for="toggle-close" class="notif-panel-item">
-          <div class="notif-panel-icon-wrap">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M6 10C6 6.686 8.686 4 12 4C15.314 4 18 6.686 18 10V14L20 16V17H4V16L6 14V10Z" fill="#EFB100"/><path d="M10 17C10 18.105 10.895 19 12 19C13.105 19 14 18.105 14 17" stroke="#EFB100" stroke-width="1.8"/></svg>
-          </div>
-          <div class="notif-panel-content">
-            <p class="notif-panel-title">Pesanan Baru!</p>
-            <p class="notif-panel-desc">MEJA 4 baru saja membuat pesanan</p>
-            <p class="notif-panel-order">#T0987</p>
-            <p class="notif-panel-time">Baru saja</p>
-          </div>
-        </label>
-      </div>
-
-      <label for="toggle-close" class="notif-panel-footer">Lihat Semua Notifikasi</label>
-    </div>
 
     <!-- ===== POPUP 1: Pilih Metode Pembayaran ===== -->
     <div class="popup" id="popup-payment">
@@ -837,7 +724,7 @@
     <!-- ===== POPUP 6: Konfirmasi Hapus Keranjang ===== -->
     <div class="popup popup-warning" id="popup-hapus-keranjang">
       <label for="toggle-close" class="popup-close popup-close-float">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="red" stroke-width="1.8"/><path d="M15 9L9 15M9 9L15 15" stroke="red" stroke-width="1.8" stroke-linecap="round"/></svg>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#555" stroke-width="1.8"/><path d="M15 9L9 15M9 9L15 15" stroke="#555" stroke-width="1.8" stroke-linecap="round"/></svg>
       </label>
       <div class="popup-body popup-body-warning">
         <div class="warning-icon-wrap">
@@ -1090,5 +977,18 @@
           <span class="badge badge-dine">Dine in</span>
         </label>
       </div>
+
+    <!-- ===== NOTIFIKASI TOAST ===== -->
+    <div class="notif-toast" id="notif-toast">
+      <div class="notif-toast-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6 10C6 6.686 8.686 4 12 4C15.314 4 18 6.686 18 10V14L20 16V17H4V16L6 14V10Z" stroke="#92400e" stroke-width="1.8" stroke-linejoin="round"/><path d="M10 17C10 18.105 10.895 19 12 19C13.105 19 14 18.105 14 17" stroke="#92400e" stroke-width="1.8"/></svg>
+      </div>
+      <div class="notif-toast-text">
+        <p class="notif-toast-title">Ring!</p>
+        <p class="notif-toast-desc">Pesanan Baru! (Meja 4)</p>
+        <p class="notif-toast-id">#T0367</p>
+      </div>
+    </div>
+
   </body>
 </html>
