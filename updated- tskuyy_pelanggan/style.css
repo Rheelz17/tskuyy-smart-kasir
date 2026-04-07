@@ -790,16 +790,46 @@ input  { font-family: 'Poppins', sans-serif; }
     gap: 12px;
   }
 
-  .kategori-mood,
-  .kategori-menu-btn {
-    flex-wrap: wrap;
-    border-radius: 16px;
-    padding: 8px;
+  .kategori-mood{
+    flex-wrap: nowrap;
+    padding: 6px;
+    border-radius: 18px;
+    justify-content: flex-start;
+  }
+
+  .kategori-mood {
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .kategori-mood::-webkit-scrollbar {
+    display: none;
   }
 
   .mood {
     padding: 6px 12px;
     font-size: 12px;
+  }
+
+  .kategori-menu-btn {
+    flex-wrap: nowrap;
+    gap: 6px;
+    padding: 6px;
+    border-radius: 18px;
+    justify-content: flex-start;
+  }
+
+  .kategori-menu-btn {
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .kategori-menu-btn::-webkit-scrollbar {
+    display: none;
   }
 
   .menu-tab {
