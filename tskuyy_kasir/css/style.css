@@ -1066,7 +1066,7 @@ label.menu-card {
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background: #f3f4f6;
+  background: #fff;
   transition: background 0.2s;
   flex-shrink: 0;
 }
@@ -1087,7 +1087,7 @@ label.menu-card {
   position: absolute;
   top: 14px;
   right: 14px;
-  background: #f3f4f6;
+  background: #fff;
   z-index: 1;
 }
 
@@ -1931,7 +1931,6 @@ label.antrian-card:hover {
   margin-top: -4px;
 }
 
-/* ==================== DEMO TRIGGERS ==================== */
 .demo-triggers {
   display: none;
   position: fixed;
@@ -1960,7 +1959,6 @@ label.antrian-card:hover {
   opacity: 1;
 }
 
-/* ==================== FILTER SYSTEM ==================== */
 #fa-all:checked ~ .antrian-full-grid .antrian-card {
   display: flex;
 }
@@ -1979,7 +1977,6 @@ label.antrian-card:hover {
   display: flex;
 }
 
-/* Tab antrian aktif */
 #fa-all:checked ~ .antrian-tabs label[for="fa-all"],
 #fa-dine:checked ~ .antrian-tabs label[for="fa-dine"],
 #fa-takeaway:checked ~ .antrian-tabs label[for="fa-takeaway"],
@@ -2007,7 +2004,6 @@ label.antrian-card:hover {
   border: none;
 }
 
-/* ==================== DUAL FILTER: MOOD × KATEGORI ==================== */
 .content-area .menu-card[data-kategori] {
   display: none !important;
 }
@@ -2347,6 +2343,11 @@ label.antrian-card:hover {
     height: 62px;
   }
 
+  .cart-sidebar{
+    width: 320px;
+    min-width: 320px;
+  }
+
   .search-container {
     width: 36%;
   }
@@ -2371,6 +2372,10 @@ label.antrian-card:hover {
 
   .queue-container .queue-card:nth-child(n + 3) {
     display: none;
+  }
+
+  .menu-grid {
+    grid-template-columns: repeat(3, 1fr);
   }
 
   .popup {
@@ -2566,10 +2571,15 @@ label.antrian-card:hover {
     gap: 10px;
   }
 
+  .menu-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   .cart-sidebar {
-    height: calc(100vh - 62px);
     display: flex;
     flex-direction: column;
+    width: 280px;
+    min-width: 280px;
   }
 
   .cart-toggle-btn,
@@ -2698,12 +2708,31 @@ label.antrian-card:hover {
   .notif-panel-title {
     font-size: 16px;
   }
+  
   .kategori-menu-btn {
     flex-wrap: nowrap;
     gap: 6px;
     padding: 6px;
     border-radius: 18px;
     justify-content: flex-start;
+  }
+
+  .kategori-mood{
+    flex-wrap: nowrap;
+    padding: 6px;
+    border-radius: 18px;
+    justify-content: flex-start;
+  }
+
+  .kategori-mood {
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .kategori-mood::-webkit-scrollbar {
+    display: none;
   }
 
   .menu-tab {
